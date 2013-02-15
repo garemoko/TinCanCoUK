@@ -1,7 +1,7 @@
 body {
 	background: #d5d4d1;
 	text-align: left;
-	font-family: Calibri, Georgia, Serif;
+	font-family: Century Gothic, Calibri, Georgia, Serif;
 	width: 600px;
 	margin: auto;
 	
@@ -27,11 +27,23 @@ div {
 	font-size: 6em;
 	line-height: 1.8;
 }
-.section {
-	background: white;
-	padding: 0.1em 0em 1em 1em;
+.section, .news, .welcome {
+	background: #ffb;
+	padding: 0.1em 1em 1em 1em;
 	margin: 1em;
 	font-size: 1.3em;
+}
+
+.news
+{
+	background: #F2cccc;
+}
+.welcome
+{
+	background: #DDF2CE;
+}
+.section h2{
+	cursor:pointer;
 }
 .label {
 	text-align: right;
@@ -79,4 +91,20 @@ font-weight:bold;
 .displayNone {
 	display: none;
 }
+.spacer
+{
+	height:500px;
+}
+.logo
+{
+	margin-top:-10px;
+	float:right;
+	background-color:white;
+	border-color:black;
+	border-width:1px;
+	border-style: solid;
+}
+.garemoko
+{border-color:white;}
+
 
