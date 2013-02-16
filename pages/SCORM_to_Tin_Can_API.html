@@ -4,8 +4,9 @@
 	<head>
 
 		<meta name="viewport" content="width=600, initial-scale=1">
-		<title>TinCanAPI.co.uk</title>
+		<title>TinCanAPI.co.uk - Converting SCORM packages to Tin Can API</title>
 		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
 		<script src="js-lib/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
@@ -53,80 +54,164 @@
 	</head>
 	<body >
 
-		<h1>TinCanAPI.co.uk</h1>
+		<h1><a href="../index.html" id="top">TinCanAPI.co.uk</a></h1>
 		<p>
 			Helping you Tin Can since 2012.
 		</p>
-<a id="top"/>
-		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>This guide provides guidelines on how you might convert e-learning content which currently using SCORM into TCAPI content and suggests how particular SCORM calls might translate into Tin Can statements. The aim is to define a common way of doing this so that all Tin Can traditional e-learning content makes comparable statements at comparable points in the learner's experience. This guide is not intended to be a complete guide for writing Tin Can API compatible content, and if you are new to Tin Can API, it is recommended that you attempt a simpler, single statement activity before progressing further with this guide.
-</p><p>In a lot of places, this guide will tell you what to do without going into detail of how to actually do it. You will need to look up the relevant Tin Can features as they are mentioned if you are not familiar with them. It may be that I produce further guides in future that I can link to from the relevant points in this guide.
-</p><p>This guide will refer to a wrapper for Adobe Captivate swfs which have been published for SCORM (1.2 or 2004). This wrapper intercepts the SWF's attempts to make SCORM calls and then re-interprets them for Tin Can. It's still under development at the moment, but you can get the most recent code here: <a rel="nofollow" class="external free" href="https://github.com/garemoko/tinCaptivate">https://github.com/garemoko/tinCaptivate</a> . You can see a working development version here: <a rel="nofollow" class="external free" href="http://garemoko.github.com/tinCaptivate/">http://garemoko.github.com/tinCaptivate/</a>
-</p>
-<h2> <span class="mw-headline" id="The_Guide">The Guide</span></h2>
-<p>Click the links here to access each section of the guide:
-</p>
-<ul><li> <a href="#Part_1_-_SCORM_style_Tin_Can_API_activities" title="Guide:SCORM to Tin Can API/Part 1 - SCORM style Tin Can API activities 0 95"> Part 1 - SCORM style Tin Can API activities</a>
-</li><li> <a href="#Part_2_-_SCORM_to_Tin_Can_API_Wrapper_specific_information" title="Guide:SCORM to Tin Can API/Part 2 - SCORM to Tin Can API Wrapper specific information 0 95"> Part 2 - SCORM to Tin Can API Wrapper specific information</a>
-</li><li> <a href="#Part_3_-_Summary_of_When_to_Send_Tin_Can_API_Statements" title="Guide:SCORM to Tin Can API/Part 3 - Summary of When to Send Tin Can API Statements 0 95"> Part 3 - Summary of When to Send Tin Can API Statements</a>
-</li><li> <a href="#Part_4_Tin_Can_API_Mapping_Reference_Table" title="Guide:SCORM to Tin Can API/Part 4 Tin Can API Mapping Reference Table 0 95"> Part 4 - Tin Can API Mapping Reference Table</a>
-</li></ul>
+		
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h1>Converting SCORM packages to Tin Can API</h1>
+			<p>
+				This guide provides guidelines on how you might convert e-learning content which currently using SCORM into TCAPI content and suggests how particular SCORM calls might translate into Tin Can statements. The aim is to define a common way of doing this so that all Tin Can traditional e-learning content makes comparable statements at comparable points in the learner's experience. This guide is not intended to be a complete guide for writing Tin Can API compatible content, and if you are new to Tin Can API, it is recommended that you attempt a simpler, single statement activity before progressing further with this guide.
+			</p>
+			<p>
+				In a lot of places, this guide will tell you what to do without going into detail of how to actually do it. You will need to look up the relevant Tin Can features as they are mentioned if you are not familiar with them. It may be that I produce further guides in future that I can link to from the relevant points in this guide.
+			</p>
+			<p>
+				This guide will refer to a wrapper for Adobe Captivate swfs which have been published for SCORM (1.2 or 2004). This wrapper intercepts the SWF's attempts to make SCORM calls and then re-interprets them for Tin Can. It's still under development at the moment, but you can get the most recent code here: <a  href="https://github.com/garemoko/tinCaptivate">https://github.com/garemoko/tinCaptivate</a> . You can see a working development version here: <a href="http://garemoko.github.com/tinCaptivate/">http://garemoko.github.com/tinCaptivate/</a>
+			</p>
+			<p>
+				Click the links here to access each section of the guide:
+			</p>
+			<ul>
+				<li>
+					<a href="#Part_1_-_SCORM_style_Tin_Can_API_activities" title="Guide:SCORM to Tin Can API/Part 1 - SCORM style Tin Can API activities 0 95"> Part 1 - SCORM style Tin Can API activities</a>
+				</li>
+				<li>
+					<a href="#Part_2_-_SCORM_to_Tin_Can_API_Wrapper_specific_information" title="Guide:SCORM to Tin Can API/Part 2 - SCORM to Tin Can API Wrapper specific information 0 95"> Part 2 - SCORM to Tin Can API Wrapper specific information</a>
+				</li>
+				<li>
+					<a href="#Part_3_-_Summary_of_When_to_Send_Tin_Can_API_Statements" title="Guide:SCORM to Tin Can API/Part 3 - Summary of When to Send Tin Can API Statements 0 95"> Part 3 - Summary of When to Send Tin Can API Statements</a>
+				</li>
+				<li>
+					<a href="#Part_4_Tin_Can_API_Mapping_Reference_Table" title="Guide:SCORM to Tin Can API/Part 4 Tin Can API Mapping Reference Table 0 95"> Part 4 - Tin Can API Mapping Reference Table</a>
+				</li>
+			</ul>
 
-</div>
-<a id="Part_1_-_SCORM_style_Tin_Can_API_activities"/>
-<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>This section of the SCORM to Tin Can API guide explains how to create a Tin Can API activity that follows the style of traditional SCORM e-learning. 
-</p><p>Return to: <a href="#top" title="Guide:SCORM to Tin Can API 0 95">Guide:SCORM to Tin Can API 0 95</a>
-</p>
-<table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">hide</a>]&nbsp;</span></div>
-<ul>
-<li class="toclevel-1 tocsection-1"><a href="#Fewer_calls.2C_longer_statements"><span class="tocnumber">1</span> <span class="toctext">Fewer calls, longer statements</span></a></li>
-<li class="toclevel-1 tocsection-2"><a href="#Caching_data"><span class="tocnumber">2</span> <span class="toctext">Caching data</span></a></li>
-<li class="toclevel-1 tocsection-3"><a href="#Tin_Can.27s_.27State.27"><span class="tocnumber">3</span> <span class="toctext">Tin Can's 'State'</span></a></li>
-<li class="toclevel-1 tocsection-4"><a href="#The_Difference_Between_Sessions_and_Attempts"><span class="tocnumber">4</span> <span class="toctext">The Difference Between Sessions and Attempts</span></a></li>
-<li class="toclevel-1 tocsection-5"><a href="#Initialization_and_termination_-_started_and_stopped"><span class="tocnumber">5</span> <span class="toctext">Initialization and termination - started and stopped</span></a></li>
-<li class="toclevel-1 tocsection-6"><a href="#Duration"><span class="tocnumber">6</span> <span class="toctext">Duration</span></a></li>
-<li class="toclevel-1 tocsection-7"><a href="#Completion.2C_Success"><span class="tocnumber">7</span> <span class="toctext">Completion, Success</span></a>
-<ul>
-<li class="toclevel-2 tocsection-8"><a href="#Quiz_results"><span class="tocnumber">7.1</span> <span class="toctext">Quiz results</span></a></li>
-<li class="toclevel-2 tocsection-9"><a href="#Interactions"><span class="tocnumber">7.2</span> <span class="toctext">Interactions</span></a>
-<ul>
-<li class="toclevel-3 tocsection-10"><a href="#The_Interaction_Object"><span class="tocnumber">7.2.1</span> <span class="toctext">The Interaction Object</span></a></li>
-</ul>
-</li>
-<li class="toclevel-2 tocsection-11"><a href="#The_Interaction_Result_and_Timestamp"><span class="tocnumber">7.3</span> <span class="toctext">The Interaction Result and Timestamp</span></a></li>
-</ul>
-</li>
-<li class="toclevel-1 tocsection-12"><a href="#Slides_as_child_activities"><span class="tocnumber">8</span> <span class="toctext">Slides as child activities</span></a></li>
-<li class="toclevel-1 tocsection-13"><a href="#Objectives"><span class="tocnumber">9</span> <span class="toctext">Objectives</span></a></li>
-<li class="toclevel-1 tocsection-14"><a href="#Sequencing_and_Navigation"><span class="tocnumber">10</span> <span class="toctext">Sequencing and Navigation</span></a></li>
-</ul>
-</td></tr></tbody></table>
-<h2> <span class="mw-headline" id="Fewer_calls.2C_longer_statements">Fewer calls, longer statements</span></h2>
-<p>One major difference between SCORM and Tin Can is that whilst SCORM sends each datum as a single API call, Tin Can groups data into statements, so much more is sent to the LRS in one go. This means sending a much smaller number of API calls. One reason for this is that SCORM reports statuses and Tin Can tends to report events. For example In SCORM we tell the LMS whether or not the learner has passed at a given point in time, whereas in Tin Can, we report the event of the learner passing.
-</p>
-<h2> <span class="mw-headline" id="Caching_data">Caching data</span></h2>
-<p>Given that you're going to be making fewer calls, you are likely not to want to send data as soon as you get it. This is especially true if you are developing a wrapper, as the SCORM course will make a whole string of calls one after the other and you'll only want to send a statement after the last one comes in. One simple way of doing this is to have an object which stores all of the SCORM data, which can then be used when building a Tin Can statement to be sent.
-</p><p>The Captivate Wrapper example uses an object called "value_store", so when the swf tries to set cmi.score.scaled, the wrapper stores this as value_store["cmi.score.scaled"]. When a statement is being built later, this value is included as the scaled property of the score within the results.
-</p><p>There may be many different approaches to caching data, but the important point from this section is don't send a new statement whenever you get new data. We'll cover when you should send statements in <a href="#Part_3_-_Summary_of_When_to_Send_Tin_Can_API_Statements" title="Guide:SCORM to Tin Can API/Part 3 - Summary of When to Send Tin Can API Statements 0 95">part 3 </a>.
-</p>
-<h2> <span class="mw-headline" id="Tin_Can.27s_.27State.27">Tin Can's 'State'</span></h2>
-<p>Tin Can uses statements for any information you want to report to a human (i.e. the learner or a stakeholder). You may also have data that you want to save for a particular user on the LRS, but which will only be used by your application. The SCORM equivalent of what I'm talking about here is things like the cmi.suspend_data. For these types of things we should be using the State.
-</p><p>Tin Can's State is a lot more flexible than anything SCORM provides in this area in that it allows you to have an many items in the store as you like and also allows you to name these items. If under SCORM, your suspend data was a huge long string of concatenated variables, you should consider using the State to split these up.
-</p><p>If you're building a wrapper, there's not a lot of point in splitting up your suspend data, as you're just going to have to bundle it back up again when the SCO requests it. The Captivate Wrapper simply stores the suspend data as "cmi.suspend_data" in the state.
-</p><p>For wrappers, it is recommended that you store everything that the SCO sends in the state as well as any usage in statements. This allows you to quickly pull back the datum required when the SCO makes a GET request in a later session.
-</p><p>In the 0.95 version of the Captivate wrapper I've handled the state very differently from the 0.9 version. I now store all of the SCORM data as a JSON array in a single document in the State. This is got at the start of the session and stored in the cache for any Get calls made by the Captivate swf. The whole array is then saved once every time the learner changes slide. This has greatly reduced the number of calls to the State and massively improved performance. 
-</p><p>When I get time I will expand this section and probably split it off as a separate page in this guide.
-</p>
-<h2> <span class="mw-headline" id="The_Difference_Between_Sessions_and_Attempts">The Difference Between Sessions and Attempts</span></h2>
-<p>It is easy to get confused between attempts and sessions, so as these concepts will be important for the next few sections of the guide, lets first make sure we're on the same page.
-</p><p>An attempt is one trip through the e-learning content. If for example the content is a quiz, an attempt is working through all the questions from first to last. An attempt may be completed all all in one go, or in parts. I might answer questions 1-5 one day and then answer the remaining questions on another occasion. It is also possible to have multiple attempts in a row without leaving the e-learning package.
-</p><p>A session is one time when the learner access the e-learning. It doesn't matter if they don't attempt any questions or complete the quiz 4 million times. The session starts when the user navigates to the content and ends when they leave the page or close the window.
-</p><p>In SCORM terms, a session is the period between Initialize and Terminate and an attempt is the learning between completions.
-</p>
-<h2> <span class="mw-headline" id="Initialization_and_termination_-_started_and_stopped">Initialization and termination - started and stopped</span></h2>
-<p>SCORM uses initialization and termination to handle sessions. In Tin Can, there is no requirement to use sessions, and statements can be sent at any time to report passes, failure, completions etc. Many SCORM style e-learning courses will wish to use sessions, and for this we can use the "started" and "stopped" verbs to mark the end of the session. Please use the verb ids I've defined <a href="verbs.html" title="Verbs"> here</a> in your own projects. 
-</p><p>The 'started' verb should be reported at the start of the session. The 'started' statement should report a result duration of "PTHM0S" as in the statement snippet below:
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"><span class="st0">"verb"</span><span class="sy0">:</span> <span class="br0">{</span>
+		</div>
+		<a id="Part_1_-_SCORM_style_Tin_Can_API_activities"/>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>1. SCORM style Tin Can API activities</h2>
+			<p>
+				This section of the SCORM to Tin Can API guide explains how to create a Tin Can API activity that follows the style of traditional SCORM e-learning.
+			</p>
+			<p>
+				<a href="#top" title="back to top">top</a>
+			</p>
+			<table id="toc" class="toc">
+				<tbody>
+					<tr>
+						<td>
+						<div id="toctitle">
+							<h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">hide</a>]&nbsp;</span>
+						</div>
+						<ul>
+							<li class="toclevel-1 tocsection-1">
+								<a href="#Fewer_calls.2C_longer_statements"><span class="tocnumber">1</span> <span class="toctext">Fewer calls, longer statements</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-2">
+								<a href="#Caching_data"><span class="tocnumber">2</span> <span class="toctext">Caching data</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-3">
+								<a href="#Tin_Can.27s_.27State.27"><span class="tocnumber">3</span> <span class="toctext">Tin Can's 'State'</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-4">
+								<a href="#The_Difference_Between_Sessions_and_Attempts"><span class="tocnumber">4</span> <span class="toctext">The Difference Between Sessions and Attempts</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-5">
+								<a href="#Initialization_and_termination_-_started_and_stopped"><span class="tocnumber">5</span> <span class="toctext">Initialization and termination - started and stopped</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-6">
+								<a href="#Duration"><span class="tocnumber">6</span> <span class="toctext">Duration</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-7">
+								<a href="#Completion.2C_Success"><span class="tocnumber">7</span> <span class="toctext">Completion, Success</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-8">
+										<a href="#Quiz_results"><span class="tocnumber">7.1</span> <span class="toctext">Quiz results</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-9">
+										<a href="#Interactions"><span class="tocnumber">7.2</span> <span class="toctext">Interactions</span></a>
+										<ul>
+											<li class="toclevel-3 tocsection-10">
+												<a href="#The_Interaction_Object"><span class="tocnumber">7.2.1</span> <span class="toctext">The Interaction Object</span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="toclevel-2 tocsection-11">
+										<a href="#The_Interaction_Result_and_Timestamp"><span class="tocnumber">7.3</span> <span class="toctext">The Interaction Result and Timestamp</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="toclevel-1 tocsection-12">
+								<a href="#Slides_as_child_activities"><span class="tocnumber">8</span> <span class="toctext">Slides as child activities</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-13">
+								<a href="#Objectives"><span class="tocnumber">9</span> <span class="toctext">Objectives</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-14">
+								<a href="#Sequencing_and_Navigation"><span class="tocnumber">10</span> <span class="toctext">Sequencing and Navigation</span></a>
+							</li>
+						</ul></td>
+					</tr>
+				</tbody>
+			</table>
+			<h2><span class="mw-headline" id="Fewer_calls.2C_longer_statements">Fewer calls, longer statements</span></h2>
+			<p>
+				One major difference between SCORM and Tin Can is that whilst SCORM sends each datum as a single API call, Tin Can groups data into statements, so much more is sent to the LRS in one go. This means sending a much smaller number of API calls. One reason for this is that SCORM reports statuses and Tin Can tends to report events. For example In SCORM we tell the LMS whether or not the learner has passed at a given point in time, whereas in Tin Can, we report the event of the learner passing.
+			</p>
+			<h2><span class="mw-headline" id="Caching_data">Caching data</span></h2>
+			<p>
+				Given that you're going to be making fewer calls, you are likely not to want to send data as soon as you get it. This is especially true if you are developing a wrapper, as the SCORM course will make a whole string of calls one after the other and you'll only want to send a statement after the last one comes in. One simple way of doing this is to have an object which stores all of the SCORM data, which can then be used when building a Tin Can statement to be sent.
+			</p>
+			<p>
+				The Captivate Wrapper example uses an object called "value_store", so when the swf tries to set cmi.score.scaled, the wrapper stores this as value_store["cmi.score.scaled"]. When a statement is being built later, this value is included as the scaled property of the score within the results.
+			</p>
+			<p>
+				There may be many different approaches to caching data, but the important point from this section is don't send a new statement whenever you get new data. We'll cover when you should send statements in <a href="#Part_3_-_Summary_of_When_to_Send_Tin_Can_API_Statements" title="Guide:SCORM to Tin Can API/Part 3 - Summary of When to Send Tin Can API Statements 0 95">part 3 </a>.
+			</p>
+			<h2><span class="mw-headline" id="Tin_Can.27s_.27State.27">Tin Can's 'State'</span></h2>
+			<p>
+				Tin Can uses statements for any information you want to report to a human (i.e. the learner or a stakeholder). You may also have data that you want to save for a particular user on the LRS, but which will only be used by your application. The SCORM equivalent of what I'm talking about here is things like the cmi.suspend_data. For these types of things we should be using the State.
+			</p>
+			<p>
+				Tin Can's State is a lot more flexible than anything SCORM provides in this area in that it allows you to have an many items in the store as you like and also allows you to name these items. If under SCORM, your suspend data was a huge long string of concatenated variables, you should consider using the State to split these up.
+			</p>
+			<p>
+				If you're building a wrapper, there's not a lot of point in splitting up your suspend data, as you're just going to have to bundle it back up again when the SCO requests it. The Captivate Wrapper simply stores the suspend data as "cmi.suspend_data" in the state.
+			</p>
+			<p>
+				For wrappers, it is recommended that you store everything that the SCO sends in the state as well as any usage in statements. This allows you to quickly pull back the datum required when the SCO makes a GET request in a later session.
+			</p>
+			<p>
+				In the 0.95 version of the Captivate wrapper I've handled the state very differently from the 0.9 version. I now store all of the SCORM data as a JSON array in a single document in the State. This is got at the start of the session and stored in the cache for any Get calls made by the Captivate swf. The whole array is then saved once every time the learner changes slide. This has greatly reduced the number of calls to the State and massively improved performance.
+			</p>
+			<p>
+				When I get time I will expand this section and probably split it off as a separate page in this guide.
+			</p>
+			<h2><span class="mw-headline" id="The_Difference_Between_Sessions_and_Attempts">The Difference Between Sessions and Attempts</span></h2>
+			<p>
+				It is easy to get confused between attempts and sessions, so as these concepts will be important for the next few sections of the guide, lets first make sure we're on the same page.
+			</p>
+			<p>
+				An attempt is one trip through the e-learning content. If for example the content is a quiz, an attempt is working through all the questions from first to last. An attempt may be completed all all in one go, or in parts. I might answer questions 1-5 one day and then answer the remaining questions on another occasion. It is also possible to have multiple attempts in a row without leaving the e-learning package.
+			</p>
+			<p>
+				A session is one time when the learner access the e-learning. It doesn't matter if they don't attempt any questions or complete the quiz 4 million times. The session starts when the user navigates to the content and ends when they leave the page or close the window.
+			</p>
+			<p>
+				In SCORM terms, a session is the period between Initialize and Terminate and an attempt is the learning between completions.
+			</p>
+			<h2><span class="mw-headline" id="Initialization_and_termination_-_started_and_stopped">Initialization and termination - started and stopped</span></h2>
+			<p>
+				SCORM uses initialization and termination to handle sessions. In Tin Can, there is no requirement to use sessions, and statements can be sent at any time to report passes, failure, completions etc. Many SCORM style e-learning courses will wish to use sessions, and for this we can use the "started" and "stopped" verbs to mark the end of the session. Please use the verb ids I've defined <a href="verbs.html" title="Verbs"> here</a> in your own projects.
+			</p>
+			<p>
+				The 'started' verb should be reported at the start of the session. The 'started' statement should report a result duration of "PTHM0S" as in the statement snippet below:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="st0">"verb"</span><span class="sy0">:</span> <span class="br0">{</span>
     <span class="st0">"id"</span><span class="sy0">:</span> <span class="st0">"http://www.tincanapi.co.uk/wiki/verbs:started"</span><span class="sy0">,</span>
     <span class="st0">"display"</span><span class="sy0">:</span> <span class="br0">{</span>
         <span class="st0">"en-GB"</span><span class="sy0">:</span> <span class="st0">"started"</span><span class="sy0">,</span>
@@ -135,12 +220,18 @@
 <span class="br0">}</span><span class="sy0">,</span>
 <span class="st0">"result"</span><span class="sy0">:</span> <span class="br0">{</span>
     <span class="st0">"duration"</span><span class="sy0">:</span> <span class="st0">"PTHM0S"</span>
-<span class="br0">}</span></pre></div></div>
-<p><br>
-The 'stopped' verb should be reported at the end of a session. This might be when the user clicks an exit button, but it's also recommended to try and catch the browser window's close event as well. The 'stopped' statement should report a result duration of the session duration. Note, this is different from the attempt duration (which we will discuss in the next section) and is identical to SCORM's cmi.session_time. The statement snippet below provides an example. 
-</p><p><br>
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"><span class="st0">"verb"</span><span class="sy0">:</span> <span class="br0">{</span>
+<span class="br0">}</span></pre>
+</div>			</div>
+			<p>
+				<br>
+				The 'stopped' verb should be reported at the end of a session. This might be when the user clicks an exit button, but it's also recommended to try and catch the browser window's close event as well. The 'stopped' statement should report a result duration of the session duration. Note, this is different from the attempt duration (which we will discuss in the next section) and is identical to SCORM's cmi.session_time. The statement snippet below provides an example.
+			</p>
+			<p>
+				<br>
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="st0">"verb"</span><span class="sy0">:</span> <span class="br0">{</span>
     <span class="st0">"id"</span><span class="sy0">:</span> <span class="st0">"http://www.tincanapi.co.uk/wiki/verbs:stopped"</span><span class="sy0">,</span>
     <span class="st0">"display"</span><span class="sy0">:</span> <span class="br0">{</span>
         <span class="st0">"en-GB"</span><span class="sy0">:</span> <span class="st0">"stopped"</span><span class="sy0">,</span>
@@ -149,89 +240,126 @@ The 'stopped' verb should be reported at the end of a session. This might be whe
 <span class="br0">}</span><span class="sy0">,</span>
 <span class="st0">"result"</span><span class="sy0">:</span> <span class="br0">{</span>
     <span class="st0">"duration"</span><span class="sy0">:</span> <span class="st0">"PT3M11S"</span>
-<span class="br0">}</span></pre></div></div>
-<p><br>
-In order to handle situations where the 'stopped' verb is not sent at the end of a session (e.g. the user closes the browser window and the close event dopes not fire) the following rules should be followed:
-</p><p>1. If a 'started' statement is reported when there is already an open session, then a reporting tool can assume that the previous session ended at the  timestamp of the last reported statement for that user and activity. Statements where the activity is listed within the contextActivities should also be considered in making this calculation.  
-</p><p>2. If a session is left open, but not further 'stopped' or 'started' statements are reported, the reporting tool may calculate session duration based on the time-stamp of the last statement received. Further statements  may lead to this duration being increased.
-</p><p>3. If a 'stopped' statement is received but there is no open session, it will be stored by the LRS but will be ignored by reporting tools in calculating session duration. 
-</p><p>If you're building a wrapper the SCO may make initialization and termination calls. Since the 'initialize' is normally called when the SCO loads, you may wish to ignore any initialize calls and simply begin the session when the page loads. You may still need to still catch the call and return whatever the SCO is expecting to say that initialize was successful. <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCaptivate.js#L18">The Tin Can Captivate Wrapper</a>, for example, returns "true" when either initialize or terminate are called. You may need to provide a way of capturing and handling terminate calls, as these may be sent, for example, from an exit button.
-</p>
-<h2> <span class="mw-headline" id="Duration">Duration</span></h2>
-<p>SCORM provides mechanisms for reporting both session time and attempt time, using cmi.session_time and cmi.total_time respectively. It is recommend to track and report both these items if using sessions in Tin Can. If not using sessions and it is relevant and practical to do so, attempt time should still be tracked and reported. We have already seen that session time should be reported with the 'stopped' statement. The next section will cover statements where attempt time should be reported. These statements are those used to report passed, failed, completed and attempted verbs.
-</p><p>Some SCORM packages may only report cmi.session_time (session duration) or cmi.total_time (attempt duration) and expect the LMS to work out the other figure. The Captivate SCO only reports cmi.session_time, so the wrapper calculates the cmi.total_time every time the cmi.session_time updates and stores it in the state. If you're interested in the exact mechanism for this and can't work it out from the code, please <a rel="nofollow" class="external text" href="mailto:mrdownes@hotmail.com">get in touch</a>.
-</p><p>Functions for converting between CMITimespan format and seconds as well as for adding or subtracting CMITimespan formatted durations are provided in  <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCanCan.js#L266">The Tin Can Captivate Wrapper's TinCanCan.js</a> and these may be copied and used freely so long as the copyright notice at the top of the js file is placed with them and the terms of this notice are accepted.
-</p>
-<h2> <span class="mw-headline" id="Completion.2C_Success">Completion, Success</span></h2>
-<p>SCORM uses cmi.success_status and cmi.completion_status to track success and completion. We mentioned earlier that Tin Can does not report success and completion status, but instead tracks completion and success events. When converting SCORM to Tin Can API, you therefore need to look for changes in cmi.success_status and cmi.completion_status and report these changes as statements. In a wrapper, this can be achieved by caching cmi.success_status and cmi.completion_status then comparing them with the values sent by the SCO. When there is a difference in value, it is time to send a statement, though you may need to wait until the SCO finishes passing all relevant data (see section <a href="#Identifying_groups_of_calls" title="Guide:SCORM to Tin Can API/Part 2 - SCORM to Tin Can API Wrapper specific information 0 95">Identifying groups of calls</a> in part 2 of this guide).
-</p><p>The values of cmi.success_status and cmi.completion_status determine exactly which verb is sent to the LRS to mark the end of the an attempt. This is shown in the table below:
-</p>
-<table class="wikitable"><tbody><tr>
-<th>cmi.completion_status</th>
-<th>cmi.success_status</th>
-<th>verb sent to LRS</th>
-</tr>
-<tr>
-<td>completed</td>
-<td>passed</td>
-<td>passed</td>
-</tr>
-<tr>
-<td>completed</td>
-<td>failed</td>
-<td>failed</td>
-</tr>
-<tr>
-<td>completed</td>
-<td>unknown</td>
-<td>completed</td>
-</tr>
-<tr>
-<td>incomplete</td>
-<td>any</td>
-<td>attempted</td>
-</tr>
-<tr>
-<td>not attempted / unknown
-</td><td>any
-</td><td>none
-</td></tr>
-</tbody></table>
-<p>See [<a rel="nofollow" class="external text" href="#Part_3_-_Summary_of_When_to_Send_Tin_Can_API_Statements">| Part 3</a>] for a reference table of when to send each statement and the verb ids for each verb. 
-</p><p>'passed', 'failed', and 'completed' statements all mark the end of an attempt. Following this type of statement, any further statements should be considered part of a new attempt.
-</p>
-<h3> <span class="mw-headline" id="Quiz_results">Quiz results</span></h3>
-<p>Tin Can statements have a '<a rel="nofollow" class="external text" href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#result">result</a>' property which you should use to send quiz results at the end of an attempt. The items within '<a rel="nofollow" class="external text" href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#result">result</a>' have fairly obvious SCORM equivalents. In regards to <a rel="nofollow" class="external text" href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#4151-score">score</a>, the Tin Can API recommends sending the scaled score wherever possible.
-</p><p>Unlike SCORM's cmi.success_status and cmi.completion_status, "success" and "completion" in Tin Can are just true or false. You will need to do some sconversion to translate SCORM to Tin Can. The following table shoos the conversion:
-</p>
-<table class="wikitable"><tbody><tr>
-<th>cmi.completion_status</th>
-<th>cmi.success_status</th>
-<th>Tin Can equivalent </th>
-</tr>
-<tr>
-<td>completed</td>
-<td>passed</td>
-<td>true</td>
-</tr>
-<tr>
-<td>incomplete</td>
-<td>failed</td>
-<td>false</td>
-</tr>
-</tbody></table>
-<p><br>
-Remember also, the duration in 'passed', 'failed', and 'completed' statements is attempt duration rather than session duration, i.e. cmi.total_time
-</p>
-<h3> <span class="mw-headline" id="Interactions">Interactions</span></h3>
-<p>Interactions in SCORM tend to be things like quiz questions. In Tin Can API, these questions are considered to be child activities of the main activity. You should use different verbs for interactions . 'interacted' (verb id: <a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/interacted">http://adlnet.gov/expapi/verbs/interacted</a>) can be considered to be equivalent of 'experienced'. 'answered' (verb id: <a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/answered">http://adlnet.gov/expapi/verbs/answered</a>) is equivalent to 'completed'. The Captivate Wrapper always uses the verb 'answered' because it reports answered questions only. It does not have a concept of session for questions, though a duration is provided using SCORMS's cmi.interactions.<i>n</i>.latency.
-</p>
-<h4> <span class="mw-headline" id="The_Interaction_Object">The Interaction Object</span></h4>
-<p>Statements about interactions need to have their own object, rather than simply using the parent course object. The activity type '<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/activities/cmi.interaction'">http://adlnet.gov/expapi/activities/cmi.interaction'</a> should be used as it can include the properties 'interactionType' (equievelent to SCORM's cmi.interactions.<i>n</i>.type) and correctResponsesPattern (an array of strings equivalent to cmi.interactions.<i>n</i>.correct_responses.<i>n</i>.pattern).
-</p><p>Captivate does not seem to pass an interaction description (this has not been thoroughly tested) so the Captivate wrapper has to create one.
-</p><p>Interaction Objects should be linked to their parent activities using the statement's context property as described in the spec. Here's an example modified from a statement generated by one of Rustici's prototypes:
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"><span class="st0">"context"</span><span class="sy0">:</span> <span class="br0">{</span>
+<span class="br0">}</span></pre>
+</div>			</div>
+			<p>
+				<br>
+				In order to handle situations where the 'stopped' verb is not sent at the end of a session (e.g. the user closes the browser window and the close event dopes not fire) the following rules should be followed:
+			</p>
+			<p>
+				1. If a 'started' statement is reported when there is already an open session, then a reporting tool can assume that the previous session ended at the  timestamp of the last reported statement for that user and activity. Statements where the activity is listed within the contextActivities should also be considered in making this calculation.
+			</p>
+			<p>
+				2. If a session is left open, but not further 'stopped' or 'started' statements are reported, the reporting tool may calculate session duration based on the time-stamp of the last statement received. Further statements  may lead to this duration being increased.
+			</p>
+			<p>
+				3. If a 'stopped' statement is received but there is no open session, it will be stored by the LRS but will be ignored by reporting tools in calculating session duration.
+			</p>
+			<p>
+				If you're building a wrapper the SCO may make initialization and termination calls. Since the 'initialize' is normally called when the SCO loads, you may wish to ignore any initialize calls and simply begin the session when the page loads. You may still need to still catch the call and return whatever the SCO is expecting to say that initialize was successful. <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCaptivate.js#L18">The Tin Can Captivate Wrapper</a>, for example, returns "true" when either initialize or terminate are called. You may need to provide a way of capturing and handling terminate calls, as these may be sent, for example, from an exit button.
+			</p>
+			<h2><span class="mw-headline" id="Duration">Duration</span></h2>
+			<p>
+				SCORM provides mechanisms for reporting both session time and attempt time, using cmi.session_time and cmi.total_time respectively. It is recommend to track and report both these items if using sessions in Tin Can. If not using sessions and it is relevant and practical to do so, attempt time should still be tracked and reported. We have already seen that session time should be reported with the 'stopped' statement. The next section will cover statements where attempt time should be reported. These statements are those used to report passed, failed, completed and attempted verbs.
+			</p>
+			<p>
+				Some SCORM packages may only report cmi.session_time (session duration) or cmi.total_time (attempt duration) and expect the LMS to work out the other figure. The Captivate SCO only reports cmi.session_time, so the wrapper calculates the cmi.total_time every time the cmi.session_time updates and stores it in the state. If you're interested in the exact mechanism for this and can't work it out from the code, please <a rel="nofollow" class="external text" href="mailto:mrdownes@hotmail.com">get in touch</a>.
+			</p>
+			<p>
+				Functions for converting between CMITimespan format and seconds as well as for adding or subtracting CMITimespan formatted durations are provided in <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCanCan.js#L266">The Tin Can Captivate Wrapper's TinCanCan.js</a> and these may be copied and used freely so long as the copyright notice at the top of the js file is placed with them and the terms of this notice are accepted.
+			</p>
+			<h2><span class="mw-headline" id="Completion.2C_Success">Completion, Success</span></h2>
+			<p>
+				SCORM uses cmi.success_status and cmi.completion_status to track success and completion. We mentioned earlier that Tin Can does not report success and completion status, but instead tracks completion and success events. When converting SCORM to Tin Can API, you therefore need to look for changes in cmi.success_status and cmi.completion_status and report these changes as statements. In a wrapper, this can be achieved by caching cmi.success_status and cmi.completion_status then comparing them with the values sent by the SCO. When there is a difference in value, it is time to send a statement, though you may need to wait until the SCO finishes passing all relevant data (see section <a href="#Identifying_groups_of_calls" title="Guide:SCORM to Tin Can API/Part 2 - SCORM to Tin Can API Wrapper specific information 0 95">Identifying groups of calls</a> in part 2 of this guide).
+			</p>
+			<p>
+				The values of cmi.success_status and cmi.completion_status determine exactly which verb is sent to the LRS to mark the end of the an attempt. This is shown in the table below:
+			</p>
+			<table class="wikitable">
+				<tbody>
+					<tr>
+						<th>cmi.completion_status</th>
+						<th>cmi.success_status</th>
+						<th>verb sent to LRS</th>
+					</tr>
+					<tr>
+						<td>completed</td>
+						<td>passed</td>
+						<td>passed</td>
+					</tr>
+					<tr>
+						<td>completed</td>
+						<td>failed</td>
+						<td>failed</td>
+					</tr>
+					<tr>
+						<td>completed</td>
+						<td>unknown</td>
+						<td>completed</td>
+					</tr>
+					<tr>
+						<td>incomplete</td>
+						<td>any</td>
+						<td>attempted</td>
+					</tr>
+					<tr>
+						<td>not attempted / unknown </td><td>any </td><td>none </td>
+					</tr>
+				</tbody>
+			</table>
+			<p>
+				See [<a  href="#Part_3_-_Summary_of_When_to_Send_Tin_Can_API_Statements">| Part 3</a>] for a reference table of when to send each statement and the verb ids for each verb.
+			</p>
+			<p>
+				'passed', 'failed', and 'completed' statements all mark the end of an attempt. Following this type of statement, any further statements should be considered part of a new attempt.
+			</p>
+			<h3><span class="mw-headline" id="Quiz_results">Quiz results</span></h3>
+			<p>
+				Tin Can statements have a '<a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#result">result</a>' property which you should use to send quiz results at the end of an attempt. The items within '<a rel="nofollow" class="external text" href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#result">result</a>' have fairly obvious SCORM equivalents. In regards to <a rel="nofollow" class="external text" href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#4151-score">score</a>, the Tin Can API recommends sending the scaled score wherever possible.
+			</p>
+			<p>
+				Unlike SCORM's cmi.success_status and cmi.completion_status, "success" and "completion" in Tin Can are just true or false. You will need to do some sconversion to translate SCORM to Tin Can. The following table shoos the conversion:
+			</p>
+			<table class="wikitable">
+				<tbody>
+					<tr>
+						<th>cmi.completion_status</th>
+						<th>cmi.success_status</th>
+						<th>Tin Can equivalent </th>
+					</tr>
+					<tr>
+						<td>completed</td>
+						<td>passed</td>
+						<td>true</td>
+					</tr>
+					<tr>
+						<td>incomplete</td>
+						<td>failed</td>
+						<td>false</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>
+				<br>
+				Remember also, the duration in 'passed', 'failed', and 'completed' statements is attempt duration rather than session duration, i.e. cmi.total_time
+			</p>
+			<h3><span class="mw-headline" id="Interactions">Interactions</span></h3>
+			<p>
+				Interactions in SCORM tend to be things like quiz questions. In Tin Can API, these questions are considered to be child activities of the main activity. You should use different verbs for interactions . 'interacted' (verb id: <a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/interacted">http://adlnet.gov/expapi/verbs/interacted</a>) can be considered to be equivalent of 'experienced'. 'answered' (verb id: <a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/answered">http://adlnet.gov/expapi/verbs/answered</a>) is equivalent to 'completed'. The Captivate Wrapper always uses the verb 'answered' because it reports answered questions only. It does not have a concept of session for questions, though a duration is provided using SCORMS's cmi.interactions.<i>n</i>.latency.
+			</p>
+			<h4><span class="mw-headline" id="The_Interaction_Object">The Interaction Object</span></h4>
+			<p>
+				Statements about interactions need to have their own object, rather than simply using the parent course object. The activity type '<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/activities/cmi.interaction'">http://adlnet.gov/expapi/activities/cmi.interaction'</a> should be used as it can include the properties 'interactionType' (equievelent to SCORM's cmi.interactions.<i>n</i>.type) and correctResponsesPattern (an array of strings equivalent to cmi.interactions.<i>n</i>.correct_responses.<i>n</i>.pattern).
+			</p>
+			<p>
+				Captivate does not seem to pass an interaction description (this has not been thoroughly tested) so the Captivate wrapper has to create one.
+			</p>
+			<p>
+				Interaction Objects should be linked to their parent activities using the statement's context property as described in the spec. Here's an example modified from a statement generated by one of Rustici's prototypes:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="st0">"context"</span><span class="sy0">:</span> <span class="br0">{</span>
     <span class="st0">"contextActivities"</span><span class="sy0">:</span> <span class="br0">{</span>
         <span class="st0">"parent"</span><span class="sy0">:</span> <span class="br0">{</span>
             <span class="st0">"id"</span><span class="sy0">:</span> <span class="st0">"scorm.com/GolfExample_TCAPI/GolfAssessment.html"</span><span class="sy0">,</span>
@@ -260,12 +388,18 @@ Remember also, the duration in 'passed', 'failed', and 'completed' statements is
             <span class="st0">"objectType"</span><span class="sy0">:</span> <span class="st0">"Activity"</span>
         <span class="br0">}</span>
     <span class="br0">}</span>
-<span class="br0">}</span></pre></div></div>
-<h3> <span class="mw-headline" id="The_Interaction_Result_and_Timestamp">The Interaction Result and Timestamp</span></h3>
-<p>The result of the interaction statement is also slightly different from the parent SCO's result. We still need to convert the success into a true or false and then also need to calculate the score for the question. This is done by giving the learner a 0 if they failed the question and the value of"cmi.interactions.<i>n</i>.weighting if they passed. If you want to do things like partial credit, you'll need to consider a different way of reporting this. 
-</p><p>The response is simply SCORM's cmi.interactions.<i>n</i>.learner_response and the duration is cmi.interactions.<i>n</i>.latency. The timestamp for this statement is cmi.interactions.<i>n</i>.timestamp
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"><span class="kw2">var</span> interactionResult <span class="sy0">=</span> getResult<span class="br0">(</span><span class="kw2">true</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span></pre>
+</div>			</div>
+			<h3><span class="mw-headline" id="The_Interaction_Result_and_Timestamp">The Interaction Result and Timestamp</span></h3>
+			<p>
+				The result of the interaction statement is also slightly different from the parent SCO's result. We still need to convert the success into a true or false and then also need to calculate the score for the question. This is done by giving the learner a 0 if they failed the question and the value of"cmi.interactions.<i>n</i>.weighting if they passed. If you want to do things like partial credit, you'll need to consider a different way of reporting this.
+			</p>
+			<p>
+				The response is simply SCORM's cmi.interactions.<i>n</i>.learner_response and the duration is cmi.interactions.<i>n</i>.latency. The timestamp for this statement is cmi.interactions.<i>n</i>.timestamp
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="kw2">var</span> interactionResult <span class="sy0">=</span> getResult<span class="br0">(</span><span class="kw2">true</span><span class="br0">)</span><span class="sy0">;</span>
 interactionResult.<span class="me1">response</span> <span class="sy0">=</span> value_store<span class="br0">[</span><span class="st0">"cmi.interactions."</span> <span class="sy0">+</span> interactionIndex <span class="sy0">+</span> <span class="st0">".learner_response"</span><span class="br0">]</span><span class="sy0">;</span>
 interactionResult.<span class="me1">duration</span> <span class="sy0">=</span> value_store<span class="br0">[</span><span class="st0">"cmi.interactions."</span> <span class="sy0">+</span> interactionIndex <span class="sy0">+</span> <span class="st0">".latency"</span><span class="br0">]</span>
 <span class="co1">//Score</span>
@@ -286,49 +420,90 @@ interactionResult.<span class="me1">score</span>.<span class="me1">max</span> <s
 	<span class="kw1">break</span><span class="sy0">;</span>
 	<span class="kw2">default</span><span class="sy0">:</span>
 	<span class="kw1">break</span><span class="sy0">;</span>
-<span class="br0">}</span></pre></div></div>
-<h2> <span class="mw-headline" id="Slides_as_child_activities">Slides as child activities</span></h2>
-<p>Depending on the level of tracking you want to implement, you may wish to report every slide/page/screen that a learner visits. As with interactions, it's advisable not to try to use sessions for these small chunks. Of course, if you are doing something a bit more significant on a page, you may want to treat it as a full activity with sessions, attempts etc. In that case, you're reading the wrong section of the guide!
-</p><p>Because slides don't tend to be discreet attempts in their own right with passing, failure or completion, it is recommended to report slide views with the 'experienced' verb. Each slide will need it's own object definition and it is recommended that the id be based on the coruseId as in the interactions example above. There is no need to pass any result, but the timestamp can still be included.
-</p><p>As with interactions above, the context should be used to relate child activities to their parents.
-</p>
-<h2> <span class="mw-headline" id="Objectives">Objectives</span></h2>
-<p>This section needs to be completed. If you have anything to say about this topic, please remove this notice and say it here!
-</p>
-<h2> <span class="mw-headline" id="Sequencing_and_Navigation">Sequencing and Navigation</span></h2>
-<p>This section needs to be completed. If you have anything to say about this topic, please remove this notice and say it here!
-</p><p><br>
-</p><p>Return to: <a href="#top" title="Guide:SCORM to Tin Can API 0 95">Guide:SCORM to Tin Can API 0 95</a>
-</p>
+<span class="br0">}</span></pre>
+</div>			</div>
+			<h2><span class="mw-headline" id="Slides_as_child_activities">Slides as child activities</span></h2>
+			<p>
+				Depending on the level of tracking you want to implement, you may wish to report every slide/page/screen that a learner visits. As with interactions, it's advisable not to try to use sessions for these small chunks. Of course, if you are doing something a bit more significant on a page, you may want to treat it as a full activity with sessions, attempts etc. In that case, you're reading the wrong section of the guide!
+			</p>
+			<p>
+				Because slides don't tend to be discreet attempts in their own right with passing, failure or completion, it is recommended to report slide views with the 'experienced' verb. Each slide will need it's own object definition and it is recommended that the id be based on the coruseId as in the interactions example above. There is no need to pass any result, but the timestamp can still be included.
+			</p>
+			<p>
+				As with interactions above, the context should be used to relate child activities to their parents.
+			</p>
+			<h2><span class="mw-headline" id="Objectives">Objectives</span></h2>
+			<p>
+				This section needs to be completed. If you have anything to say about this topic, please remove this notice and say it here!
+			</p>
+			<h2><span class="mw-headline" id="Sequencing_and_Navigation">Sequencing and Navigation</span></h2>
+			<p>
+				This section needs to be completed. If you have anything to say about this topic, please remove this notice and say it here!
+			</p>
+			<p>
+				<br>
+			</p>
+			<p>
+				<a href="#top" title="back to top">top</a>
+			</p>
 
-</div>
+		</div>
 
+		<a id="Part_2_-_SCORM_to_Tin_Can_API_Wrapper_specific_information"/>
 
-
-<a id="Part_2_-_SCORM_to_Tin_Can_API_Wrapper_specific_information"/>
-
-<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>Developing a wrapper for SCORM based package (perhaps a flash swf generated by a rapid e-learning tool) is a little different from building a SCORM-style Tin Can activity from scratch. This section will cover topics specific to this type of wrapper, for example how you should handle GET calls intended for the SCORM api.
-</p><p>Return to: <a href="#top" title="Guide:SCORM to Tin Can API 0 95">Guide:SCORM to Tin Can API 0 95</a>
-</p>
-<table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">hide</a>]&nbsp;</span></div>
-<ul>
-<li class="toclevel-1 tocsection-1"><a href="#Intercepting_SCORM_calls"><span class="tocnumber">1</span> <span class="toctext">Intercepting SCORM calls</span></a></li>
-<li class="toclevel-1 tocsection-2"><a href="#Identifying_groups_of_calls"><span class="tocnumber">2</span> <span class="toctext">Identifying groups of calls</span></a></li>
-<li class="toclevel-1 tocsection-3"><a href="#Handling_GET_calls"><span class="tocnumber">3</span> <span class="toctext">Handling GET calls</span></a>
-<ul>
-<li class="toclevel-2 tocsection-4"><a href="#Using_the_State"><span class="tocnumber">3.1</span> <span class="toctext">Using the State</span></a></li>
-<li class="toclevel-2 tocsection-5"><a href="#Sometimes_you_already_know_the_answer"><span class="tocnumber">3.2</span> <span class="toctext">Sometimes you already know the answer</span></a></li>
-<li class="toclevel-2 tocsection-6"><a href="#cmi.entry"><span class="tocnumber">3.3</span> <span class="toctext">cmi.entry</span></a></li>
-</ul>
-</li>
-</ul>
-</td></tr></tbody></table>
-<h2> <span class="mw-headline" id="Intercepting_SCORM_calls">Intercepting SCORM calls</span></h2>
-<p>When building a wrapper for a SCORM based swf, you need to catch when the swf tries to make a SCORM call. There is likely to be some JavaScript function in the existing SCORM html wrapper which the swf calls in order to communicate with the LMS. We therefore need to re-write or overwrite this function to communicate with the Tin Can LRS instead. 
-</p><p>Adobe Captivate's default wrapper contains 2 such functions: Captivate_DoFSCommand and Captivate_DoExternalInterface
-</p><p>In Captivate 5.0 and 5.5 (the most recent version at time of writing), it appears that only Captivate_DoExternalInterface actually gets called. <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCaptivate.js">The Tin Can Captivate Wrapper</a> replaces that function with the following:
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"><span class="kw2">function</span> Captivate_DoExternalInterface<span class="br0">(</span>command<span class="sy0">,</span> parameter<span class="sy0">,</span> value<span class="sy0">,</span> variable<span class="br0">)</span>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>2. SCORM to Tin Can API Wrapper specific information</h2>
+			<p>
+				Developing a wrapper for SCORM based package (perhaps a flash swf generated by a rapid e-learning tool) is a little different from building a SCORM-style Tin Can activity from scratch. This section will cover topics specific to this type of wrapper, for example how you should handle GET calls intended for the SCORM API.
+			</p>
+			<p>
+				<a href="#top" title="back to top">top</a>
+			</p>
+			<table id="toc" class="toc">
+				<tbody>
+					<tr>
+						<td>
+						<div id="toctitle">
+							<h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">hide</a>]&nbsp;</span>
+						</div>
+						<ul>
+							<li class="toclevel-1 tocsection-1">
+								<a href="#Intercepting_SCORM_calls"><span class="tocnumber">1</span> <span class="toctext">Intercepting SCORM calls</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-2">
+								<a href="#Identifying_groups_of_calls"><span class="tocnumber">2</span> <span class="toctext">Identifying groups of calls</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-3">
+								<a href="#Handling_GET_calls"><span class="tocnumber">3</span> <span class="toctext">Handling GET calls</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-4">
+										<a href="#Using_the_State"><span class="tocnumber">3.1</span> <span class="toctext">Using the State</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-5">
+										<a href="#Sometimes_you_already_know_the_answer"><span class="tocnumber">3.2</span> <span class="toctext">Sometimes you already know the answer</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-6">
+										<a href="#cmi.entry"><span class="tocnumber">3.3</span> <span class="toctext">cmi.entry</span></a>
+									</li>
+								</ul>
+							</li>
+						</ul></td>
+					</tr>
+				</tbody>
+			</table>
+			<h2><span class="mw-headline" id="Intercepting_SCORM_calls">Intercepting SCORM calls</span></h2>
+			<p>
+				When building a wrapper for a SCORM based swf, you need to catch when the swf tries to make a SCORM call. There is likely to be some JavaScript function in the existing SCORM html wrapper which the swf calls in order to communicate with the LMS. We therefore need to re-write or overwrite this function to communicate with the Tin Can LRS instead.
+			</p>
+			<p>
+				Adobe Captivate's default wrapper contains 2 such functions: Captivate_DoFSCommand and Captivate_DoExternalInterface
+			</p>
+			<p>
+				In Captivate 5.0 and 5.5 (the most recent version at time of writing), it appears that only Captivate_DoExternalInterface actually gets called. <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCaptivate.js">The Tin Can Captivate Wrapper</a> replaces that function with the following:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="kw2">function</span> Captivate_DoExternalInterface<span class="br0">(</span>command<span class="sy0">,</span> parameter<span class="sy0">,</span> value<span class="sy0">,</span> variable<span class="br0">)</span>
 <span class="br0">{</span>
 	varstrErr <span class="sy0">=</span> <span class="st0">"true"</span><span class="sy0">;</span>
 &nbsp;
@@ -360,237 +535,338 @@ interactionResult.<span class="me1">score</span>.<span class="me1">max</span> <s
 &nbsp;
 	CaptivateObj.<span class="me1">SetScormVariable</span><span class="br0">(</span>variable<span class="sy0">,</span> strErr<span class="br0">)</span><span class="sy0">;</span>
 	<span class="kw1">return</span> strErr<span class="sy0">;</span>
-<span class="br0">}</span></pre></div></div>
-<p>Notice how we are only really handling SetValue and GetValue calls (or LMSSetValue and LMSGetValue for SCORM 1.2). For every other type of call we simply return "true", which tells Captivate that its command has executed successful, even though we've done nothing! This is because the wrapper itself handles initialization and termination etc. This could be amended if you wanted to do something when your swf tried to initialize or terminate. 
-</p><p>In the case of LMSGetLastError or GetLastError, we always return 0. This tells Captivate that there have been no errors. 
-</p><p>The line <i>CaptivateObj.SetScormVariable(variable, strErr);</i> is simply lifted from the existing SCORM wrapper. In the case of setting values it returns whether or not the call was successful to a specific captivate variable. In the case of getting values, it sets a specified captivate variable to the result of the GET.  
-</p><p>In designing your Tin Can wrapper, it is important to take time studying and following through the logic of the existing SCORM wrapper. Make sure you are returning exactly the same values as the swf expects to receive from the SCORM wrapper. Using <a rel="nofollow" class="external text" href="https://cloud.scorm.com">an LMS with a debug mode, such as SCORM Cloud</a> will allow you to keep watch exactly what values are being passed to and fro between the SCO and LMS.
-</p>
-<h2> <span class="mw-headline" id="Identifying_groups_of_calls">Identifying groups of calls</span></h2>
-<p>We mentioned in the section above, <a href="#Fewer_calls.2C_longer_statements" title="Guide:SCORM to Tin Can API/Part 1 - SCORM style Tin Can API activities 0 95"> Fewer calls, Longer Statements</a>, the need to cache SCORM data and send it all together in statements. This section will look at one way of identifying that the SCORM content has stopped sending data before we send the statement. 
-</p><p>With SCORM, one event tends to trigger changes in multiple variables and rapid e-learning software therefore tends to report groups of data in quick succession. Adobe Captivate, for example sends batches of data after initialize, when the slide changes and when a quiz question is answered. We can therefore watch for these events and send the statement once all the data for that event has come through. Captivate also sends data in the same order every time. This means we can know when a batch of data is complete by watching for the last item of data associated with that batch. 
-</p><p>If you are building a wrapper for another rapid e-learning tool, perhaps it will work in a similar way. You can watch what statements a SCORM Object is outputting and when by plugging it into an LMS with a debugging tool and watching the log as you progress through the content. 
-</p><p>Let's take the example of sending the completion statement in <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCaptivate.js#L92">The Tin Can Captivate Wrapper</a>. This statement needs to be sent when the completion statement changes from incomplete or complete, but not until the batch of data in which completion status changes is done. Captivate always reports cmi.location, cmi.session_time then cmi.suspend_data after it reports cmi.completion_status. This means if we sent the statement as soon as cmi.completion_status changed, we'd be missing out on the updated session time. 
-</p><p>Here's the code:
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"><span class="kw1">case</span> <span class="st0">"cmi.completion_status"</span><span class="sy0">:</span> 
+<span class="br0">}</span></pre>
+</div>			</div>
+			<p>
+				Notice how we are only really handling SetValue and GetValue calls (or LMSSetValue and LMSGetValue for SCORM 1.2). For every other type of call we simply return "true", which tells Captivate that its command has executed successful, even though we've done nothing! This is because the wrapper itself handles initialization and termination etc. This could be amended if you wanted to do something when your swf tried to initialize or terminate.
+			</p>
+			<p>
+				In the case of LMSGetLastError or GetLastError, we always return 0. This tells Captivate that there have been no errors.
+			</p>
+			<p>
+				The line <i>CaptivateObj.SetScormVariable(variable, strErr);</i> is simply lifted from the existing SCORM wrapper. In the case of setting values it returns whether or not the call was successful to a specific captivate variable. In the case of getting values, it sets a specified captivate variable to the result of the GET.
+			</p>
+			<p>
+				In designing your Tin Can wrapper, it is important to take time studying and following through the logic of the existing SCORM wrapper. Make sure you are returning exactly the same values as the swf expects to receive from the SCORM wrapper. Using <a rel="nofollow" class="external text" href="https://cloud.scorm.com">an LMS with a debug mode, such as SCORM Cloud</a> will allow you to keep watch exactly what values are being passed to and fro between the SCO and LMS.
+			</p>
+			<h2><span class="mw-headline" id="Identifying_groups_of_calls">Identifying groups of calls</span></h2>
+			<p>
+				We mentioned in the section above, <a href="#Fewer_calls.2C_longer_statements" title="Guide:SCORM to Tin Can API/Part 1 - SCORM style Tin Can API activities 0 95"> Fewer calls, Longer Statements</a>, the need to cache SCORM data and send it all together in statements. This section will look at one way of identifying that the SCORM content has stopped sending data before we send the statement.
+			</p>
+			<p>
+				With SCORM, one event tends to trigger changes in multiple variables and rapid e-learning software therefore tends to report groups of data in quick succession. Adobe Captivate, for example sends batches of data after initialize, when the slide changes and when a quiz question is answered. We can therefore watch for these events and send the statement once all the data for that event has come through. Captivate also sends data in the same order every time. This means we can know when a batch of data is complete by watching for the last item of data associated with that batch.
+			</p>
+			<p>
+				If you are building a wrapper for another rapid e-learning tool, perhaps it will work in a similar way. You can watch what statements a SCORM Object is outputting and when by plugging it into an LMS with a debugging tool and watching the log as you progress through the content.
+			</p>
+			<p>
+				Let's take the example of sending the completion statement in <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCaptivate.js#L92">The Tin Can Captivate Wrapper</a>. This statement needs to be sent when the completion statement changes from incomplete or complete, but not until the batch of data in which completion status changes is done. Captivate always reports cmi.location, cmi.session_time then cmi.suspend_data after it reports cmi.completion_status. This means if we sent the statement as soon as cmi.completion_status changed, we'd be missing out on the updated session time.
+			</p>
+			<p>
+				Here's the code:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="kw1">case</span> <span class="st0">"cmi.completion_status"</span><span class="sy0">:</span> 
 &nbsp;
 <span class="kw1">if</span><span class="br0">(</span><span class="br0">(</span>compareWithCacheAndSetState<span class="br0">(</span>parameter<span class="sy0">,</span>value<span class="sy0">,</span><span class="kw2">false</span><span class="br0">)</span><span class="br0">)</span> <span class="sy0">&amp;&amp;</span> <span class="br0">(</span>value <span class="sy0">==</span> <span class="st0">"completed"</span><span class="br0">)</span><span class="br0">)</span> <span class="br0">{</span>
 	completionChanged <span class="sy0">=</span> <span class="kw2">true</span><span class="sy0">;</span>
 <span class="br0">}</span>					
 &nbsp;
-<span class="kw1">break</span><span class="sy0">;</span></pre></div></div>
-<p>and
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"><span class="kw1">case</span> <span class="st0">"cmi.suspend_data"</span><span class="sy0">:</span> <span class="co1">//Captivate's Suspend Data string </span>
+<span class="kw1">break</span><span class="sy0">;</span></pre>
+</div>			</div>
+			<p>
+				and
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="kw1">case</span> <span class="st0">"cmi.suspend_data"</span><span class="sy0">:</span> <span class="co1">//Captivate's Suspend Data string </span>
 <span class="kw1">if</span> <span class="br0">(</span>completionChanged<span class="br0">)</span>
 	<span class="br0">{</span>
 		completionChanged <span class="sy0">=</span> <span class="kw2">false</span><span class="sy0">;</span>
 		TCCSendLessonData<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
 	<span class="br0">}</span>
-<span class="kw1">break</span><span class="sy0">;</span></pre></div></div>
-<p>When the SCO changes cmi.completion_status, we change completionChanged to true. Then, when cmi.suspend_data is set later we change it back to false and send the statement. completionChanged is a global variable initially set to false.
-</p>
-<h2> <span class="mw-headline" id="Handling_GET_calls">Handling GET calls</span></h2>
-<p>So far we've been looking at sending data to the LRS, but when building a wrapper the SCO will also request data from the LMS. This section will look at how you should return that data to the SCO. 
-</p>
-<h3> <span class="mw-headline" id="Using_the_State">Using the State</span></h3>
-<p>The first type of data that your SCO will ask for is data which it has previously sent, perhaps in an earlier session. The easiest way to deal with this type of call is to simply store everything that the SCO sends out in Tin Can's state <a href="#Tin_Can.27s_.27State.27" title="Guide:SCORM to Tin Can API/Part 1 - SCORM style Tin Can API activities 0 95"> (as described above)</a>. You can then pull this out again when the SCO requests it. 
-</p><p><a rel="nofollow" class="external text" href="https://github.com/RusticiSoftware/TinCanJS/blob/master/build/tincan.js">Rustici Software's Tin Can Javascript library</a> contains the following functions for getting and setting the state:
-</p>
-<ul><li>TinCan.setState
-</li><li>TinCan.getState
-</li></ul>
-<p>See <a rel="nofollow" class="external autonumber" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCanCan.js#L516">[1]</a> for examples of how these may be used. 
-</p><p>Responding to this type of GET is therefore fairly straightforward. The items this applies to are:
-</p>
-<ul><li>cmi.location
-</li><li>cmi.suspend_data
-</li><li>cmi.score.scaled
-</li><li>cmi.score.min
-</li><li>cmi.score.max
-</li><li>cmi.score.raw
-</li></ul>
-<h3> <span class="mw-headline" id="Sometimes_you_already_know_the_answer">Sometimes you already know the answer</span></h3>
-<p>Another type of GET call is where the SCO wants to find out some information about the LMS, for example which features are supported or getting some information from the manifest file. Since we are writing the wrapper, we know what features are supported by our wrapper so can hard code the responses to these gets. Here's the relevant parameters for <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCaptivate.js#L195">The Tin Can Captivate Wrapper</a> and what this wrapper returns to its sco:
-</p>
-<ul><li><i>cmi.score._children</i> returns 'scaled,min,max,raw'
-</li><li><i>cmi.interactions._children</i> returns 'id,type,objectives,timestamp,correct_responses,weighting,learner_response,result,latency,description'
-</li><li><i>cmi.launch_data</i> returns 
-</li></ul>
-<p><i>cmi.launch_data</i>, which pulls the value of <i>dataFromLMS</i> from the manifest is not used by most rapid e-learning tools. If you did want to use it, you could either hard code the value or write some code to pull it from an xml or properties file.
-</p>
-<h3> <span class="mw-headline" id="cmi.entry">cmi.entry</span></h3>
-<p>SCORM's cmi.entry is used to tell the SCO whether the learner has accessed the sco before or not. If this is the first time, the LMS will return either an empty string, or 'ab_initio' (which is Latin for 'from the beginning'). If this is not the first time, the LMS returns 'resume'.
-</p><p>Tin Can does not have an equivalent to cmi.entry, so it's down to the wrapper creator to make sure the right value is passed to the SCO. <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCaptivate.js#L203">The Tin Can Captivate Wrapper</a> solves this with the following code:
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"><span class="kw2">var</span> entryState <span class="sy0">=</span> TCCGetFromCache<span class="br0">(</span><span class="st0">"cmi.entry"</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="kw1">break</span><span class="sy0">;</span></pre>
+</div>			</div>
+			<p>
+				When the SCO changes cmi.completion_status, we change completionChanged to true. Then, when cmi.suspend_data is set later we change it back to false and send the statement. completionChanged is a global variable initially set to false.
+			</p>
+			<h2><span class="mw-headline" id="Handling_GET_calls">Handling GET calls</span></h2>
+			<p>
+				So far we've been looking at sending data to the LRS, but when building a wrapper the SCO will also request data from the LMS. This section will look at how you should return that data to the SCO.
+			</p>
+			<h3><span class="mw-headline" id="Using_the_State">Using the State</span></h3>
+			<p>
+				The first type of data that your SCO will ask for is data which it has previously sent, perhaps in an earlier session. The easiest way to deal with this type of call is to simply store everything that the SCO sends out in Tin Can's state <a href="#Tin_Can.27s_.27State.27" title="Guide:SCORM to Tin Can API/Part 1 - SCORM style Tin Can API activities 0 95"> (as described above)</a>. You can then pull this out again when the SCO requests it.
+			</p>
+			<p>
+				<a rel="nofollow" class="external text" href="https://github.com/RusticiSoftware/TinCanJS/blob/master/build/tincan.js">Rustici Software's Tin Can Javascript library</a> contains the following functions for getting and setting the state:
+			</p>
+			<ul>
+				<li>
+					TinCan.setState
+				</li>
+				<li>
+					TinCan.getState
+				</li>
+			</ul>
+			<p>
+				See <a rel="nofollow" class="external autonumber" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCanCan.js#L516">[1]</a> for examples of how these may be used.
+			</p>
+			<p>
+				Responding to this type of GET is therefore fairly straightforward. The items this applies to are:
+			</p>
+			<ul>
+				<li>
+					cmi.location
+				</li>
+				<li>
+					cmi.suspend_data
+				</li>
+				<li>
+					cmi.score.scaled
+				</li>
+				<li>
+					cmi.score.min
+				</li>
+				<li>
+					cmi.score.max
+				</li>
+				<li>
+					cmi.score.raw
+				</li>
+			</ul>
+			<h3><span class="mw-headline" id="Sometimes_you_already_know_the_answer">Sometimes you already know the answer</span></h3>
+			<p>
+				Another type of GET call is where the SCO wants to find out some information about the LMS, for example which features are supported or getting some information from the manifest file. Since we are writing the wrapper, we know what features are supported by our wrapper so can hard code the responses to these gets. Here's the relevant parameters for <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCaptivate.js#L195">The Tin Can Captivate Wrapper</a> and what this wrapper returns to its sco:
+			</p>
+			<ul>
+				<li>
+					<i>cmi.score._children</i> returns 'scaled,min,max,raw'
+				</li>
+				<li>
+					<i>cmi.interactions._children</i> returns 'id,type,objectives,timestamp,correct_responses,weighting,learner_response,result,latency,description'
+				</li>
+				<li>
+					<i>cmi.launch_data</i> returns
+				</li>
+			</ul>
+			<p>
+				<i>cmi.launch_data</i>, which pulls the value of <i>dataFromLMS</i> from the manifest is not used by most rapid e-learning tools. If you did want to use it, you could either hard code the value or write some code to pull it from an xml or properties file.
+			</p>
+			<h3><span class="mw-headline" id="cmi.entry">cmi.entry</span></h3>
+			<p>
+				SCORM's cmi.entry is used to tell the SCO whether the learner has accessed the sco before or not. If this is the first time, the LMS will return either an empty string, or 'ab_initio' (which is Latin for 'from the beginning'). If this is not the first time, the LMS returns 'resume'.
+			</p>
+			<p>
+				Tin Can does not have an equivalent to cmi.entry, so it's down to the wrapper creator to make sure the right value is passed to the SCO. <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCaptivate.js#L203">The Tin Can Captivate Wrapper</a> solves this with the following code:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="kw2">var</span> entryState <span class="sy0">=</span> TCCGetFromCache<span class="br0">(</span><span class="st0">"cmi.entry"</span><span class="br0">)</span><span class="sy0">;</span>
 <span class="co1">//Next time the user loads this activty, cmi.entry tells captivate that they have accessed this before. </span>
 compareWithCacheAndSetState<span class="br0">(</span><span class="st0">"cmi.entry"</span><span class="sy0">,</span><span class="st0">"resume"</span><span class="sy0">,</span><span class="kw2">false</span><span class="br0">)</span><span class="sy0">;</span>
-<span class="kw1">return</span> entryState<span class="sy0">;</span></pre></div></div>
-<ol><li>Get the value of <i>cmi.entry</i> from the store. The result of this function will be an empty string if it has not previously been set, i.e. the first time the learner accesses the content. 
-</li><li>Set the value of <i>cmi.entry</i> to 'resume' ready for next time the sco requests it. 
-</li><li>Return the original value to the sco.
-</li></ol>
-<p><br>
-</p><p>Return to: <a href="#top" title="Guide:SCORM to Tin Can API 0 95">Guide:SCORM to Tin Can API 0 95</a>
-</p>
+<span class="kw1">return</span> entryState<span class="sy0">;</span></pre>
+</div>			</div>
+			<ol>
+				<li>
+					Get the value of <i>cmi.entry</i> from the store. The result of this function will be an empty string if it has not previously been set, i.e. the first time the learner accesses the content.
+				</li>
+				<li>
+					Set the value of <i>cmi.entry</i> to 'resume' ready for next time the sco requests it.
+				</li>
+				<li>
+					Return the original value to the sco.
+				</li>
+			</ol>
+			<p>
+				<br>
+			</p>
+			<p>
+				<a href="#top" title="back to top">top</a>
+			</p>
 
-</div>
+		</div>
 
+		<a id="Part_3_-_Summary_of_When_to_Send_Tin_Can_API_Statements"/>
 
-<a id="Part_3_-_Summary_of_When_to_Send_Tin_Can_API_Statements"/>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>3. Summary of when to send Tin Can API Statements</h2>
+			<p>
+				The table below states when you should be sending which Tin Can API statements. See parts <a href="#Part_1_-_SCORM_style_Tin_Can_API_activities" title="Guide:SCORM to Tin Can API/Part 1 - SCORM style Tin Can API activities 0 95"> 1</a> and <a href="#Part_2_-_SCORM_to_Tin_Can_API_Wrapper_specific_information" title="Guide:SCORM to Tin Can API/Part 2 - SCORM to Tin Can API Wrapper specific information 0 95"> 2</a> of the guide for more detail.
+			</p>
+			<p>
+				<a href="#top" title="back to top">top</a>
+			</p>
+			<table class="wikitable">
 
-<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>The table below states when you should be sending which Tin Can API statements. See parts <a href="#Part_1_-_SCORM_style_Tin_Can_API_activities" title="Guide:SCORM to Tin Can API/Part 1 - SCORM style Tin Can API activities 0 95"> 1</a> and <a href="#Part_2_-_SCORM_to_Tin_Can_API_Wrapper_specific_information" title="Guide:SCORM to Tin Can API/Part 2 - SCORM to Tin Can API Wrapper specific information 0 95"> 2</a> of the guide for more detail.  
-</p><p>Return to: <a href="#top" title="Guide:SCORM to Tin Can API 0 95">Guide:SCORM to Tin Can API 0 95</a>
-</p>
-<table class="wikitable">
+				<tbody>
+					<tr>
+						<th> When </th>
+						<th> Verb Display (en-GB) </th>
+						<th> Verb Id </th>
+					</tr>
+					<tr>
+						<td> Start of Session </td>
+						<td> started </td>
+						<td><a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:started">http://www.tincanapi.co.uk/wiki/verbs:started</a></td>
+					</tr>
+					<tr>
+						<td> End of Session </td>
+						<td> stopped </td>
+						<td><a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:stopped">http://www.tincanapi.co.uk/wiki/verbs:stopped</a></td>
+					</tr>
+					<tr>
+						<td> End of passing attempt </td>
+						<td> passed </td>
+						<td><a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/passed">http://adlnet.gov/expapi/verbs/passed</a></td>
+					</tr>
+					<tr>
+						<td> End of failing attempt </td>
+						<td> failed </td>
+						<td><a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/failed">http://adlnet.gov/expapi/verbs/failed</a></td>
+					</tr>
+					<tr>
+						<td> End of neutral attempt </td>
+						<td> completed </td>
+						<td><a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/completed">http://adlnet.gov/expapi/verbs/completed</a></td>
+					</tr>
+					<tr>
+						<td> End of incomplete attempt </td>
+						<td> attempted </td>
+						<td><a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/attempted">http://adlnet.gov/expapi/verbs/attempted</a></td>
+					</tr>
+					<tr>
+						<td> On question submission </td>
+						<td> answered </td>
+						<td><a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/answered">http://adlnet.gov/expapi/verbs/answered</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<p>
+				Note: the verbs started and stopped are not yet in the spec, but it is expected that they will be soon. For now, use experienced as a placeholder.
+			</p>
+			<p>
+				<a href="#top" title="back to top">top</a>
+			</p>
 
-<tbody><tr>
-<th> When </th>
-<th> Verb Display (en-GB) </th>
-<th> Verb Id
-</th></tr>
-<tr>
-<td> Start of Session </td>
-<td> started </td>
-<td> <a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:started">http://www.tincanapi.co.uk/wiki/verbs:started</a>
-</td></tr>
-<tr>
-<td> End of Session </td>
-<td> stopped </td>
-<td> <a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:stopped">http://www.tincanapi.co.uk/wiki/verbs:stopped</a>
-</td></tr>
-<tr>
-<td> End of passing attempt </td>
-<td> passed </td>
-<td> <a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/passed">http://adlnet.gov/expapi/verbs/passed</a>
-</td></tr>
-<tr>
-<td> End of failing attempt </td>
-<td> failed </td>
-<td> <a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/failed">http://adlnet.gov/expapi/verbs/failed</a>
-</td></tr>
-<tr>
-<td> End of neutral attempt </td>
-<td> completed </td>
-<td> <a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/completed">http://adlnet.gov/expapi/verbs/completed</a>
-</td></tr>
-<tr>
-<td> End of incomplete attempt </td>
-<td> attempted </td>
-<td> <a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/attempted">http://adlnet.gov/expapi/verbs/attempted</a>
-</td></tr>
-<tr>
-<td> On question submission </td>
-<td> answered </td>
-<td> <a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/answered">http://adlnet.gov/expapi/verbs/answered</a>
-</td></tr></tbody></table>
-<p>Note: the verbs started and stopped are not yet in the spec, but it is expected that they will be soon. For now, use experienced as a placeholder.
-</p><p>Return to: <a href="#top" title="Guide:SCORM to Tin Can API 0 95">Guide:SCORM to Tin Can API 0 95</a>
-</p>
+		</div>
+		<a id="Part_4_Tin_Can_API_Mapping_Reference_Table"/>
 
-</div>
-<a id="Part_4_Tin_Can_API_Mapping_Reference_Table"/>
-<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>Return to: <a href="#top" title="Guide:SCORM to Tin Can API 0 95">Guide:SCORM to Tin Can API 0 95</a>
-</p><p>The table below maps SCORM parameters to properties of Tin Can API Statements. This table does not imply that the equivalents are exact or use the same format. There are differences! See <a href="#Part_1_-_SCORM_style_Tin_Can_API_activities" title="Guide:SCORM to Tin Can API/Part 1 - SCORM style Tin Can API activities 0 95"> Part 1 - SCORM style Tin Can API activities</a> for more detailed explanation with examples of how to convert.  
-</p><p>See <a href="#Part_3_-_Summary_of_When_to_Send_Tin_Can_API_Statements" title="Guide:SCORM to Tin Can API/Part 3 - Summary of When to Send Tin Can API Statements 0 95"> Part 3 of this guide</a> for details of which statements are send when, and <a href="verbs.html#Verb_List" title="Verbs">Verbs#Verb_List</a> for details of the verbs listed. 
-</p>
-<table class="wikitable">
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>4. Tin Can API Mapping Reference Table</h2>
+			<p>
+				<a href="#top" title="back to top">top</a>
+			</p>
+			<p>
+				The table below maps SCORM parameters to properties of Tin Can API Statements. This table does not imply that the equivalents are exact or use the same format. There are differences! See <a href="#Part_1_-_SCORM_style_Tin_Can_API_activities" title="Guide:SCORM to Tin Can API/Part 1 - SCORM style Tin Can API activities 0 95"> Part 1 - SCORM style Tin Can API activities</a> for more detailed explanation with examples of how to convert.
+			</p>
+			<p>
+				See <a href="#Part_3_-_Summary_of_When_to_Send_Tin_Can_API_Statements" title="Guide:SCORM to Tin Can API/Part 3 - Summary of When to Send Tin Can API Statements 0 95"> Part 3 of this guide</a> for details of which statements are send when, and <a href="verbs.html#Verb_List" title="Verbs">Verbs#Verb_List</a> for details of the verbs listed.
+			</p>
+			<table class="wikitable">
 
-<tbody><tr>
-<th> SCORM parameter/call </th>
-<th> Tin Can equivalent </th>
-<th> When/where used
-</th></tr>
-<tr>
-<td> Initialize </td>
-<td> "verb": <a href="verbs.html#started" title="Verbs"> started</a>, "result":{"duration":"PTHM0S"} </td>
-<td> Started of session
-</td></tr>
-<tr>
-<td> Terminate </td>
-<td> "verb": <a href="verbs.html#stopped" title="Verbs"> stopped</a>, "result":{"duration": <i>cmi.session_time</i> } </td>
-<td> End of Session
-</td></tr>
-<tr>
-<td> cmi.session_time </td>
-<td> result&nbsp;: duration </td>
-<td> Session statements: started and stopped
-</td></tr>
-<tr>
-<td> cmi.total_time </td>
-<td> result&nbsp;: duration </td>
-<td> Attempt statements: attempted, completed, passed, failed
-</td></tr>
-<tr>
-<td> cmi.success_status </td>
-<td> result&nbsp;: success </td>
-<td> Attempt statements: attempted, completed, passed, failed
-</td></tr>
-<tr>
-<td> cmi.completion_status </td>
-<td> result&nbsp;: completion </td>
-<td> Attempt statements: attempted, completed, passed, failed
-</td></tr>
-<tr>
-<td> cmi.score.scaled </td>
-<td> result&nbsp;: score&nbsp;: scaled </td>
-<td> Attempt statements: attempted, completed, passed, failed
-</td></tr>
-<tr>
-<td> cmi.score.raw </td>
-<td> result&nbsp;: score&nbsp;: raw </td>
-<td> Attempt statements: attempted, completed, passed, failed
-</td></tr>
-<tr>
-<td> cmi.score.min </td>
-<td> result&nbsp;: score&nbsp;: min </td>
-<td> Attempt statements: attempted, completed, passed, failed
-</td></tr>
-<tr>
-<td> cmi.score.max </td>
-<td> result&nbsp;: score&nbsp;: max </td>
-<td> Attempt statements: attempted, completed, passed, failed
-</td></tr>
-<tr>
-<td> cmi.interactions.n.correct_responses.n.pattern </td>
-<td> object&nbsp;: definition&nbsp;: correctResponsesPattern </td>
-<td> answered statements
-</td></tr>
-<tr>
-<td> cmi.interactions.n.id </td>
-<td> object&nbsp;: definition&nbsp;: interactionType </td>
-<td> answered statements
-</td></tr>
-<tr>
-<td> cmi.interactions.n.description </td>
-<td> object&nbsp;: definition&nbsp;: description&nbsp;: en-GB </td>
-<td> answered statements
-</td></tr>
-<tr>
-<td> cmi.interactions.n.result </td>
-<td> result&nbsp;: success </td>
-<td> answered statements
-</td></tr>
-<tr>
-<td> cmi.interactions.n.weighting </td>
-<td> result&nbsp;: score&nbsp;: raw </td>
-<td> answered statements
-</td></tr>
-<tr>
-<td> cmi.interactions.n.latency </td>
-<td> result&nbsp;: duration </td>
-<td> answered statements
-</td></tr>
-<tr>
-<td> cmi.interactions.n.timestamp </td>
-<td> timestamp </td>
-<td> answered statements
-</td></tr></tbody></table>
-<p>Return to: <a href="#top" title="Guide:SCORM to Tin Can API 0 95">Guide:SCORM to Tin Can API 0 95</a>
-</p>
-</div>
+				<tbody>
+					<tr>
+						<th> SCORM parameter/call </th>
+						<th> Tin Can equivalent </th>
+						<th> When/where used </th>
+					</tr>
+					<tr>
+						<td> Initialize </td>
+						<td> "verb": <a href="verbs.html#started" title="Verbs"> started</a>, "result":{"duration":"PTHM0S"} </td>
+						<td> Started of session </td>
+					</tr>
+					<tr>
+						<td> Terminate </td>
+						<td> "verb": <a href="verbs.html#stopped" title="Verbs"> stopped</a>, "result":{"duration": <i>cmi.session_time</i> } </td>
+						<td> End of Session </td>
+					</tr>
+					<tr>
+						<td> cmi.session_time </td>
+						<td> result&nbsp;: duration </td>
+						<td> Session statements: started and stopped </td>
+					</tr>
+					<tr>
+						<td> cmi.total_time </td>
+						<td> result&nbsp;: duration </td>
+						<td> Attempt statements: attempted, completed, passed, failed </td>
+					</tr>
+					<tr>
+						<td> cmi.success_status </td>
+						<td> result&nbsp;: success </td>
+						<td> Attempt statements: attempted, completed, passed, failed </td>
+					</tr>
+					<tr>
+						<td> cmi.completion_status </td>
+						<td> result&nbsp;: completion </td>
+						<td> Attempt statements: attempted, completed, passed, failed </td>
+					</tr>
+					<tr>
+						<td> cmi.score.scaled </td>
+						<td> result&nbsp;: score&nbsp;: scaled </td>
+						<td> Attempt statements: attempted, completed, passed, failed </td>
+					</tr>
+					<tr>
+						<td> cmi.score.raw </td>
+						<td> result&nbsp;: score&nbsp;: raw </td>
+						<td> Attempt statements: attempted, completed, passed, failed </td>
+					</tr>
+					<tr>
+						<td> cmi.score.min </td>
+						<td> result&nbsp;: score&nbsp;: min </td>
+						<td> Attempt statements: attempted, completed, passed, failed </td>
+					</tr>
+					<tr>
+						<td> cmi.score.max </td>
+						<td> result&nbsp;: score&nbsp;: max </td>
+						<td> Attempt statements: attempted, completed, passed, failed </td>
+					</tr>
+					<tr>
+						<td> cmi.interactions.n.correct_responses.n.pattern </td>
+						<td> object&nbsp;: definition&nbsp;: correctResponsesPattern </td>
+						<td> answered statements </td>
+					</tr>
+					<tr>
+						<td> cmi.interactions.n.id </td>
+						<td> object&nbsp;: definition&nbsp;: interactionType </td>
+						<td> answered statements </td>
+					</tr>
+					<tr>
+						<td> cmi.interactions.n.description </td>
+						<td> object&nbsp;: definition&nbsp;: description&nbsp;: en-GB </td>
+						<td> answered statements </td>
+					</tr>
+					<tr>
+						<td> cmi.interactions.n.result </td>
+						<td> result&nbsp;: success </td>
+						<td> answered statements </td>
+					</tr>
+					<tr>
+						<td> cmi.interactions.n.weighting </td>
+						<td> result&nbsp;: score&nbsp;: raw </td>
+						<td> answered statements </td>
+					</tr>
+					<tr>
+						<td> cmi.interactions.n.latency </td>
+						<td> result&nbsp;: duration </td>
+						<td> answered statements </td>
+					</tr>
+					<tr>
+						<td> cmi.interactions.n.timestamp </td>
+						<td> timestamp </td>
+						<td> answered statements </td>
+					</tr>
+				</tbody>
+			</table>
+			<p>
+				<a href="#top" title="back to top">top</a>
+			</p>
+		</div>
+		
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
 
 	</body>
 </html>

@@ -1,0 +1,348 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - Tin Can Competencies</title>
+		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+		
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>Tin Can Competencies</h2>
+			<p>
+				With all the buzz around Tin Can, it's clear that learning professionals need to find out about it, but what exactly do you need to find out? This list provides an overview of the different areas of knowledge that there are to know about Tin Can. You can use it as a checklist of things you need to learn, or as a guide for the kinds of questions you might ask.
+			</p>
+			<ul>
+				<li>
+					What is Tin Can?
+					<ul>
+						<li>
+							Tin Can replaces SCORM
+							<ul>
+								<li>
+									What's wrong with SCORM?
+								</li>
+								<li>
+									How is Tin Can different?
+									<ul>
+										<li>
+											Status versus events
+										</li>
+										<li>
+											Tin Can is language agnostic
+										</li>
+										<li>
+											Tin Can content can be hosted anywhere
+										</li>
+										<li>
+											Goodbye frames and pop ups.
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							Tracking any learning, anywhere.
+							<ul>
+								<li>
+									Mobile, including native apps
+								</li>
+								<li>
+									Learning tools
+								</li>
+								<li>
+									Social learning
+								</li>
+								<li>
+									Collaboration
+								</li>
+								<li>
+									Classroom learning
+								</li>
+								<li>
+									Informal learning
+								</li>
+								<li>
+									Simulators
+								</li>
+								<li>
+									Websites
+								</li>
+								<li>
+									Books, journals, newspapers and magazines
+								</li>
+								<li>
+									Reflection and evaluation
+								</li>
+								<li>
+									Formal qualifications
+								</li>
+								<li>
+									Recognition and achievement
+								</li>
+								<li>
+									Job performance
+								</li>
+							</ul>
+						</li>
+						<li>
+							Free the data
+							<ul>
+								<li>
+									Data Can be shared between systems
+								</li>
+								<li>
+									Stand alone reporting tools can get data
+								</li>
+								<li>
+									Learners can take their learning with them
+								</li>
+								<li>
+									Massive amounts of data can be analysed e.g. for research
+								</li>
+							</ul>
+						</li>
+						<li>
+							Correlation
+							<ul>
+								<li>
+									Measuring the impact of X on Y
+								</li>
+								<li>
+									Businesses performance
+								</li>
+								<li>
+									Exam grades
+								</li>
+								<li>
+									Retention
+								</li>
+								<li>
+									Happiness
+								</li>
+								<li>
+									Survival
+								</li>
+								<li>
+									Success
+								</li>
+								<li>
+									Failure
+								</li>
+							</ul>
+						</li>
+						<li>
+							What are statements
+							<ul>
+								<li>
+									Purpose and structure
+								</li>
+								<li>
+									Actor, agents and groups
+								</li>
+								<li>
+									Verb
+								</li>
+								<li>
+									Objects and activities
+								</li>
+								<li>
+									Agent, group and statement objects
+								</li>
+								<li>
+									Result
+								</li>
+								<li>
+									Context
+								</li>
+								<li>
+									Metadata
+								</li>
+								<li>
+									Statements are forever (but can be voided)
+								</li>
+							</ul>
+						</li>
+						<li>
+							Extensibility
+							<ul>
+								<li>
+									What's up with verbs?
+								</li>
+								<li>
+									Activity types
+								</li>
+								<li>
+									Extensions
+								</li>
+								<li>
+									What is a community of practice?
+								</li>
+								<li>
+									What is my community of practice?
+								</li>
+								<li>
+									What are profiles?
+								</li>
+								<li>
+									What existing profiles should I be using?
+								</li>
+								<li>
+									What profiles do I need to create or contribute to?
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					What is the impact of Tin Can?
+					<ul>
+						<li>
+							How does Tin Can change learning design?
+						</li>
+						<li>
+							Learning Analytics Design: a new skillset
+						</li>
+						<li>
+							Implications for developers and programmers
+						</li>
+						<li>
+							What does Tin Can mean for learners?
+						</li>
+						<li>
+							How might Tin Can transform job seeking and recruitment?
+						</li>
+						<li>
+							What does Tin Can mean for traditional qualifications?
+						</li>
+						<li>
+							What does big data mean for educational research?
+						</li>
+						<li>
+							How will Tin Can change my organisation?
+						</li>
+						<li>
+							What does Tin Can mean for curation?
+						</li>
+					</ul>
+				</li>
+				<li>
+					How to Tin Can
+					<ul>
+						<li>
+							How to build a Learner Record Store (LRS)
+						</li>
+						<li>
+							How to build a Learning Activity Provider (AP)
+							<ul>
+								<li>
+									Send a statement with JavaScript
+								</li>
+								<li>
+									Send a statement server-side e.g. with PHP
+								</li>
+								<li>
+									Use the State API
+								</li>
+								<li>
+									Define a verb, activity type or extension
+								</li>
+								<li>
+									Convert SCORM content
+								</li>
+							</ul>
+						</li>
+						<li>
+							How to build a reporting tool
+							<ul>
+								<li>
+									Define reporting requirements
+								</li>
+								<li>
+									Getting statements
+								</li>
+							</ul>
+						</li>
+						<li>
+							Other tools
+							<ul>
+								<li>
+									Reflection and evaluation
+								</li>
+								<li>
+									Track cascaded learning
+								</li>
+								<li>
+									Plan learning
+								</li>
+								<li>
+									Manage groups and permissions
+								</li>
+								<li>
+									Connectors
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+		</div>
+
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
+	</body>
+</html>

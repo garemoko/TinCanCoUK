@@ -1,0 +1,345 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - Evaluating Learning</title>
+		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>Evaluating Learning</h2>
+			<p>
+				This article discusses how Tin Can could be used to track evaluation and reflection of learning plus track the cascade impact of learning events and of individual learners. This data could then be used to measure not just the effectiveness of learning events, but also the effectiveness of employees at sharing learning.
+			</p>
+			<table id="toc" class="toc">
+				<tbody>
+					<tr>
+						<td>
+						<div id="toctitle">
+							<h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">hide</a>]&nbsp;</span>
+						</div>
+						<ul>
+							<li class="toclevel-1 tocsection-1">
+								<a href="#Background_and_Use_Case"><span class="tocnumber">1</span> <span class="toctext">Background and Use Case</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-2">
+								<a href="#You_Need_an_LRS"><span class="tocnumber">2</span> <span class="toctext">You Need an LRS</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-3">
+								<a href="#Tracking_Real_World_Learning"><span class="tocnumber">3</span> <span class="toctext">Tracking Real World Learning</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-4">
+								<a href="#Evaluating_and_Reflecting"><span class="tocnumber">4</span> <span class="toctext">Evaluating and Reflecting</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-5">
+								<a href="#Tracking_the_Learning_Cascade"><span class="tocnumber">5</span> <span class="toctext">Tracking the Learning Cascade</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-6">
+								<a href="#Reporting.2C_Visualization_and_Return_on_Investment"><span class="tocnumber">6</span> <span class="toctext">Reporting, Visualization and Return on Investment</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-7">
+										<a href="#What_learning_activities_to_fund.3F"><span class="tocnumber">6.1</span> <span class="toctext">What learning activities to fund?</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-8">
+										<a href="#Which_employees_should_be_sent_on_training_courses.3F"><span class="tocnumber">6.2</span> <span class="toctext">Which employees should be sent on training courses?</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-9">
+										<a href="#Calculate_the_effectiveness_of_the_employee_as_a_learner"><span class="tocnumber">6.3</span> <span class="toctext">Calculate the effectiveness of the employee as a learner</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-10">
+										<a href="#Incentivise_the_cascade_of_learning"><span class="tocnumber">6.4</span> <span class="toctext">Incentivise the cascade of learning</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-11">
+										<a href="#Incentivise_self_directed_learning"><span class="tocnumber">6.5</span> <span class="toctext">Incentivise self directed learning</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="toclevel-1 tocsection-12">
+								<a href="#Conclusion"><span class="tocnumber">7</span> <span class="toctext">Conclusion</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-13">
+								<a href="#Responses_to_this_Post"><span class="tocnumber">8</span> <span class="toctext">Responses to this Post</span></a>
+							</li>
+						</ul></td>
+					</tr>
+				</tbody>
+			</table>
+			<h2><span class="mw-headline" id="Background_and_Use_Case">Background and Use Case</span></h2>
+			<p>
+				I was speaking to my dad recently about the factors he would take into consideration when evaluating requests from his staff to be sent on training. One key consideration, he said, was the need to ensure that the learning affected not just the employee sent on the training course, but others within the organisation too. He would be much more likely to authorise training if he knew the member of staff he sent would pass the learning on to others.
+			</p>
+			<p>
+				There is therefore a need for businesses to know how effective individual employees are at cascading learning. This applies not just to training events but to any type of learning. With this data, businesses can target training resources on those employees who are most likely to share their learning and thereby generate the biggest return on investment for the business. If this process is transparent, it will also incentivise sharing of learning as employees that do are rewarded with greater training opportunities.
+			</p>
+			<p>
+				In addition to providing a centralized record tracking all types of learning, Tin Can could be used to track, evaluate and measure the cascading of learning from employee to employee. This guide will take a high level look at the applications that would need to be developed such a system.
+			</p>
+			<h2><span class="mw-headline" id="You_Need_an_LRS">You Need an LRS</span></h2>
+			<p>
+				To do anything with Tin Can you need to have an LRS. This might mean developing your own or buying one from somebody else. You will need to ensure that all parts of your solution use the same version of the Tin Can API spec as each other. This guide assumes you will be using 0.95 but much of it may also apply to later versions.
+			</p>
+			<h2><span class="mw-headline" id="Tracking_Real_World_Learning">Tracking Real World Learning</span></h2>
+			<p>
+				Now that you have an LRS to store your learning records in, you will need a tool to track the learning that you want to evaluate. This is likely to include face to face training events and may also include informal and social learning. You will need to provide a tool for learners to self assert their learning activities.
+			</p>
+			<p>
+				A starting point for this tool might be <a href="http://garemoko.github.com/tinStatement/tinstatement.htm">My Statement Generator</a>. Some of the fields here could be filled with defaults or have users select from a predefined list to make the process easier for the average learner. Perhaps the user could be provided with a step by step wizard with only one or two fields to complete on each step in order to build the statement. Actor information, endpoint and authorization might be completed automatically based on log in to another system such as the organisation's LMS or Intranet or from login to a social network site such as Twitter.
+			</p>
+			<p>
+				Learners will need to be given a way of generating unique activity IDs for any activity which does not already have one. In doing this, it would be helpful to consider a mechanism or process to ensure that learners use the same ID for each activity, so if two members of staff attend the same training event, they share the same activity ID for that event.
+			</p>
+			<p>
+				You may wish to track eLearning, attendance of training events, reading books, reading websites, social media follows, mentoring activities, qualifications, on the job training and any other learning activities which are significant to the organization implementing the solution.
+			</p>
+			<h2><span class="mw-headline" id="Evaluating_and_Reflecting">Evaluating and Reflecting</span></h2>
+			<p>
+				Now that you're tracking learning, we can start to think about the evaluation and review of learning. Learners would be given the opportunity to evaluate and reflect on their learning. This might take the form of an "evaluate this" button on the learner's learning feed or an email request fired off after a certain time period has elapsed from the learning event.
+			</p>
+			<p>
+				The evaluation and reflection tool (or tools) would ask the learner a series of questions, optional or compulsory to evaluate and reflect on their learning. This might include a self assessment of the business benefits of the training. This kind of evaluation is fairly common with training. It could be tracked in Tin Can using a 'reflected on' or 'evaluated' verb and a statement ID of the earlier learning activity as the object. The results of the evaluation would be stored within the result property.
+			</p>
+			<p>
+				Here's an example statement using the existing "score" and "response" properties. "score" is used to give the learning activity a quantitative rating and "response" contains a qualitative evaluation. Additional fields could be captured using extensions if required.
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="xml source-xml">
+					<pre class="de1">{
+    "actor": {
+        "mbox": "mailto:garemoko@tincanapi.co.uk",
+        "name": "Andrew Downes",
+        "objectType": "Agent"
+    },
+    "verb": {
+        "id": "http://www.tincanapi.co.uk/wiki/verbs:evaluated",
+        "display": {
+            "en-GB": "evaluated",
+	    "en-US": "evaluated"
+        }
+    },
+    "object"&nbsp;: {
+		"objectType":"StatementRef",
+		"id":"8f87ccde-bb56-4c2e-ab83-44982ef22df0"
+	},
+    "result"&nbsp;: { 
+		"score"&nbsp;: {"scaled"&nbsp;: 70},
+		"response"&nbsp;: "I found the training really helpful. Since attending 
+		I have applied what I learnt and increased my productivity by around 20%."
+	}
+}</pre>
+</div>			</div>
+			<p>
+				<br>
+				I don't have any examples of anything like this being implemented already. I may look at building a prototype or more detailed design of this evaluation and reflection tool later. If you are looking at building this yourself, <a rel="nofollow" class="external text" href="https://twitter.com/mrandrewdownes">feel free to ask me any questions you like via twitter</a>.
+			</p>
+			<p>
+				<br>
+			</p>
+			<h2><span class="mw-headline" id="Tracking_the_Learning_Cascade">Tracking the Learning Cascade</span></h2>
+			<p>
+				As part of the evaluation and review and/or as a separate process, the learner would be asked to state who else in the organisation their learning had been shared with. This would be recorded as statements with the secondary learner as the actor, a 'learned from' verb, the initial learner as the object of the statement and the initial learning event within the context.
+			</p>
+			<p>
+				The statement generated would look something like this:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="xml source-xml">
+					<pre class="de1">{
+    "actor": {
+        "mbox": "mailto:garemoko@tincanapi.co.uk",
+        "name": "Andrew Downes",
+        "objectType": "Agent"
+    },
+    "verb": {
+        "id": "http://www.tincanapi.co.uk/wiki/verbs:learned_from",
+        "display": {
+            "en-GB": "learned from",
+	    "en-US": "learned from"
+        }
+    },
+    "object": {
+        "mbox": "mailto:Joe@example.com",
+        "name": "Joe Example",
+        "objectType": "Agent"
+	}
+    "context": {
+        "statement": {
+	    "objectType":"StatementRef",
+	    "id":"8f87ccde-bb56-4c2e-ab83-44982ef22df0"
+	}
+    }
+}</pre>
+</div>			</div>
+			<p>
+				Swapping the object and the context gives another (arguably better) structure:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="xml source-xml">
+					<pre class="de1">{
+    "actor": {
+        "mbox": "mailto:garemoko@tincanapi.co.uk",
+        "name": "Andrew Downes",
+        "objectType": "Agent"
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/experienced",
+        "display": {
+            "en-GB": "experienced",
+	    "en-US": "experienced"
+        }
+    },
+    "object": {
+	"objectType":"StatementRef",
+	"id":"8f87ccde-bb56-4c2e-ab83-44982ef22df0"
+	}
+    "context": {
+        "instructor": {
+            "mbox": "mailto:Joe@example.com",
+            "name": "Joe Example",
+            "objectType": "Agent"
+	}
+    }
+}</pre>
+</div>			</div>
+			<p>
+				The former statement has the advantage of placing emphasis on the learning cascade event. The later has the advantage of using existing verbs and placing the emphasis on what is learnt.
+			</p>
+			<p>
+				Other variations might include adding the original activity (the training event or whatever) to the context as a "contextActivity" or even as the object of the statement. To avoid duplication of data, however, use of "StatementRef" is sufficient on its own because the original activity can be accessed via this reference along with additional information.
+			</p>
+			<p>
+				Whatever option is chosen it is important to be consistent.
+			</p>
+			<p>
+				This statement would create a new learning activity in the secondary learner's timeline, which itself would trigger a request for evaluation and reflection. This allows for measurement of the effectiveness of the initial learner in cascading their learning. It also allows for tracking of further cascades of learning onto 3rd and 4th hand recipients of the learning.
+			</p>
+			<p>
+				Again, I don't have any examples of anything like this being implemented already. If you are looking at building this yourself or would like to collaborate with me in building a prototype, <a rel="nofollow" class="external text" href="https://twitter.com/mrandrewdownes">feel free to get in touch via twitter</a>.
+			</p>
+			<h2><span class="mw-headline" id="Reporting.2C_Visualization_and_Return_on_Investment">Reporting, Visualization and Return on Investment</span></h2>
+			<p>
+				We've discussed tracking evaluation and cascade of learning, but in order for this to be useful, this data needs to be reported from the database in a clear and meaningful way. These reports might serve one or more of these aims:
+			</p>
+			<ol>
+				<li>
+					Helping the organisation make decisions about what learning activities to fund.
+				</li>
+				<li>
+					Helping the organisation make decisions about which employees should be sent on training courses or provided with time and funding for other learning activities.
+				</li>
+				<li>
+					Supporting performance management processes in helping the organisation calculate the effectiveness of the employee as a learner.
+				</li>
+				<li>
+					Incentivising the cascade of learning.
+				</li>
+				<li>
+					Incentivising self directed, social and informal learning.
+				</li>
+			</ol>
+			<p>
+				Let's look at each of these aims in turn and consider the reports which might be used to support these aims.
+			</p>
+			<h3><span class="mw-headline" id="What_learning_activities_to_fund.3F">What learning activities to fund?</span></h3>
+			<p>
+				Deciding which learning activities to fund means calculating the return on investment of previous learning activities, then using this as a guide in planning future similar activities. <a rel="nofollow" class="external text" href="http://tincanapi.com/what-is-tin-can/overview/the-layers-of-tin-can/layer-4-correlate-job-performance-with-training/">Tin Can can be used to track job effectiveness</a> and correlate this to learning in order to measure the effectiveness of learning. For this guide, however, I'll assume that the organisation has not yet taken Tin Can that far. As discussed above we're still using the kind of training evaluation forms already in use in many organisations, where the trainee is asked to assess the impact of their training themselves. What's different  is that we're not just considering the impact on the organisation directly via the trainee, but also the impact via secondary learners who the trainee has cascaded the learning on to.
+			</p>
+			<p>
+				A reporting tool might allow managers to bring up a report showing all evaluations relating to a particular learning event. This data might be presented as a web showing how the learning from the central event had cascaded out, and the impact on the organisation via every connected employee.
+			</p>
+			<p>
+				This impact report might include qualitative data, but if learners were also asked to quantify the impact on the organisation in some way, the report could visualize this data, perhaps with smaller or larger nodes on the web depending on how effective that particular learner rated the learning. Clicking on each node might then bring up the qualitative evaluation written by that learner.
+			</p>
+			<p>
+				Learning activities could also be given a score based on the evaluations of all affected learners. This might be as simple as the total of all ratings, divided by the number of employees in the organisation or department. These scores could then be presented as a leader-board of learning activities, allowing all to quickly see which learning activities had been most effective. Totals could also be provided for types of learning activity allowing for the significance of social learning versus formal training to be measured.
+			</p>
+			<h3><span class="mw-headline" id="Which_employees_should_be_sent_on_training_courses.3F">Which employees should be sent on training courses?</span></h3>
+			<p>
+				Where this approach really gets clever is calculating and comparing the return on investment of sending Bob on a training course versus sending Sue on the same course. A visual report might show a learning web for the organisation, showing cascaded learning as thicker or thinner arrows depending on the amount and effectiveness of learning cascaded. Those employees with the most and thickest arrows leading out from them are the organisation's most effective cascaders, and would provide the largest return on investment for the organisation's training budget.
+			</p>
+			<p>
+				These learning webs could also be used to identify informal structures within the organisations and could be used to more effectively target internal communications.
+			</p>
+			<p>
+				As with training events, each employee could be given a score based on how much they cascaded learning and the positive impact on the organisation of them doing so.
+			</p>
+			<h3><span class="mw-headline" id="Calculate_the_effectiveness_of_the_employee_as_a_learner">Calculate the effectiveness of the employee as a learner</span></h3>
+			<p>
+				The score described in the previous section, showing the impact of the employee's learning on the organisation, could also be used in performance management and appraisal processes. Those employees who are good at learning and good at passing that learning on are an asset to the organisation. Now that these skills can be measured, they can also be rewarded to ensure that these employees are retained, encouraged and motivated.
+			</p>
+			<h3><span class="mw-headline" id="Incentivise_the_cascade_of_learning">Incentivise the cascade of learning</span></h3>
+			<p>
+				Giving employees a cascaded learning score and approving training requests based on that score gives employees who want training an incentive to cascade what they learn. In addition to this, initiatives such as leader-boards, 'Learner of the Month' competitions, rewards and badges could further incentivise employees to pass on what they have learnt.
+			</p>
+			<h3><span class="mw-headline" id="Incentivise_self_directed_learning">Incentivise self directed learning</span></h3>
+			<p>
+				If the organisation included tracking of self directed, informal and social learning in its solution, employees would be encouraged to undertake this type of learning. Employees seeking be funded for formal training would need to first prove their ability and willingness to learn and pass that learning on. Employees would be encouraged to read books and websites, watch YouTube tutorials, ask one another questions, learn from social media and make use of the organisation's existing eLearning packages. They would then evaluate this learning and cascade their learning on to others in order to improve their cascaded learning score and qualify for training funding.
+			</p>
+			<h2><span class="mw-headline" id="Conclusion">Conclusion</span></h2>
+			<p>
+				In a world where training budgets are getting tighter and tighter, a system like this would allow organisations to target their budgets on the training activities and employees where they will see the greatest return on investment. At the same time, employees are incentivised to share their learning and make use of self directed, informal and social tools as a first port of call. The Tin Can API makes this possible by allowing learning evaluation and the cascade of learning to be tracked and reported on. Your organisation or your customers' organisations could be doing this now.
+			</p>
+			<h2><span class="mw-headline" id="Responses_to_this_Post">Responses to this Post</span></h2>
+			<p>
+				Please send any responses to this entry by email to <a rel="nofollow" class="external text" href="mailto:garemoko@tincanapi.co.uk">garemoko@tincanapi.co.uk</a> and I'll post them below.
+			</p>
+
+		</div>
+
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
+	</body>
+</html>

@@ -4,8 +4,9 @@
 	<head>
 
 		<meta name="viewport" content="width=600, initial-scale=1">
-		<title>TinCanAPI.co.uk</title>
+		<title>TinCanAPI.co.uk - Build your first Tin Can API activity</title>
 		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
 		<script src="js-lib/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
@@ -53,54 +54,104 @@
 	</head>
 	<body >
 
-		<h1>TinCanAPI.co.uk</h1>
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
 		<p>
 			Helping you Tin Can since 2012.
 		</p>
 
-		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>Tin Can specification version: 0.95
-</p><p>This guide will take you through the process of creating your first Tin Can API activity. The specific activity you will create is one that allows the user to search for a book on Google books and then send a statement to an LRS saying that they have "experienced" the book. You can get the full version of the code that this tutorial is based on <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinBook">here</a>.
-</p><p>Ideally you need to have an understanding of HTML, CSS and JavaScript before attempting this tutorial. Give it a go anyway even if you're a beginner to these things, or look up some beginner's html, css and JavaScript tutorials on <a rel="nofollow" class="external text" href="http://www.google.co.uk">the interweb</a> - there's plenty out there. The tutorial also makes use of JQuery and the Google Books API but there's no requirement to understand these so long as you are competent at copying and pasting. 
-</p><p>Please note: The application discussed in this tutorial will not work with Internet Explorer 9 or below. Please use Firefox or Chrome. 
-</p><p>Feel free to ask about any aspect of this tutorial at all on Twitter <a rel="nofollow" class="external text" href="https://twitter.com/mrdownes">@mrdownes</a> or by email to <a rel="nofollow" class="external text" href="mailto:@mrdownes@hotmail.com">mrdownes@hotmail.com</a>
-</p>
-<table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">hide</a>]&nbsp;</span></div>
-<ul>
-<li class="toclevel-1 tocsection-1"><a href="#HTML_file"><span class="tocnumber">1</span> <span class="toctext">HTML file</span></a>
-<ul>
-<li class="toclevel-2 tocsection-2"><a href="#Script_references"><span class="tocnumber">1.1</span> <span class="toctext">Script references</span></a></li>
-</ul>
-</li>
-<li class="toclevel-1 tocsection-3"><a href="#TinBook.js"><span class="tocnumber">2</span> <span class="toctext">TinBook.js</span></a>
-<ul>
-<li class="toclevel-2 tocsection-4"><a href="#Setting_up_the_LRS_connection"><span class="tocnumber">2.1</span> <span class="toctext">Setting up the LRS connection</span></a></li>
-<li class="toclevel-2 tocsection-5"><a href="#Send_a_Tin_Can_API_Statement"><span class="tocnumber">2.2</span> <span class="toctext">Send a Tin Can API Statement</span></a>
-<ul>
-<li class="toclevel-3 tocsection-6"><a href="#Verb"><span class="tocnumber">2.2.1</span> <span class="toctext">Verb</span></a></li>
-<li class="toclevel-3 tocsection-7"><a href="#Object"><span class="tocnumber">2.2.2</span> <span class="toctext">Object</span></a></li>
-<li class="toclevel-3 tocsection-8"><a href="#Statement"><span class="tocnumber">2.2.3</span> <span class="toctext">Statement</span></a></li>
-<li class="toclevel-3 tocsection-9"><a href="#TinCan.sendStatement"><span class="tocnumber">2.2.4</span> <span class="toctext">TinCan.sendStatement</span></a></li>
-</ul>
-</li>
-<li class="toclevel-2 tocsection-10"><a href="#End_of_guide"><span class="tocnumber">2.3</span> <span class="toctext">End of guide</span></a></li>
-</ul>
-</li>
-</ul>
-</td></tr></tbody></table>
-<h2> <span class="mw-headline" id="HTML_file">HTML file</span></h2>
-<p>Let's start with the HTML file. This essentially just contains the basic structure of the page and there's not a lot that's Tin Can specific here. You can get the full copy of the html file <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinBook">here</a>, but I'll go through the only section relevant to Tin Can here - the script references.
-</p>
-<h3> <span class="mw-headline" id="Script_references">Script references</span></h3>
-<p>This section of the HTML provides links to various JavaScript libraries or files. Let's take each of them in turn and explain what they are and why they are included. 
-</p>
-<ol><li><b>JQuery</b> - I tend to include the JQuery library in all my web projects, Tin Can or otherwise. Jquery.com describes Jquery as "jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript." Basically it's a code library that makes a lot things easier to do than if you were just using pure JavaScript. Finding, adding and changing elements on the page are some of the core things that JQuery is really helpful for, and that's what we use it for in this tutorial. 
-</li><li><b>TinCan.js</b> - The Tin Can Driver file take from <a rel="nofollow" class="external text" href="https://github.com/RusticiSoftware/TinCanJS/tree/master/build">Rustici Software's Github</a>. This file is released under an Apache 2.0 License and does a lot of the complicated aspects of Tin Can API for you. It's still under development and I had to make a couple of fixes to get this tutorial to work, but I've shared these fixes with the Rustici guys so hopefully they'll be included in the latest version by the time you read this guide and download the code. If not, you can just <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinBook/tree/master/tincanjs">pinch my copy of the code here</a>.
-</li><li><b>Base64</b> - a 3rd party code library used for encryption of the users LRS account details. I originally got this file from <a rel="nofollow" class="external text" href="http://tincanapi.com/developers/resources/prototypes-getting-started/download-prototypes/">Rustici's Tin Can 0.90 prototypes</a>, but you can get it from <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinStatement/blob/master/js-lib/base64.js">my Github site</a>. 
-</li><li><b>TinBook.js</b> - the JavaScript file containing the code specific to this activity. This tutorial will take you through writing this JavaScript file for yourself. 
-</li></ol>
-<p><br>
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="html5 source-html5"><pre class="de1"><span class="sc-1">&lt;!-- jquery  --&gt;</span>
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>Build your first Tin Can API activity</h2>
+			<p>
+				Tin Can specification version: 0.95
+			</p>
+			<p>
+				This guide will take you through the process of creating your first Tin Can API activity. The specific activity you will create is one that allows the user to search for a book on Google books and then send a statement to an LRS saying that they have "experienced" the book. You can get the full version of the code that this tutorial is based on <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinBook">here</a>.
+			</p>
+			<p>
+				Ideally you need to have an understanding of HTML, CSS and JavaScript before attempting this tutorial. Give it a go anyway even if you're a beginner to these things, or look up some beginner's html, css and JavaScript tutorials on <a rel="nofollow" class="external text" href="http://www.google.co.uk">the interweb</a> - there's plenty out there. The tutorial also makes use of JQuery and the Google Books API but there's no requirement to understand these so long as you are competent at copying and pasting.
+			</p>
+			<p>
+				Please note: The application discussed in this tutorial will not work with Internet Explorer 9 or below. Please use Firefox or Chrome.
+			</p>
+			<p>
+				Feel free to ask about any aspect of this tutorial at all on Twitter <a rel="nofollow" class="external text" href="https://twitter.com/mrdownes">@mrdownes</a> or by email to <a rel="nofollow" class="external text" href="mailto:@mrdownes@hotmail.com">mrdownes@hotmail.com</a>
+			</p>
+			<table id="toc" class="toc">
+				<tbody>
+					<tr>
+						<td>
+						<div id="toctitle">
+							<h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">hide</a>]&nbsp;</span>
+						</div>
+						<ul>
+							<li class="toclevel-1 tocsection-1">
+								<a href="#HTML_file"><span class="tocnumber">1</span> <span class="toctext">HTML file</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-2">
+										<a href="#Script_references"><span class="tocnumber">1.1</span> <span class="toctext">Script references</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="toclevel-1 tocsection-3">
+								<a href="#TinBook.js"><span class="tocnumber">2</span> <span class="toctext">TinBook.js</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-4">
+										<a href="#Setting_up_the_LRS_connection"><span class="tocnumber">2.1</span> <span class="toctext">Setting up the LRS connection</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-5">
+										<a href="#Send_a_Tin_Can_API_Statement"><span class="tocnumber">2.2</span> <span class="toctext">Send a Tin Can API Statement</span></a>
+										<ul>
+											<li class="toclevel-3 tocsection-6">
+												<a href="#Verb"><span class="tocnumber">2.2.1</span> <span class="toctext">Verb</span></a>
+											</li>
+											<li class="toclevel-3 tocsection-7">
+												<a href="#Object"><span class="tocnumber">2.2.2</span> <span class="toctext">Object</span></a>
+											</li>
+											<li class="toclevel-3 tocsection-8">
+												<a href="#Statement"><span class="tocnumber">2.2.3</span> <span class="toctext">Statement</span></a>
+											</li>
+											<li class="toclevel-3 tocsection-9">
+												<a href="#TinCan.sendStatement"><span class="tocnumber">2.2.4</span> <span class="toctext">TinCan.sendStatement</span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="toclevel-2 tocsection-10">
+										<a href="#End_of_guide"><span class="tocnumber">2.3</span> <span class="toctext">End of guide</span></a>
+									</li>
+								</ul>
+							</li>
+						</ul></td>
+					</tr>
+				</tbody>
+			</table>
+			<h2><span class="mw-headline" id="HTML_file">HTML file</span></h2>
+			<p>
+				Let's start with the HTML file. This essentially just contains the basic structure of the page and there's not a lot that's Tin Can specific here. You can get the full copy of the html file <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinBook">here</a>, but I'll go through the only section relevant to Tin Can here - the script references.
+			</p>
+			<h3><span class="mw-headline" id="Script_references">Script references</span></h3>
+			<p>
+				This section of the HTML provides links to various JavaScript libraries or files. Let's take each of them in turn and explain what they are and why they are included.
+			</p>
+			<ol>
+				<li>
+					<b>JQuery</b> - I tend to include the JQuery library in all my web projects, Tin Can or otherwise. Jquery.com describes Jquery as "jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript." Basically it's a code library that makes a lot things easier to do than if you were just using pure JavaScript. Finding, adding and changing elements on the page are some of the core things that JQuery is really helpful for, and that's what we use it for in this tutorial.
+				</li>
+				<li>
+					<b>TinCan.js</b> - The Tin Can Driver file take from <a rel="nofollow" class="external text" href="https://github.com/RusticiSoftware/TinCanJS/tree/master/build">Rustici Software's Github</a>. This file is released under an Apache 2.0 License and does a lot of the complicated aspects of Tin Can API for you. It's still under development and I had to make a couple of fixes to get this tutorial to work, but I've shared these fixes with the Rustici guys so hopefully they'll be included in the latest version by the time you read this guide and download the code. If not, you can just <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinBook/tree/master/tincanjs">pinch my copy of the code here</a>.
+				</li>
+				<li>
+					<b>Base64</b> - a 3rd party code library used for encryption of the users LRS account details. I originally got this file from <a rel="nofollow" class="external text" href="http://tincanapi.com/developers/resources/prototypes-getting-started/download-prototypes/">Rustici's Tin Can 0.90 prototypes</a>, but you can get it from <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinStatement/blob/master/js-lib/base64.js">my Github site</a>.
+				</li>
+				<li>
+					<b>TinBook.js</b> - the JavaScript file containing the code specific to this activity. This tutorial will take you through writing this JavaScript file for yourself.
+				</li>
+			</ol>
+			<p>
+				<br>
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="html5 source-html5">
+					<pre class="de1"><span class="sc-1">&lt;!-- jquery  --&gt;</span>
 <span class="sc2">&lt;<span class="kw2">script</span> <span class="kw3">src</span><span class="sy0">=</span><span class="st0">"https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"</span>&gt;&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span>
 &nbsp;
 <span class="sc-1">&lt;!-- tincan.js - Rustici's Tin Can API JS Client Library--&gt;</span>
@@ -110,59 +161,100 @@
 <span class="sc2">&lt;<span class="kw2">script</span> <span class="kw3">src</span><span class="sy0">=</span><span class="st0">"base64.js"</span>&gt;&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span>
 &nbsp;
 <span class="sc-1">&lt;!-- TinBook.js - main code file for the activity --&gt;</span>
-<span class="sc2">&lt;<span class="kw2">script</span> <span class="kw3">src</span><span class="sy0">=</span><span class="st0">"TinBook.js"</span>&gt;&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span></pre></div></div>
-<h2> <span class="mw-headline" id="TinBook.js">TinBook.js</span></h2>
-<p>The JavaScript files are where the magic really happens. Let's look at the Tin Can specific sections of the TinBook.js code. 
-</p>
-<h3> <span class="mw-headline" id="Setting_up_the_LRS_connection">Setting up the LRS connection</span></h3>
-<p>This part of the tutorial differs significantly from my <a href="/wiki/index.php/Guide:_Building_your_first_Tin_Can_API_Activity" title="Guide: Building your first Tin Can API Activity">0.90 version of this tutorial</a>, not really because of significant changes in the spec, but more related to changes in the way Rustici's Tin Can library works. 
-</p><p>The first thing we need to do is create an instance of the TinCan object. You can set various properties when creating this, but I'm just going to stick with the defaults for this tutorial. Let's call our instance myTinCan:
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"><span class="kw2">var</span> myTinCan <span class="sy0">=</span> <span class="kw2">new</span> TinCan<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></pre></div></div>
-<p>Now we need to create an instance of the TinCan LRS Object. This time we do want to define some of the properties and we do this by passing an annoymous object like so:
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"><span class="kw2">var</span> myLRS <span class="sy0">=</span> <span class="kw2">new</span> TinCan.<span class="me1">LRS</span><span class="br0">(</span><span class="br0">{</span>
+<span class="sc2">&lt;<span class="kw2">script</span> <span class="kw3">src</span><span class="sy0">=</span><span class="st0">"TinBook.js"</span>&gt;&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span></pre>
+</div>			</div>
+			<h2><span class="mw-headline" id="TinBook.js">TinBook.js</span></h2>
+			<p>
+				The JavaScript files are where the magic really happens. Let's look at the Tin Can specific sections of the TinBook.js code.
+			</p>
+			<h3><span class="mw-headline" id="Setting_up_the_LRS_connection">Setting up the LRS connection</span></h3>
+			<p>
+				This part of the tutorial differs significantly from my <a href="/wiki/index.php/Guide:_Building_your_first_Tin_Can_API_Activity" title="Guide: Building your first Tin Can API Activity">0.90 version of this tutorial</a>, not really because of significant changes in the spec, but more related to changes in the way Rustici's Tin Can library works.
+			</p>
+			<p>
+				The first thing we need to do is create an instance of the TinCan object. You can set various properties when creating this, but I'm just going to stick with the defaults for this tutorial. Let's call our instance myTinCan:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="kw2">var</span> myTinCan <span class="sy0">=</span> <span class="kw2">new</span> TinCan<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span></pre>
+</div>			</div>
+			<p>
+				Now we need to create an instance of the TinCan LRS Object. This time we do want to define some of the properties and we do this by passing an annoymous object like so:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="kw2">var</span> myLRS <span class="sy0">=</span> <span class="kw2">new</span> TinCan.<span class="me1">LRS</span><span class="br0">(</span><span class="br0">{</span>
 	endpoint<span class="sy0">:</span><span class="st0">"https://cloud.scorm.com/ScormEngineInterface/TCAPI/public/"</span><span class="sy0">,</span> 
 	version<span class="sy0">:</span> <span class="st0">"0.95"</span><span class="sy0">,</span>
 	auth<span class="sy0">:</span> <span class="st0">'Basic '</span> <span class="sy0">+</span> Base64.<span class="me1">encode</span><span class="br0">(</span><span class="st0">"&lt;account id&gt;"</span> <span class="sy0">+</span> <span class="st0">':'</span> <span class="sy0">+</span> <span class="st0">"&lt;password&gt;"</span><span class="br0">)</span>
-<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></pre></div></div>
-<p>You can see here we are defining the endpoint, target version and authorisation credentials for this particular LRS. Why don't you try your own details from your <a rel="nofollow" class="external text" href="http://scorm.com/scorm-solved/scorm-cloud-features/tin-can-api-scorm-cloud/">SCORM Cloud</a>, <a rel="nofollow" class="external text" href="https://www.watershed.ws/pdl/#/pdl/sign/up">Watershed</a> or <a rel="nofollow" class="external text" href="https://www.waxlrs.com/">Wax LRS</a> account here? 
-</p><p>Next we need to add the LRS to the array of record stores being targeted by our TinCan object:
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1">myTinCan.<span class="me1">recordStores</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy0">=</span> myLRS<span class="sy0">;</span></pre></div></div>
-<p>For this tutorial we are just going to fire statements at one LRS, but you can set the TinCan object to send copies of your statements to multiple LRS if you prefer. You would simply define additional LRS and add them sequentially to the array. 
-</p><p>Finally, lets define our default actor and add him to the actor property of our TinCan object:
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"><span class="kw2">var</span> myActor <span class="sy0">=</span> <span class="kw2">new</span> TinCan.<span class="me1">Agent</span><span class="br0">(</span><span class="br0">{</span>
+<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></pre>
+</div>			</div>
+			<p>
+				You can see here we are defining the endpoint, target version and authorisation credentials for this particular LRS. Why don't you try your own details from your <a rel="nofollow" class="external text" href="http://scorm.com/scorm-solved/scorm-cloud-features/tin-can-api-scorm-cloud/">SCORM Cloud</a>, <a rel="nofollow" class="external text" href="https://www.watershed.ws/pdl/#/pdl/sign/up">Watershed</a> or <a rel="nofollow" class="external text" href="https://www.waxlrs.com/">Wax LRS</a> account here?
+			</p>
+			<p>
+				Next we need to add the LRS to the array of record stores being targeted by our TinCan object:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1">myTinCan.<span class="me1">recordStores</span><span class="br0">[</span><span class="nu0">0</span><span class="br0">]</span> <span class="sy0">=</span> myLRS<span class="sy0">;</span></pre>
+</div>			</div>
+			<p>
+				For this tutorial we are just going to fire statements at one LRS, but you can set the TinCan object to send copies of your statements to multiple LRS if you prefer. You would simply define additional LRS and add them sequentially to the array.
+			</p>
+			<p>
+				Finally, lets define our default actor and add him to the actor property of our TinCan object:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="kw2">var</span> myActor <span class="sy0">=</span> <span class="kw2">new</span> TinCan.<span class="me1">Agent</span><span class="br0">(</span><span class="br0">{</span>
 	<span class="kw3">name</span> <span class="sy0">:</span> <span class="st0">"Bob Smith"</span><span class="sy0">,</span>
 	mbox <span class="sy0">:</span> <span class="st0">"mailto:dummy@example.com"</span>
 <span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span>
 &nbsp;
-myTinCan.<span class="me1">actor</span> <span class="sy0">=</span> myActor<span class="sy0">;</span></pre></div></div>
-<p>Note that the actor is a type of agent, and uses the Tin Can library's agent object. 
-</p><p>In this example the endpoint, authorisation details and actor details are all hard coded. In a real application of course you would want to get this data from the user in some way and the TinCan library includes methods for getting this data via query string if that's your preference.  
-</p><p>The next section of code that deals with some interface stuff and getting the book data from the Google Books API. As this is not directly related to Tin Can, I'm going to skip it for this tutorial. You can just copy and paste this section from <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinBook">my GitHub</a>.
-</p>
-<h3> <span class="mw-headline" id="Send_a_Tin_Can_API_Statement">Send a Tin Can API Statement</span></h3>
-<p>This line of code declares an object called 'item'. This object contains the information about the book the user selected and will be used to pull data from in order to build the Tin Can statement. The Tin Can code starts again immediately 'after' this line.
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"><span class="kw2">var</span> <span class="kw1">item</span> <span class="sy0">=</span> response.<span class="me1">items</span><span class="br0">[</span>$<span class="br0">(</span><span class="st0">'.bookElement'</span><span class="br0">)</span>.<span class="me1">index</span><span class="br0">(</span>$<span class="br0">(</span><span class="kw1">this</span><span class="br0">)</span>.<span class="me1">parent</span><span class="br0">(</span><span class="st0">'div'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">]</span><span class="sy0">;</span></pre></div></div>
-<h4> <span class="mw-headline" id="Verb">Verb</span></h4>
-<p>First we declare a verb object defining the relevant properties. Note how the display property itself contains an object defining the display value of the verb in both American English and British English. 
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1">	<span class="kw2">var</span> myVerb <span class="sy0">=</span> <span class="kw2">new</span> TinCan.<span class="me1">Verb</span><span class="br0">(</span><span class="br0">{</span>
+myTinCan.<span class="me1">actor</span> <span class="sy0">=</span> myActor<span class="sy0">;</span></pre>
+</div>			</div>
+			<p>
+				Note that the actor is a type of agent, and uses the Tin Can library's agent object.
+			</p>
+			<p>
+				In this example the endpoint, authorisation details and actor details are all hard coded. In a real application of course you would want to get this data from the user in some way and the TinCan library includes methods for getting this data via query string if that's your preference.
+			</p>
+			<p>
+				The next section of code that deals with some interface stuff and getting the book data from the Google Books API. As this is not directly related to Tin Can, I'm going to skip it for this tutorial. You can just copy and paste this section from <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinBook">my GitHub</a>.
+			</p>
+			<h3><span class="mw-headline" id="Send_a_Tin_Can_API_Statement">Send a Tin Can API Statement</span></h3>
+			<p>
+				This line of code declares an object called 'item'. This object contains the information about the book the user selected and will be used to pull data from in order to build the Tin Can statement. The Tin Can code starts again immediately 'after' this line.
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="kw2">var</span> <span class="kw1">item</span> <span class="sy0">=</span> response.<span class="me1">items</span><span class="br0">[</span>$<span class="br0">(</span><span class="st0">'.bookElement'</span><span class="br0">)</span>.<span class="me1">index</span><span class="br0">(</span>$<span class="br0">(</span><span class="kw1">this</span><span class="br0">)</span>.<span class="me1">parent</span><span class="br0">(</span><span class="st0">'div'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">]</span><span class="sy0">;</span></pre>
+</div>			</div>
+			<h4><span class="mw-headline" id="Verb">Verb</span></h4>
+			<p>
+				First we declare a verb object defining the relevant properties. Note how the display property itself contains an object defining the display value of the verb in both American English and British English.
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1">	<span class="kw2">var</span> myVerb <span class="sy0">=</span> <span class="kw2">new</span> TinCan.<span class="me1">Verb</span><span class="br0">(</span><span class="br0">{</span>
 		id <span class="sy0">:</span> <span class="st0">"http://activitystrea.ms/specs/json/schema/activity-schema.html#read"</span><span class="sy0">,</span>
 		display <span class="sy0">:</span> <span class="br0">{</span>
 			<span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"read"</span><span class="sy0">,</span> 
 			<span class="st0">"en-GB"</span><span class="sy0">:</span><span class="st0">"read"</span>
 		<span class="br0">}</span>
-	<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></pre></div></div>
-<p>You can learn more about verbs by reading <a rel="nofollow" class="external text" href="http://tincanapi.com/2012/10/11/whats-up-with-verbs-in-95/">Megan Bowe's excellent blog post on the subject</a>. Here we are using the verb 'read' from the Activity Streams Base Schema.
-</p>
-<h4> <span class="mw-headline" id="Object">Object</span></h4>
-<p>The 'Object' part of the statement (called 'target' in the Tin Can JavaScript library) is made up of an Activity Object with an Activity Definition nested inside like so:
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1">	<span class="kw2">var</span> myActivityDefinition <span class="sy0">=</span> <span class="kw2">new</span> TinCan.<span class="me1">ActivityDefinition</span><span class="br0">(</span><span class="br0">{</span>
+	<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></pre>
+</div>			</div>
+			<p>
+				You can learn more about verbs by reading <a rel="nofollow" class="external text" href="http://tincanapi.com/2012/10/11/whats-up-with-verbs-in-95/">Megan Bowe's excellent blog post on the subject</a>. Here we are using the verb 'read' from the Activity Streams Base Schema.
+			</p>
+			<h4><span class="mw-headline" id="Object">Object</span></h4>
+			<p>
+				The 'Object' part of the statement (called 'target' in the Tin Can JavaScript library) is made up of an Activity Object with an Activity Definition nested inside like so:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1">	<span class="kw2">var</span> myActivityDefinition <span class="sy0">=</span> <span class="kw2">new</span> TinCan.<span class="me1">ActivityDefinition</span><span class="br0">(</span><span class="br0">{</span>
 		<span class="kw3">name</span> <span class="sy0">:</span> <span class="br0">{</span>
 			<span class="st0">"en-US"</span><span class="sy0">:</span><span class="kw1">item</span>.<span class="me1">volumeInfo</span>.<span class="me1">title</span><span class="sy0">,</span> 
 			<span class="st0">"en-GB"</span><span class="sy0">:</span><span class="kw1">item</span>.<span class="me1">volumeInfo</span>.<span class="me1">title</span>
@@ -176,43 +268,56 @@ myTinCan.<span class="me1">actor</span> <span class="sy0">=</span> myActor<span 
 	<span class="kw2">var</span> myActivity <span class="sy0">=</span> <span class="kw2">new</span> TinCan.<span class="me1">Activity</span><span class="br0">(</span><span class="br0">{</span>
 		id <span class="sy0">:</span> <span class="kw1">item</span>.<span class="me1">selfLink</span><span class="sy0">,</span>
 		definition <span class="sy0">:</span> myActivityDefinition
-	<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></pre></div></div>
-<p>The activity definition contains name and description properties. We set the name as the title of the book and the description as the Google Books description. Note that as with the verb display, both these properties can be localized (according to <a rel="nofollow" class="external text" href="https://tools.ietf.org/html/rfc3066">RFC3066</a>). This example shows titles and description for both en-US and en-GB.
-</p><p>For the activity id we use the Google Books API 'selflink' property which links to the full Google Books API definition of the item. There are, however, other options such as ISBN etc. Google stores these in an array as the volume's industryIndentifiers property.
-</p>
-<h4> <span class="mw-headline" id="Statement">Statement</span></h4>
-<p>Finally we pull the whole statement together as a TinCan Statement object:
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1">	<span class="kw2">var</span> stmt <span class="sy0">=</span> <span class="kw2">new</span> TinCan.<span class="me1">Statement</span><span class="br0">(</span><span class="br0">{</span>
+	<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></pre>
+</div>			</div>
+			<p>
+				The activity definition contains name and description properties. We set the name as the title of the book and the description as the Google Books description. Note that as with the verb display, both these properties can be localized (according to <a rel="nofollow" class="external text" href="https://tools.ietf.org/html/rfc3066">RFC3066</a>). This example shows titles and description for both en-US and en-GB.
+			</p>
+			<p>
+				For the activity id we use the Google Books API 'selflink' property which links to the full Google Books API definition of the item. There are, however, other options such as ISBN etc. Google stores these in an array as the volume's industryIndentifiers property.
+			</p>
+			<h4><span class="mw-headline" id="Statement">Statement</span></h4>
+			<p>
+				Finally we pull the whole statement together as a TinCan Statement object:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1">	<span class="kw2">var</span> stmt <span class="sy0">=</span> <span class="kw2">new</span> TinCan.<span class="me1">Statement</span><span class="br0">(</span><span class="br0">{</span>
 		actor <span class="sy0">:</span> myActor<span class="sy0">,</span>
 		verb <span class="sy0">:</span> myVerb<span class="sy0">,</span>
 		target <span class="sy0">:</span> myActivity
-	<span class="br0">}</span><span class="sy0">,</span><span class="kw2">false</span><span class="br0">)</span><span class="sy0">;</span></pre></div></div>
-<p>The second parameter here is set to false. If set to true tells the Statement object to stores the full statement as a JSON string in its 'originalJSON' property. We could then access this later using 
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1">stmt.<span class="me1">originalJSON</span></pre></div></div>
-<p>As we don't need this later, however, this parameter can be left as false.
-</p>
-<h4> <span class="mw-headline" id="TinCan.sendStatement">TinCan.sendStatement</span></h4>
-<p>Finally, we call our TinCan object's sendStatement method to send the statement to the LRS we defined earlier. This method has two parameters, the statement and a callback function. This callback will be called once the statement has been sent. 
-</p>
-<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1">myTinCan.<span class="me1">sendStatement</span><span class="br0">(</span>stmt<span class="sy0">,</span> <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>...<span class="me1">some</span> funky code...<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></pre></div></div>
-<p>In this example, the callback function runs some code which tells the user their statement has been sent. Once the callback has been called that's the end of the Tin Can realized code, so the end of this guide!
-</p>
-<h3> <span class="mw-headline" id="End_of_guide">End of guide</span></h3>
-<p>I hope you found this guide helpful. As you can see, sending the Tin Can statement is pretty simple! Feel free to get in touch or ask about any aspect of this tutorial at all on Twitter <a rel="nofollow" class="external text" href="https://twitter.com/mrdownes">@mrdownes</a> or by email to <a rel="nofollow" class="external text" href="mailto:@mrdownes@hotmail.com">mrdownes@hotmail.com</a>
-</p>
-<!-- 
-NewPP limit report
-Preprocessor node count: 138/1000000
-Post-expand include size: 0/2097152 bytes
-Template argument size: 0/2097152 bytes
-Expensive parser function count: 0/100
--->
+	<span class="br0">}</span><span class="sy0">,</span><span class="kw2">false</span><span class="br0">)</span><span class="sy0">;</span></pre>
+</div>			</div>
+			<p>
+				The second parameter here is set to false. If set to true tells the Statement object to stores the full statement as a JSON string in its 'originalJSON' property. We could then access this later using
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1">stmt.<span class="me1">originalJSON</span></pre>
+</div>			</div>
+			<p>
+				As we don't need this later, however, this parameter can be left as false.
+			</p>
+			<h4><span class="mw-headline" id="TinCan.sendStatement">TinCan.sendStatement</span></h4>
+			<p>
+				Finally, we call our TinCan object's sendStatement method to send the statement to the LRS we defined earlier. This method has two parameters, the statement and a callback function. This callback will be called once the statement has been sent.
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1">myTinCan.<span class="me1">sendStatement</span><span class="br0">(</span>stmt<span class="sy0">,</span> <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span>...<span class="me1">some</span> funky code...<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></pre>
+</div>			</div>
+			<p>
+				In this example, the callback function runs some code which tells the user their statement has been sent. Once the callback has been called that's the end of the Tin Can realized code, so the end of this guide!
+			</p>
+			<h3><span class="mw-headline" id="End_of_guide">End of guide</span></h3>
+			<p>
+				I hope you found this guide helpful. As you can see, sending the Tin Can statement is pretty simple! Feel free to get in touch or ask about any aspect of this tutorial at all on Twitter <a rel="nofollow" class="external text" href="https://twitter.com/mrdownes">@mrdownes</a> or by email to <a rel="nofollow" class="external text" href="mailto:@mrdownes@hotmail.com">mrdownes@hotmail.com</a>
+			</p>
 
-<!-- Saved in parser cache with key tincanapicouk_715945_db1-True:pcache:idhash:471-0!*!0!!en!*!* and timestamp 20130216085345 -->
-</div>
-		
+		</div>
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
 
 	</body>
 </html>

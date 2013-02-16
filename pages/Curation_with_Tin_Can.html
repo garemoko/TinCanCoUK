@@ -1,0 +1,101 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - Curation with Tin Can API</title>
+		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+		
+<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table id="toc" class="toc">
+	<h2>Curation with Tin Can API</h2>
+	<tbody><tr><td><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Background"><span class="tocnumber">1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Harnessing_the_Crowd"><span class="tocnumber">2</span> <span class="toctext">Harnessing the Crowd</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#The_Role_of_Tin_Can"><span class="tocnumber">3</span> <span class="toctext">The Role of Tin Can</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Conclusions"><span class="tocnumber">4</span> <span class="toctext">Conclusions</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Existing_Products"><span class="tocnumber">5</span> <span class="toctext">Existing Products</span></a></li>
+</ul>
+</td></tr></tbody></table>
+<h2> <span class="mw-headline" id="Background">Background</span></h2>
+<p>I recently read a <a rel="nofollow" class="external text" href="http://epiclearninggroup.com/uk/need-for-curation/">blog by Rachel Griffith-Boyes</a> on the topic of curation. In the blog, Rachel rightly argues that with increasing volumes of information on the internet, curation is likely to become another part of the learning designer's role.
+</p><p>This got me thinking. Is there a way in which we could use technology, specifically the Tin Can API, to automate this curation, or at least assist? Sites like Amazon have loads of junk on them mixed in with the worthwhile items, but still manage to keep the good stuff at the top of the list. How could we do something similar with learning and performance support materials?
+</p>
+<h2> <span class="mw-headline" id="Harnessing_the_Crowd">Harnessing the Crowd</span></h2>
+<p>If you have never watched <a rel="nofollow" class="external text" href="http://www.ted.com/talks/luis_von_ahn_massive_scale_online_collaboration.html">Luis von Ahn's TED talk on Massive-scale online collaboration</a>, you really should. Luis describes how large amounts of work can be undertaken by a large number of people doing tiny pieces without even realising they are doing it. 
+</p><p>For Luis the big task is digitizing every book ever published or translating the internet; for us the task is curating learning and performance support materials relevant to your organization. What if there was a way we could get the users themselves (the experts in their subject matter) to curate the materials as they found and used them? What if this process was so simple and conveyed other benefits to them personally that they didn't even realise they were doing it?
+</p>
+<h2> <span class="mw-headline" id="The_Role_of_Tin_Can">The Role of Tin Can</span></h2>
+<p>Tin Can allows for any learning experience to be recorded and for this data to be collates, analysed and reported. The are many possible benefits to the learner of recording their learning from demonstrating what they have learnt to an employer through to helping them reflect on, consolidate and share their learning. This data about what people learn from could be used to rank learning and performance support materials. The more use a website, book, training session or piece of eLearning gets, the more likely it is that this is a helpful experience for others. By simply recording their learning experiences, learners would be contributing to the rating of that learning experience within the curation software. Learning experiences with the highest ratings would then be promoted to others. 
+</p><p>These ratings could even be targeted to specific audiences. When I buy from Amazon, I get recommendations of what other people who bought the same things as me also bought. Amazon assumes that people who buy the same things as me have the same interests as me and therefore would be likely to buy more of the same type of thing. The same applies to learning. If Bob and Joe both attend a mobile learning conference and then later that week Bob reads a blog article that he find interesting enough to record in his learning record, there's at least some chance that the article might be on a topic of interest to Joe as well. 
+</p><p>In an earlier post I described how <a href="/wiki/index.php/Guide:Tin_Can_Learning_Evaluator" title="Guide:Tin Can Learning Evaluator"> learners can evaluate, reflect on and rate their learning </a> and how they could be rewarded for doing so. This data would be helpful in better ranking learning experiences rather, but we could also ask the learner to categorise their learning as an additional field. This would have benefits to the learner in organising their learning experiences and would have even greater benefits to the curation software in better targeting recommendations. If Bob and Joe attend a conference categorised as "mobile" and "learning", then Joe reads a magazine about "Parrots", Bob might not get that recommendation. If however Joe books onto a webinar about "mobile", this might be one that's of interest to Joe and the curation software might flag it up. 
+</p><p>I'll make clear here that Bob and Joe don't necessarily know each other - they just happened to attend the same conference. The curation software then uses this data to label Bob and Joe as interested in "mobile" and "learning" and then flag up any popular materials in these categories.
+</p>
+<h2> <span class="mw-headline" id="Conclusions">Conclusions</span></h2>
+<p>To sum up:
+There are large amounts of learning and performance support materials available on the internet and within our organisations. It can often be hard to sort the good from the bad, the relevant from the irrelevant. Tin Can enables us to collect data about what material is more commonly used and learners ratings of that content. This data can then be used to rank learning and performance support materials and curate these materials automatically, providing recommendations to learners based on their interests. The result is that learners find the right materials faster and make the best use of their time. 
+</p>
+<h2> <span class="mw-headline" id="Existing_Products">Existing Products</span></h2>
+<p>If you are interested in curation software, it may be worth checking out <a rel="nofollow" class="external text" href="http://epiclearninggroup.com/uk/products/curatr/">Curatr</a> who have <a rel="nofollow" class="external text" href="http://tincanapi.com/2012/10/29/adopters-spotlight-series-curatr/">recently announced adoption of the Tin Can API</a>. I've not seen Curatr in action myself, but it will be interesting to see what they do with Tin Can.
+</p>
+</div>
+
+		
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
+	</body>
+</html>

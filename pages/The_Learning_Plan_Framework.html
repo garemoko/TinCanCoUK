@@ -1,0 +1,551 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - The Learning Plan Framework</title>
+		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>The Learning Plan Framework</h2>
+			<table id="toc" class="toc">
+				<tbody>
+					<tr>
+						<td>
+						<div id="toctitle">
+							<h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">hide</a>]&nbsp;</span>
+						</div>
+						<ul>
+							<li class="toclevel-1 tocsection-1">
+								<a href="#Rationale"><span class="tocnumber">1</span> <span class="toctext">Rationale</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-2">
+								<a href="#Requirements"><span class="tocnumber">2</span> <span class="toctext">Requirements</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-3">
+										<a href="#Target_LRS"><span class="tocnumber">2.1</span> <span class="toctext">Target LRS</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-4">
+										<a href="#Sequencing_and_Branching"><span class="tocnumber">2.2</span> <span class="toctext">Sequencing and Branching</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-5">
+										<a href="#Prerequisites"><span class="tocnumber">2.3</span> <span class="toctext">Prerequisites</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="toclevel-1 tocsection-6">
+								<a href="#Approach"><span class="tocnumber">3</span> <span class="toctext">Approach</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-7">
+								<a href="#Verbs"><span class="tocnumber">4</span> <span class="toctext">Verbs</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-8">
+										<a href="#Enrolled"><span class="tocnumber">4.1</span> <span class="toctext">Enrolled</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-9">
+										<a href="#Planned"><span class="tocnumber">4.2</span> <span class="toctext">Planned</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-10">
+										<a href="#Cancelled"><span class="tocnumber">4.3</span> <span class="toctext">Cancelled</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-11">
+										<a href="#Completed.2C_Passed_and_Failed"><span class="tocnumber">4.4</span> <span class="toctext">Completed, Passed and Failed</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="toclevel-1 tocsection-12">
+								<a href="#Example_Learning_Plan_Definition"><span class="tocnumber">5</span> <span class="toctext">Example Learning Plan Definition</span></a>
+							</li>
+							<li class="toclevel-1 tocsection-13">
+								<a href="#Defining_a_template_learning_plan"><span class="tocnumber">6</span> <span class="toctext">Defining a template learning plan</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-14">
+										<a href="#Option_1"><span class="tocnumber">6.1</span> <span class="toctext">Option 1</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-15">
+										<a href="#Option_2"><span class="tocnumber">6.2</span> <span class="toctext">Option 2</span></a>
+									</li>
+								</ul>
+							</li>
+						</ul></td>
+					</tr>
+				</tbody>
+			</table>
+			<h2><span class="mw-headline" id="Rationale">Rationale</span></h2>
+			<p>
+				The Tin Can API does a fantastic job of defining communication between learning activities and learner record stores. Sequencing of learning activities to provide a learning path, however, rightly falls outside of Tin Can's scope.
+			</p>
+			<p>
+				For learning paths including only content produced by the designer of that path, custom sequencing solutions can be provided to link between learning activities. But what if we want to provide a learning path made up of activities from a range of providers? What it we want to include blog posts, YouTube videos and news articles in the mix as well?
+			</p>
+			<p>
+				For simple learning paths an html page of hyperlinks might suffice. We might even use SCORM to get learner details and launch Tin Can activities from SCOs. Features such as branching or prerequisites based on Tin Can statements would not be possible however. <a href="/wiki/index.php/Guide:SCORM_to_Tin_Can_API" title="Guide:SCORM to Tin Can API"> Translating from SCORM to Tin Can is eaay</a> but the reverse is not true and it would be very difficult to feed Tin Can statements of completion or success into SCORM's sequencing and navigation. Branching based on more specialist verbs would be even more impossible.
+			</p>
+			<p>
+				Another difference with Tin Can from SCORM is that Tin can focuses on achievement and events rather than courses. Could we define a learning map of potential achievements rather than activities?
+			</p>
+			<p>
+				The goal of this framework is to provide a replacement for SCORM's sequencing functions which is integrated with the Tin Can API. It will provide a way to map out learning paths with branching and prerequisites conditional on Tin Can statements issued by learning activities. It will allow learning designers and curators to pull in eLearning content from a range of suppliers mixed in with other learning activities from the web.
+			</p>
+			<p>
+				This project is currently at the requirements gathering and ideas drafting stage. Please contribute to the requirements below or email <a rel="nofollow" class="external text" href="mailto:mrdownes@hotmail.com">mrdownes@hotmail.com</a>.
+			</p>
+			<h2><span class="mw-headline" id="Requirements">Requirements</span></h2>
+			<h3><span class="mw-headline" id="Target_LRS">Target LRS</span></h3>
+			<ul>
+				<li>
+					The target LRS endpoint and user credentials should be defined by the LPS (Learning Planning System)  rather than the Learning Path Definition
+				</li>
+				<li>
+					These details may vary from user to user or the LPS (Learning Planning System) may have its own credentials with a specific LRS.
+				</li>
+			</ul>
+			<h3><span class="mw-headline" id="Sequencing_and_Branching">Sequencing and Branching</span></h3>
+			<ul>
+				<li>
+					The framework should should allow for definition of a learning map (see the 'knowledge map' section of this page: <a rel="nofollow" class="external free" href="http://www.khanacademy.org/about">http://www.khanacademy.org/about</a>)
+				</li>
+				<li>
+					The learning map may be a linear sequence or may include branching.
+				</li>
+			</ul>
+			<h3><span class="mw-headline" id="Prerequisites">Prerequisites</span></h3>
+			<ul>
+				<li>
+					The framework should allow for definition of prerequisites for each node in the learning map.
+				</li>
+				<li>
+					Prerequisites should relate to Tin Can statements
+				</li>
+				<li>
+					The LPS (Learning Planning System) should disable the link from the node to the activity until the prerequisite(s) are met.
+					<ul>
+						<li>
+							E.g. you cannot access activity until there is a statement where the actor is the current user, the verb is "completed", the object is activity X and the scaled score is greater than or equal to 0.7.
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<h2><span class="mw-headline" id="Approach">Approach</span></h2>
+			<p>
+				Tin Can already specifies a way of <a href="/wiki/index.php/Blogs:I_Want_This" title="Blogs:I Want This"> planning learning activities</a> using sub-statements of the form '[actor] [planned] [actor] [watched] [Youtube Video]'. We can therefore use a series of these 'planned' statements to build a learning plan. The two main advantages of this approach are:
+			</p>
+			<ol>
+				<li>
+					The framework can reuse Tin Can's definitions
+				</li>
+				<li>
+					A learner's personal learning plan could be built up and added to with statements from a range of sources at different times.
+				</li>
+			</ol>
+			<h2><span class="mw-headline" id="Verbs">Verbs</span></h2>
+			<p>
+				This section lists the verbs used in defining a learning plan and explains how they should be used in this context.
+			</p>
+			<h3><span class="mw-headline" id="Enrolled">Enrolled</span></h3>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> 
+&nbsp;
+	<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan"</span><span class="sy0">,</span> 
+&nbsp;
+	<span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span>
+&nbsp;
+		<span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"enrolled onto"</span>
+&nbsp;
+		<span class="st0">"en-GB"</span><span class="sy0">:</span><span class="st0">"enrolled onto"</span>
+	<span class="br0">}</span> 
+&nbsp;
+<span class="br0">}</span></pre>
+</div>			</div>
+			<p>
+				This verb is used to create a learning plan or to add additional learners to an existing learning plan. An LPS (Learning Planning System) can obtain a list of learning plans by getting all statements with verb id "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan">http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan</a>".
+			</p>
+			<p>
+				The actor of this statement is the person who is being enrolled onto the plan. Where the enrolment is being assigned by a 3rd party (or the plan was created by a 3rd party), the context instructor property may be used.
+			</p>
+			<p>
+				The object of statements using this verb will always be an activity. The id of this activity, rather than statement id, should be used to reference the learning plan. For enrolments onto existing activities, the activity definition property is not required as this will already have been defined when the plan was created.
+			</p>
+			<p>
+				The time-stamp property should be used to define when the enrolment happened, not to set a target completion date for the plan.
+			</p>
+			<p>
+				After enrolling a new learner on a learning plan, the LPS should reissue all relevant "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:planned_learning">http://www.tincanapi.co.uk/wiki/verbs:planned_learning</a>" statements with the new learner as the actor. The LPS may chose if relevant statements include all statements grouped under the learning plan, or just those issued by the original creator of the plan. The original creator of the plan is defined in the earliest enrolment statement as the context instructor if it exists or the actor if it doesn't.
+			</p>
+			<p>
+				Where learning plan statements are issued for individual learners on the plan after multiple learners are enrolled on that plan, different implementations of LPS have three options:
+			</p>
+			<ol>
+				<li>
+					Re-issue the statement for all learners enrolled on the learning plan.
+				</li>
+				<li>
+					Do nothing - the new statement only applies to the learner who issued it and subsequent learners who enrol on the plan (if relevant).
+				</li>
+				<li>
+					Notify enrolled learners and allow them to chose to accept the change to the plan or not.
+				</li>
+			</ol>
+			<h3><span class="mw-headline" id="Planned">Planned</span></h3>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> 
+&nbsp;
+	<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/wiki/verbs:planned_learning"</span><span class="sy0">,</span> 
+&nbsp;
+	<span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span>
+&nbsp;
+		<span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"planned"</span>
+&nbsp;
+		<span class="st0">"en-GB"</span><span class="sy0">:</span><span class="st0">"planned"</span>
+	<span class="br0">}</span> 
+&nbsp;
+<span class="br0">}</span></pre>
+</div>			</div>
+			<p>
+				This verb is used to plan a learning activity, whether this is part of a learning plan or a stand-alone learning goal. The object of this verb should always be a substatement as defined in 4.1.4.3a of the 0.95 spec and explained in my <a href="/wiki/index.php/Blogs:I_Want_This" title="Blogs:I Want This"> 'I Want This: Tin Can Plans, Goals and Targets'</a> blog post.
+			</p>
+			<p>
+				The planned item may be included as part of a learning plan, in which case the context contextActivities grouping property should be included with a value of the id of the learning plan.
+			</p>
+			<p>
+				A prerequisite may be defined using the context statement property. The value of this should be the statement id of an earlier planning statement, that is a statement whose verb id is also "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:planned_learning">http://www.tincanapi.co.uk/wiki/verbs:planned_learning</a>". Each item can only have one prerequisite, but multiple items can share the same prerequisite, forcing a reasonably simple tree structure and preventing hugely complicated webs and impossible loops. If an item requires multiple prerequisites, the activities must be chained one after the other.
+			</p>
+			<p>
+				For example:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="st0">"context"</span><span class="sy0">:</span> <span class="br0">{</span>
+	<span class="st0">"statement"</span><span class="sy0">:</span> <span class="st0">"2b71d664-3158-11e2-81c1-0800200c9a66"</span>
+	<span class="st0">"contextActivities"</span><span class="sy0">:</span> <span class="br0">{</span>
+		<span class="st0">"grouping"</span> <span class="sy0">:</span> <span class="st0">"http://www.tincanapi.co.uk/wiki/learning_plan:c1356a25-01d0-4301-ba7d-6084c12443d9"</span>
+<span class="br0">}</span></pre>
+</div>			</div>
+			<p>
+				Here the prerequisite is an earlier statement whose id was "2b71d664-3158-11e2-81c1-0800200c9a66". This statement belongs to a learning plan "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/learning_plan:c1356a25-01d0-4301-ba7d-6084c12443d9">http://www.tincanapi.co.uk/wiki/learning_plan:c1356a25-01d0-4301-ba7d-6084c12443d9</a>".
+			</p>
+			<h3><span class="mw-headline" id="Cancelled">Cancelled</span></h3>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> 
+&nbsp;
+	<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/wiki/verbs:cancelled_planned_learning"</span><span class="sy0">,</span> 
+&nbsp;
+	<span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span>
+&nbsp;
+		<span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"cancelled"</span>
+&nbsp;
+		<span class="st0">"en-GB"</span><span class="sy0">:</span><span class="st0">"cancelled"</span>
+	<span class="br0">}</span> 
+&nbsp;
+<span class="br0">}</span></pre>
+</div>			</div>
+			<p>
+				This verb is used to record cancelled or amended plans. The object of this verb should always be a statement reference pointed to the id of a "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:planned_learning">http://www.tincanapi.co.uk/wiki/verbs:planned_learning</a>" or "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan">http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan</a>" statement.
+			</p>
+			<p>
+				This verb is a weaker version of "<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/voided">http://adlnet.gov/expapi/verbs/voided</a>" and is used to let the LPS (Learning Planning System) know that this particular plan has been superseded and is no longer relevant. Where a whole learning plan is cancelled, every item in that plan is considered to be cancelled. "<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/voided">http://adlnet.gov/expapi/verbs/voided</a>" would suggest that the plan was never made in the first place.
+			</p>
+			<p>
+				Where an amendment rather than a cancellation is required, the "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:planned_learning">http://www.tincanapi.co.uk/wiki/verbs:planned_learning</a>" statement(s) should be re-issued with complete with both new values and those which have not changed. Re-issuing a statement will give it a new id, so any statements which depended on the cancelled statement as a prerequisite would also be considered to be cancelled until they are also re-issued.
+			</p>
+			<h3><span class="mw-headline" id="Completed.2C_Passed_and_Failed">Completed, Passed and Failed</span></h3>
+			<ul>
+				<li>
+					<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/completed">http://adlnet.gov/expapi/verbs/completed</a>
+				</li>
+				<li>
+					<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/passed">http://adlnet.gov/expapi/verbs/passed</a>
+				</li>
+				<li>
+					<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/failed">http://adlnet.gov/expapi/verbs/failed</a>
+				</li>
+			</ul>
+			<p>
+				These verbs can be used with "StatementRef" pointing at a "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan">http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan</a>" statement. All of these verbs used in this context assert that the learning plan has been completed. "<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/passed">http://adlnet.gov/expapi/verbs/passed</a>" asserts that the learning plan has been a success. "<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/failed">http://adlnet.gov/expapi/verbs/failed</a>" asserts that the learning plan has been unsuccessful (i.e. learning has not been achieved). "<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/completed">http://adlnet.gov/expapi/verbs/completed</a>" makes no assertion either way about the success of the plan, just that it is over.
+			</p>
+			<p>
+				The LPS can use its own judgement on when to issue these statements. Some implementations may automatically make learning plans as completed, passed or failed based on fulfilment of the planned learning. Other implementations may require the learner themselves or a supervisor to evaluate and assert the completion and success of the plan.
+			</p>
+			<h2><span class="mw-headline" id="Example_Learning_Plan_Definition">Example Learning Plan Definition</span></h2>
+			<p>
+				The following list of statements could be issued to create a simple 2 step learning plan.
+			</p>
+			<p>
+				Human readable ids have been used for statements to make this example easier to understand. In practice, however, you should ensure that your statement ids are unique. If you want to use the statement ids generated by the LRS, therefore the statements below will need to be sent one at a time so that the ids are returned to be used in the context of later statements. If you want to send multiple statements as a block, you will need to generate your own ids.
+			</p>
+			<p>
+				<a rel="nofollow" class="external free" href="http://example.com/">http://example.com/</a> has been used the in ids of some verbs. This is for illustrative purposes only and all verbs used in production systems should have proper verb ids as defined by the spec.
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="br0">{</span>
+	<span class="st0">"id"</span><span class="sy0">:</span> <span class="st0">"unqiue_id_of_learning_plan_statement"</span><span class="sy0">,</span>
+&nbsp;
+	<span class="st0">"actor"</span><span class="sy0">:</span> <span class="br0">{</span><span class="st0">"objectType"</span><span class="sy0">:</span> <span class="st0">"Agent"</span><span class="sy0">,</span> <span class="st0">"mbox"</span><span class="sy0">:</span><span class="st0">"mailto:test@example.com"</span> <span class="br0">}</span><span class="sy0">,</span>
+&nbsp;
+	<span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> 
+&nbsp;
+		<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan"</span><span class="sy0">,</span> 
+&nbsp;
+		<span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span>
+&nbsp;
+			<span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"enrolled onto"</span>
+&nbsp;
+			<span class="st0">"en-GB"</span><span class="sy0">:</span><span class="st0">"enrolled onto"</span>
+		<span class="br0">}</span> 
+&nbsp;
+	<span class="br0">}</span><span class="sy0">,</span>
+&nbsp;
+	<span class="st0">"object"</span><span class="sy0">:</span> <span class="br0">{</span>
+&nbsp;
+		<span class="st0">"objectType"</span><span class="sy0">:</span> <span class="st0">"Activity"</span><span class="sy0">,</span>
+&nbsp;
+		<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/wiki/learning_plan:unqiue_id_of_learning_plan"</span><span class="sy0">,</span>
+&nbsp;
+		<span class="st0">"definition"</span><span class="sy0">:</span> <span class="br0">{</span> 
+			<span class="st0">"name"</span> <span class="sy0">:</span> <span class="br0">{</span>
+				<span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"Example Learner's Orientation Learning Plan"</span>
+&nbsp;
+				<span class="st0">"en-GB"</span><span class="sy0">:</span><span class="st0">"Example Learner's Induction Learning Plan"</span>
+				<span class="br0">}</span>
+			<span class="br0">}</span>
+&nbsp;
+		<span class="br0">}</span>
+&nbsp;
+	<span class="br0">}</span>
+&nbsp;
+<span class="br0">}</span>
+&nbsp;
+<span class="br0">{</span>
+	<span class="st0">"id"</span><span class="sy0">:</span> <span class="st0">"unique_id_of_first_planned_activity_statement"</span><span class="sy0">,</span>
+&nbsp;
+	<span class="st0">"actor"</span><span class="sy0">:</span> <span class="br0">{</span><span class="st0">"objectType"</span><span class="sy0">:</span> <span class="st0">"Agent"</span><span class="sy0">,</span> <span class="st0">"mbox"</span><span class="sy0">:</span><span class="st0">"mailto:test@example.com"</span> <span class="br0">}</span><span class="sy0">,</span>
+&nbsp;
+	<span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> 
+&nbsp;
+		<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/wiki/verbs:planned_learning"</span><span class="sy0">,</span> 
+&nbsp;
+		<span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span>
+&nbsp;
+			<span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"planned"</span>
+&nbsp;
+			<span class="st0">"en-GB"</span><span class="sy0">:</span><span class="st0">"planned"</span>
+		<span class="br0">}</span> 
+&nbsp;
+	<span class="br0">}</span><span class="sy0">,</span>
+&nbsp;
+	<span class="st0">"object"</span><span class="sy0">:</span> <span class="br0">{</span>
+&nbsp;
+		<span class="st0">"objectType"</span><span class="sy0">:</span> <span class="st0">"SubStatement"</span><span class="sy0">,</span>
+&nbsp;
+		<span class="st0">"actor"</span> <span class="sy0">:</span> <span class="br0">{</span><span class="st0">"mbox"</span><span class="sy0">:</span><span class="st0">"mailto:test@example.com"</span> <span class="br0">}</span><span class="sy0">,</span>
+&nbsp;
+		<span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> <span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://example.com/read"</span><span class="sy0">,</span> <span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span><span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"read"</span><span class="br0">}</span> <span class="br0">}</span><span class="sy0">,</span>
+&nbsp;
+		<span class="st0">"object"</span><span class="sy0">:</span> <span class="br0">{</span>
+&nbsp;
+			<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://example.com/book"</span><span class="sy0">,</span>
+&nbsp;
+			<span class="st0">"definition"</span><span class="sy0">:</span> <span class="br0">{</span> <span class="st0">"name"</span> <span class="sy0">:</span> <span class="br0">{</span><span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"Some Awesome Book"</span><span class="br0">}</span><span class="br0">}</span>
+&nbsp;
+		<span class="br0">}</span>
+&nbsp;
+	<span class="br0">}</span>
+	<span class="st0">"context"</span><span class="sy0">:</span> <span class="br0">{</span>
+		<span class="st0">"contextActivities"</span><span class="sy0">:</span> <span class="br0">{</span>
+			<span class="st0">"grouping"</span> <span class="sy0">:</span> <span class="st0">"http://www.tincanapi.co.uk/wiki/learning_plan:unqiue_id_of_learning_plan"</span>
+		<span class="br0">}</span>
+	<span class="br0">}</span>
+&nbsp;
+<span class="br0">}</span>
+&nbsp;
+<span class="br0">{</span>	
+	<span class="st0">"id"</span><span class="sy0">:</span> <span class="st0">"unique_id_of_second_planned_activity_statement"</span><span class="sy0">,</span>
+&nbsp;
+	<span class="st0">"actor"</span><span class="sy0">:</span> <span class="br0">{</span><span class="st0">"objectType"</span><span class="sy0">:</span> <span class="st0">"Agent"</span><span class="sy0">,</span> <span class="st0">"mbox"</span><span class="sy0">:</span><span class="st0">"mailto:test@example.com"</span> <span class="br0">}</span><span class="sy0">,</span>
+&nbsp;
+	<span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> 
+&nbsp;
+		<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/wiki/verbs:planned_learning"</span><span class="sy0">,</span> 
+&nbsp;
+		<span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span>
+&nbsp;
+			<span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"planned"</span>
+&nbsp;
+			<span class="st0">"en-GB"</span><span class="sy0">:</span><span class="st0">"planned"</span>
+		<span class="br0">}</span> 
+&nbsp;
+	<span class="br0">}</span><span class="sy0">,</span>
+&nbsp;
+	<span class="st0">"object"</span><span class="sy0">:</span> <span class="br0">{</span>
+&nbsp;
+		<span class="st0">"objectType"</span><span class="sy0">:</span> <span class="st0">"SubStatement"</span><span class="sy0">,</span>
+&nbsp;
+		<span class="st0">"actor"</span> <span class="sy0">:</span> <span class="br0">{</span><span class="st0">"mbox"</span><span class="sy0">:</span><span class="st0">"mailto:test@example.com"</span> <span class="br0">}</span><span class="sy0">,</span>
+&nbsp;
+		<span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> <span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://example.com/read"</span><span class="sy0">,</span> <span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span><span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"read"</span><span class="br0">}</span> <span class="br0">}</span><span class="sy0">,</span>
+&nbsp;
+		<span class="st0">"object"</span><span class="sy0">:</span> <span class="br0">{</span>
+&nbsp;
+			<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://example.com/book2"</span><span class="sy0">,</span>
+&nbsp;
+			<span class="st0">"definition"</span><span class="sy0">:</span> <span class="br0">{</span> <span class="st0">"name"</span> <span class="sy0">:</span> <span class="br0">{</span><span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"Some Other Awesome Book"</span><span class="br0">}</span><span class="br0">}</span>
+&nbsp;
+		<span class="br0">}</span>
+&nbsp;
+	<span class="br0">}</span>
+&nbsp;
+	<span class="st0">"context"</span><span class="sy0">:</span> <span class="br0">{</span>
+		<span class="st0">"statement"</span><span class="sy0">:</span> <span class="st0">"unique_id_of_first_planned_activity_statement"</span>
+		<span class="st0">"contextActivities"</span><span class="sy0">:</span> <span class="br0">{</span>
+			<span class="st0">"grouping"</span> <span class="sy0">:</span> <span class="st0">"http://www.tincanapi.co.uk/wiki/learning_plan:unqiue_id_of_learning_plan"</span>
+		<span class="br0">}</span>
+	<span class="br0">}</span>
+&nbsp;
+<span class="br0">}</span></pre>
+</div>			</div>
+			<h2><span class="mw-headline" id="Defining_a_template_learning_plan">Defining a template learning plan</span></h2>
+			<p>
+				This approach works well if we want to produce a learning plan for existing individual or groups of learners, but what if we can to create a template that can be assigned to learners and groups in future?
+				Some points to consider:
+			</p>
+			<ul>
+				<li>
+					The actor would need to be removed from the statements or a placeholder actor included
+				</li>
+				<li>
+					id, stored and timestamp properties would also be blank
+				</li>
+				<li>
+					Prerequisite links would need to be preserved despite the lack of ids
+				</li>
+				<li>
+					the verb of the parent statement would always be the same so this need not be stored in the template.
+				</li>
+			</ul>
+			<h3><span class="mw-headline" id="Option_1">Option 1</span></h3>
+			<p>
+				A template learning plan might look something like this:
+			</p>
+			<div dir="ltr" class="mw-geshi" style="text-align: left;">
+				<div class="javascript source-javascript">
+					<pre class="de1"><span class="br0">{</span>
+	<span class="st0">"id"</span><span class="sy0">:</span> <span class="st0">"0"</span><span class="sy0">,</span>
+&nbsp;
+	<span class="st0">"object"</span><span class="sy0">:</span> <span class="br0">{</span>
+&nbsp;
+		<span class="st0">"objectType"</span><span class="sy0">:</span> <span class="st0">"SubStatement"</span><span class="sy0">,</span>
+&nbsp;
+		<span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> <span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://example.com/read"</span><span class="sy0">,</span> <span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span><span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"read"</span><span class="br0">}</span> <span class="br0">}</span><span class="sy0">,</span>
+&nbsp;
+		<span class="st0">"object"</span><span class="sy0">:</span> <span class="br0">{</span>
+&nbsp;
+			<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://example.com/book"</span><span class="sy0">,</span>
+&nbsp;
+			<span class="st0">"definition"</span><span class="sy0">:</span> <span class="br0">{</span> <span class="st0">"name"</span> <span class="sy0">:</span> <span class="br0">{</span><span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"Some Awesome Book"</span><span class="br0">}</span><span class="br0">}</span>
+&nbsp;
+		<span class="br0">}</span>
+&nbsp;
+	<span class="br0">}</span>
+&nbsp;
+<span class="br0">}</span>
+&nbsp;
+<span class="br0">{</span>	
+	<span class="st0">"id"</span><span class="sy0">:</span> <span class="st0">"1"</span><span class="sy0">,</span>
+&nbsp;
+	<span class="st0">"object"</span><span class="sy0">:</span> <span class="br0">{</span>
+&nbsp;
+		<span class="st0">"objectType"</span><span class="sy0">:</span> <span class="st0">"SubStatement"</span><span class="sy0">,</span>
+&nbsp;
+		<span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> <span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://example.com/read"</span><span class="sy0">,</span> <span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span><span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"read"</span><span class="br0">}</span> <span class="br0">}</span><span class="sy0">,</span>
+&nbsp;
+		<span class="st0">"object"</span><span class="sy0">:</span> <span class="br0">{</span>
+&nbsp;
+			<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://example.com/book2"</span><span class="sy0">,</span>
+&nbsp;
+			<span class="st0">"definition"</span><span class="sy0">:</span> <span class="br0">{</span> <span class="st0">"name"</span> <span class="sy0">:</span> <span class="br0">{</span><span class="st0">"en-US"</span><span class="sy0">:</span><span class="st0">"Some Other Awesome Book"</span><span class="br0">}</span><span class="br0">}</span>
+&nbsp;
+		<span class="br0">}</span>
+&nbsp;
+	<span class="br0">}</span>
+&nbsp;
+	<span class="st0">"extensions"</span><span class="sy0">:</span> <span class="br0">{</span>
+		<span class="st0">"http://tincanapi.co.uk/wiki/extensions/learningPlanPrerequisite"</span><span class="sy0">:</span> <span class="st0">"0"</span>
+	<span class="br0">}</span>
+&nbsp;
+<span class="br0">}</span></pre>
+</div>			</div>
+			<p>
+				This template would need to be stored not in the LRS, but in a separate learning plan database.
+			</p>
+			<p>
+				actor, verb, id, stored and prerequisite properties would be added when the template was applied to the learner or group of learners.
+			</p>
+			<h3><span class="mw-headline" id="Option_2">Option 2</span></h3>
+			<p>
+				Another option would be to create the learning plan for a template actor and then enrol real learners to that plan.
+			</p>
+
+		</div>
+
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
+	</body>
+</html>

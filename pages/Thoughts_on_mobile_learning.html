@@ -1,0 +1,322 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - Thoughts on mobile learning</title>
+		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>Thoughts on mobile learning</h2>
+			<p>
+				I've read a few blog posts recently about mobile learning. One thing they all seems to emphasis is that mobile learning is <i>different</i> from PC based learning. The exact details of how it is different, however, are often omitted. In the spirit of TinCanAPI.CO.UK's mission to help you with the HOW rather than the WHAT, I thought it might be helpful for me to share some ideas I've had over the last few weeks in this direction.
+			</p>
+			<p>
+				Let's start with some thought about how mobile phones are different from PCs and then think about the opportunities and challenges these difference might bring.
+			</p>
+			<table id="toc" class="toc">
+				<tbody>
+					<tr>
+						<td>
+						<div id="toctitle">
+							<h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">hide</a>]&nbsp;</span>
+						</div>
+						<ul>
+							<li class="toclevel-1 tocsection-1">
+								<a href="#Mobile_Phone_is_Mobile"><span class="tocnumber">1</span> <span class="toctext">Mobile Phone is Mobile</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-2">
+										<a href="#Opportunities"><span class="tocnumber">1.1</span> <span class="toctext">Opportunities</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-3">
+										<a href="#Challenges"><span class="tocnumber">1.2</span> <span class="toctext">Challenges</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="toclevel-1 tocsection-4">
+								<a href="#Smaller_Screen_Size"><span class="tocnumber">2</span> <span class="toctext">Smaller Screen Size</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-5">
+										<a href="#Challenges_2"><span class="tocnumber">2.1</span> <span class="toctext">Challenges</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-6">
+										<a href="#Opportunities_2"><span class="tocnumber">2.2</span> <span class="toctext">Opportunities</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="toclevel-1 tocsection-7">
+								<a href="#Smaller_Storage_Space"><span class="tocnumber">3</span> <span class="toctext">Smaller Storage Space</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-8">
+										<a href="#Challenges_3"><span class="tocnumber">3.1</span> <span class="toctext">Challenges</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="toclevel-1 tocsection-9">
+								<a href="#Intermittent_Connectivity"><span class="tocnumber">4</span> <span class="toctext">Intermittent Connectivity</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-10">
+										<a href="#Challenges_4"><span class="tocnumber">4.1</span> <span class="toctext">Challenges</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-11">
+										<a href="#Opportunities_3"><span class="tocnumber">4.2</span> <span class="toctext">Opportunities</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="toclevel-1 tocsection-12">
+								<a href="#Always_On"><span class="tocnumber">5</span> <span class="toctext">Always On</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-13">
+										<a href="#Opportunities_4"><span class="tocnumber">5.1</span> <span class="toctext">Opportunities</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="toclevel-1 tocsection-14">
+								<a href="#Touch_and_Gestures"><span class="tocnumber">6</span> <span class="toctext">Touch and Gestures</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-15">
+										<a href="#Challenges_5"><span class="tocnumber">6.1</span> <span class="toctext">Challenges</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-16">
+										<a href="#Opportunities_5"><span class="tocnumber">6.2</span> <span class="toctext">Opportunities</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="toclevel-1 tocsection-17">
+								<a href="#Built_in_Camera"><span class="tocnumber">7</span> <span class="toctext">Built in Camera</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-18">
+										<a href="#Challenges_6"><span class="tocnumber">7.1</span> <span class="toctext">Challenges</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-19">
+										<a href="#Opportunities_6"><span class="tocnumber">7.2</span> <span class="toctext">Opportunities</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="toclevel-1 tocsection-20">
+								<a href="#Microphone"><span class="tocnumber">8</span> <span class="toctext">Microphone</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-21">
+										<a href="#Opportunities_7"><span class="tocnumber">8.1</span> <span class="toctext">Opportunities</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="toclevel-1 tocsection-22">
+								<a href="#Other_Gadgets"><span class="tocnumber">9</span> <span class="toctext">Other Gadgets</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-23">
+										<a href="#Opportunities_8"><span class="tocnumber">9.1</span> <span class="toctext">Opportunities</span></a>
+									</li>
+								</ul>
+							</li>
+							<li class="toclevel-1 tocsection-24">
+								<a href="#Responsive_vs._Specialized_Design"><span class="tocnumber">10</span> <span class="toctext">Responsive vs. Specialized Design</span></a>
+								<ul>
+									<li class="toclevel-2 tocsection-25">
+										<a href="#Responsive_Design"><span class="tocnumber">10.1</span> <span class="toctext">Responsive Design</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-26">
+										<a href="#Specialised_Design"><span class="tocnumber">10.2</span> <span class="toctext">Specialised Design</span></a>
+									</li>
+									<li class="toclevel-2 tocsection-27">
+										<a href="#Mobile_First"><span class="tocnumber">10.3</span> <span class="toctext">Mobile First</span></a>
+									</li>
+								</ul>
+							</li>
+						</ul></td>
+					</tr>
+				</tbody>
+			</table>
+			<h2><span class="mw-headline" id="Mobile_Phone_is_Mobile">Mobile Phone is Mobile</span></h2>
+			<p>
+				First I'll make sure we don't miss the obvious. My mobile phone fits in my pocket and I take it everywhere I go. It goes to work with me and comes home with me. I have it on the train, whilst I wait for the train and in my lunch break. I even take it with me when nature calls.
+			</p>
+			<h3><span class="mw-headline" id="Opportunities">Opportunities</span></h3>
+			<p>
+				Learning that is mobile means I can learn anywhere, in particular I can make use of time when for whatever reason I am away from my computer. This might be time travelling, time waiting for a customer or even time on the loo. Often these times are limited windows so the learning we design for mobile needs to allow me learn in small chunks, dip in and out, pause and replay.
+			</p>
+			<p>
+				Learning on the move also means that changing my physical location can actually be part of the learning experience. Maybe we're talking about an induction course for new starters. Could this learning include not a virtual tour of the building, but an actual tour of the building, taking the learning with with you as you go?
+			</p>
+			<h3><span class="mw-headline" id="Challenges">Challenges</span></h3>
+			<p>
+				Fitting into pupil's pockets and a constant source of distraction, the fact the pupils can take their phones anywhere including the classroom is seen as a challenge by many in (particularly pre-16) education. In the UK powerful figures such as Oftsed Chief Inspector Michael Wilshaw are in favour of banning mobile phones from schools altogether. I believe that there are serious concerns to be managed, but that to ban phones is an overreaction that robs pupils of vital skills they need in a modern world.
+			</p>
+			<p>
+				A better approach would be to develop an app that allows the teacher to monitor, control and lock down phones during school hours. The ban would then be for phones not running the app, if required. Some employers already do similar things with Bring Your Own Devices (BYOD). I can get my work email on my phone, but in order to do so I had to allow the mail client to change some of the security settings on my device and release permissions to the IT department to do things to my phone (such as delete emails) at any time.
+			</p>
+			<h2><span class="mw-headline" id="Smaller_Screen_Size">Smaller Screen Size</span></h2>
+			<p>
+				My PCs at home and work both have two reasonably sized monitors. This is great for productivity and I often have one screen for stuff I'm reading and the other screen for stuff I'm doing. My mobile phone on the other hand has one very small screen. I have one thing open at a time and if its a website, I'm often zoomed in on a particular section of the page. Even a larger tablet, though high resolution, is probably only half physical the area of my smallest monitor.
+			</p>
+			<h3><span class="mw-headline" id="Challenges_2">Challenges</span></h3>
+			<p>
+				This is an area which has had plenty of attention already and a quick Google search on "responsive web design" will give you plenty of help on this. I don't intend to repeat this here. Page layout, the size of buttons and choosing carefully what absolutely has to be included on the page are all things to be considered.
+			</p>
+			<h3><span class="mw-headline" id="Opportunities_2">Opportunities</span></h3>
+			<p>
+				One idea that is sometimes overlooked is not to see the mobile device as a smaller alternative screen to the PC, but rather to see it as another screen in addition to the PC. Could we develop learning programs that blend PC, mobile and face to face components to create a seamless whole? With Tin Can to manage communication between the various components, yes we can!
+			</p>
+			<h2><span class="mw-headline" id="Smaller_Storage_Space">Smaller Storage Space</span></h2>
+			<p>
+				My Android HTC Desire can install apps to its internal hard-drive only. Once there, some apps will let me transfer them over to the SD card, but some won't. I have to have at least twice the required space available on my hard-drive in order to download and install from Google Play. Right now, I have 2.28GB aviliable space on my SD card but only 16.17mb of space on the internal phone storage. This means that if I want to install your app, it better be smaller that 8.8mb - if not I'm going to either have to un-install something else or not bother. Generally I prefer apps in the 2-4mb category. On My PC, my hard-drives are my least-recently upgraded component yet I have over 200GB of free space available for installing applications.
+			</p>
+			<h3><span class="mw-headline" id="Challenges_3">Challenges</span></h3>
+			<p>
+				This clearly means we need to scale down our app sizes for mobile. Any media assets need to be downloaded post-installation to the SD card rather than taking up valuable space on the phone's internal memory. True, memory space is a particular issue on the HTC Desire, but this issue applies on other devices as well.
+			</p>
+			<h2><span class="mw-headline" id="Intermittent_Connectivity">Intermittent Connectivity</span></h2>
+			<p>
+				My home and office PC's connections to the internet are pretty stable, which is important because most of what I do is internet dependant. This dependency is just as strong on my mobile but my signal is not. When I'm out of WiFi, downloading web pages takes time and I have given up on Facebook because the app simply never has a strong enough connection to do anything! There are also locations where I have no signal at all and on my commute to work I have to strategically set web pages off loading in the good areas so that I have something to read later on when the signal dies.
+			</p>
+			<h3><span class="mw-headline" id="Challenges_4">Challenges</span></h3>
+			<p>
+				If our mobile learning content relies on an internet connection to work, it will not always work. We therefore need to design learning apps that are capable of working offline and then syncing tracking data and updates when a connection becomes available again. Tin Can allows for this use case in a way that SCORM does not.
+			</p>
+			<h3><span class="mw-headline" id="Opportunities_3">Opportunities</span></h3>
+			<p>
+				Many of the apps I use have the option to do things like downloading updates when WiFi is available. We can make use of these features to send Tin Can tracking statements when the learner has a good signal and also update other data such as social learning information. Imagine, for example, a twitter app which when you have WiFi, downloads to a cache every page linked by the people your follow. later on when you have no signal you can visit these pages instantly. This is the kind of thing our learning apps should do.
+			</p>
+			<h2><span class="mw-headline" id="Always_On">Always On</span></h2>
+			<p>
+				My PC takes an age to boot up and even when it does, those old hard drives spend the first couple of minutes doing <i>something</i> that slows the whole machine down. My trusty mobile, on the other hand, is always there when I need it.
+			</p>
+			<h3><span class="mw-headline" id="Opportunities_4">Opportunities</span></h3>
+			<p>
+				Always on means always ready. Mobiles can be used to assist and record learning at unexpected time and locations. This might mean providing just in time performance support materials as the learner undertakes the task they are learning about, or might mean allowing the learner to track and reflect on occasions when they have had opportunity to apply their learning from an earlier learning experience.
+			</p>
+			<h2><span class="mw-headline" id="Touch_and_Gestures">Touch and Gestures</span></h2>
+			<p>
+				Touch is another area which has had a lot of attention on mobile so whilst it's an important topic, I'll give it a light touch here (pardon the pun)! Mobile devices don't use mouse and keyboard (the hybrid Surface being the exception) but instead use touch and their main input method. Touch is not the only input method on a mobile, however, and we will look at some of the others below.
+			</p>
+			<h3><span class="mw-headline" id="Challenges_5">Challenges</span></h3>
+			<p>
+				No mouse means no right click and makes drag and drop more difficult. If you use these features in your learning they will need to be reconsidered for mobile. No keyboard means typing large amounts of text is less desirable and any keyboard short cuts are out the window (who uses those in eLearning anyway?)
+			</p>
+			<p>
+				Touch also means larger hit areas for buttons etc. Combine this with smaller screen size and you really need to think about what buttons are absolutely essential to display to your learners.
+			</p>
+			<h3><span class="mw-headline" id="Opportunities_5">Opportunities</span></h3>
+			<p>
+				Touch is far more natural than using a mouse and keyboard. It took me weeks and pink stickers on my mouse buttons to train my daughter to use a mouse and her keyboard skills are still fairly limited. I didn't need to teach her to use touch on a smartphone though and extremely young children can quickly operate these devices with no instruction at all. Touch therefore unlocks greater opportunities for eLearning with younger children and those with limited exposure to technology. Multi-touch tablets also unlock much greater potential for collaborative learning.
+			</p>
+			<p>
+				We can also replace buttons with gestures in a lot of cases. Many of the apps on my phone make use of gestures to move from one item or group to the next. think about the buttons on the last traditional PC based eLearning course you experienced. Which of those buttons did you actually click? Of those, how many could be replaced by gestures? Thinking in that direction you can see that mobile doesn't always mean bigger buttons; it might mean no buttons at all!
+			</p>
+			<h2><span class="mw-headline" id="Built_in_Camera">Built in Camera</span></h2>
+			<p>
+				Often overlooked are the various gadgets built in to mobile devices. These devices are generally only available to native apps, so you're going to need to use Tin Can to track your learning as any mobile SCORM solutions only work with HTML5 apps. You were going to use Tin can anyway though right?
+			</p>
+			<p>
+				The most obvious of these gadgets is the camera. It's a pretty versatile gadget too and can be used to capture still images, take videos, scan QR and bar-codes, augment reality and even provide a torch to light your way.
+			</p>
+			<h3><span class="mw-headline" id="Challenges_6">Challenges</span></h3>
+			<p>
+				One oft noted terror of mobile phones in schools is their potential for use by students to take photos up teacher's skirts or film bullying. These are serious concerns and incidents such as these have happened. There are ways of managing this, however, and I have already discussed above how schools could take more control of bring Your Own Devices using an app.
+			</p>
+			<h3><span class="mw-headline" id="Opportunities_6">Opportunities</span></h3>
+			<p>
+				There are so many opportunities unlocked by the camera it is hard to know where to start. The video and photo capture features allow learners to record evidence of physical artefacts they have produced, for example a wall built buy a construction student. They also allow learners (and learning designers) to produce and share their own instructional and performance support videos, learning more by teaching others. Learners can also use these features to capture and journal their own real working day, reflecting on, learning from and sharing the memories these images and videos represent.
+			</p>
+			<p>
+				QR codes and augmented reality can be used to let the learning spill out of the digital world of the device and into the real world. We mentioned earlier that induction tour for new starters. What if key people the new starter had to meet each had a QR code either subtly included as part of a staff id badge or a less subtle cardboard sign pinned to their desk or noticeboard. Learners could then scan these QR codes to tick off that they had met with each person on their list. Yes, it's a bit gimmicky, but gimmicks are often fun and that can only be a good thing for a new member of staff in induction!
+			</p>
+			<p>
+				I've not yet thought of a way my mobile's torch could be used in a learning context. If you think of anything good, let me know!
+			</p>
+			<h2><span class="mw-headline" id="Microphone">Microphone</span></h2>
+			<p>
+				Another tool not found on the desktop but readily available on a mobile device is the microphone. This allows for audio communication with peers and experts, recording of audio and voice commands.
+			</p>
+			<h3><span class="mw-headline" id="Opportunities_7">Opportunities</span></h3>
+			<p>
+				Audio recording allows the learner to quickly and naturally record their reflections and learning. The microphone provides a faster way to record thoughts, and provides an accurate record of conversations, meetings and presentations. In the academic world, tutors have found it helpful to provide audio feedback on essays, for example, and many learners find this feedback more helpful, personal and easier to understand than written feedback.
+			</p>
+			<h2><span class="mw-headline" id="Other_Gadgets">Other Gadgets</span></h2>
+			<p>
+				Smart phones and tablets also tend to include accelerometers and gyroscopes to measure the movement of the device. This might be linear movement such as shaking the device, or rotational movement such as turning the device to a different orientation. They also contain a vibration device to provide touch feedback to the user.
+			</p>
+			<h3><span class="mw-headline" id="Opportunities_8">Opportunities</span></h3>
+			<p>
+				We discussed the challenge of a smaller screen size meaning that mobile learning needs fewer larger buttons and how gestures could go a long way to removing buttons entirely. The in built accelerometers and gyroscopes provide us with another alternative. Could we allow learners to navigate our learning  by rotating or shaking the device? Could we expand our gestures even further to include certain combinations of device movements?
+			</p>
+			<p>
+				Where the topic of learning is a physical skill e.g. learning to fish, perhaps the mobile device can be used to simulate and measure the performance of that physical task. There are a number of games on the Nintendo Wii that work on this basis very successfully, yet this same technology in our mobile phones is often overlooked.
+			</p>
+			<h2><span class="mw-headline" id="Responsive_vs._Specialized_Design">Responsive vs. Specialized Design</span></h2>
+			<p>
+				In the world of web design, responsive design is rightly an important theme at the moment. The idea is that websites are designed to respond to the device they are being presented on, adjusting their shape, size and even content to suit either the mobile, tablet or desktop.
+			</p>
+			<h3><span class="mw-headline" id="Responsive_Design">Responsive Design</span></h3>
+			<p>
+				Responsive design is great and often the most appropriate solution, but its disadvantage is that it can force a lowest common denominator approach. If learners are to be able to access our learning activity on either mobile or desktop devices, we have to constrain our design to what will work on both.
+			</p>
+			<h3><span class="mw-headline" id="Specialised_Design">Specialised Design</span></h3>
+			<p>
+				The other side of the spectrum is specialised design. We design components of the course for mobile and other components for desktop depending on the type of learning required. This has the advantage of allowing us to leverage the benefits of both mobile and desktop devices for different aspects of the learning. The disadvantage is that the learner has to have access and spend time on both types of device. If the learner only has access to a mobile device or only a desktop, they will not be able to complete all of the learning.
+			</p>
+			<h3><span class="mw-headline" id="Mobile_First">Mobile First</span></h3>
+			<p>
+				A middle road would be to develop learning that would work in its entirety on a mobile, but which contains elements that can be completed on a larger screened more powerful desktop if one is available. The thinking here is that anything that can be done on desktop can be scaled down for mobile, but the reverse is not true. Parts of the course that rely on the mobile nature or built in gadgets of mobile would not easily translate to a desktop course.
+			</p>
+
+		</div>
+
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - Your learning site should use Tin Can API</title>
+		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>Your learning site should use Tin Can API</h2>
+			<p>
+				There are some great, free online learning sites out there. Here's a few examples:
+			</p>
+			<ul>
+				<li>
+					<a rel="nofollow" class="external free" href="http://duolingo.com/">http://duolingo.com/</a> - learn English, Spanish or German
+				</li>
+				<li>
+					<a rel="nofollow" class="external free" href="http://www.codecademy.com/">http://www.codecademy.com/</a> - learn to code
+				</li>
+				<li>
+					<a rel="nofollow" class="external free" href="http://www.khanacademy.org/">http://www.khanacademy.org/</a> - learn "almost anything" from Algebra to Venture Capital
+				</li>
+			</ul>
+			<p>
+				These free sites are awesome and there are many more out there. They provide learners with outstanding learning, which is mapped out in a clear path and which can be tracked and shared with peers and educators.
+			</p>
+			<p>
+				These sites are amazing, ground breaking, but they could be better.
+			</p>
+			<p>
+				Currently if I want to learn Spanish, JavaScript and Venture Capital I'm going to need to register on all three of the above sites. I'll have three separate learning paths and plans and my learning will be tracked across 3 separate systems. Duo the Owl will mail me if I fall behind on my Spanish, but he won't have a clue how my JavaScript is coming along.
+			</p>
+			<p>
+				By implementing the Tin Can API, each of these sites could allow their users to register just once and complete learning across all three sites and from external providers. Educators and learners themselves could construct a learning plan pulling learning activities from a range of providers. This could all be tracked in one place, so Duo the owl would know about my JavaScript. The tracking data could be shared, so a learner might choose to register with Duolingo as their portal and be tracked on Code Academy by an educator. Learning activities could be linked to and tracked from any system, so learners and educators could use existing Learner management systems which they are already familiar with.
+			</p>
+			<p>
+				Learners are still visiting the learning provider's site so the learning provider retains control of the learning experience, they just pass tracking data on to tracking tools and sites authorized by the user.
+			</p>
+			<p>
+				I believe this unlocks huge potential for learning sites and is an important step in producing a complete online education package which pulls the best learning activities from a range of providers. If you work for or are involved with one of the sites listed above, or a similar site, I urge you to look in more detail at the Tin can API and to start to dream about the possibilities it could open up.
+			</p>
+			
+
+		</div>
+
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
+	</body>
+</html>
