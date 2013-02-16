@@ -1,0 +1,79 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - 404</title>
+		<link rel="stylesheet" href="tinstatement.css" type="text/css" />
+		<!-- jquery
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1>TinCanAPI.co.uk</h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+		<img src="logo.png" width="75px" class="logo garemoko">
+
+		
+		<div class="welcome">
+			<h2>404</h2>
+			<p>
+				Welcome to Tin Can API .co .uk. I'm really sorry, but the page you
+				were looking for is not here. 
+			</p>
+			<p>
+				Recently I've had some hosting problems 
+				and I'm in the process for rebuilding the site. All of the pages have
+				moved, but I plan to set up re-directs to fix the broken links once 
+				I've moved all the content	back across. 
+			</p>
+			<p>
+				Click <a href="http://www.tincanapi.co.uk">Home</a> to find your page.
+			</p>
+		</div>
+		<div class="spacer">
+			<p>
+				Thanks for visiting.
+			</p>
+		</div>
+
+	</body>
+</html>

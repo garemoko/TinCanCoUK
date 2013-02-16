@@ -39,6 +39,15 @@
 						$(this).parent().children("p, ul, h3").addClass('displayNone');
 					}
 				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
 			});
 
 		</script>
@@ -61,10 +70,10 @@
 				<a href="http://www.twitter.com/mrdownes">@mrdownes</a> on Twitter.
 			</p>
 			<p>
-				Select the headings below to expand.
+				Select the <strong>headings</strong> below to expand.
 			</p>
 		</div>
-		
+		<img src="x.png" width="75px" class="logo garemoko" id="devX">
 		<div class="news">
 			<h2>Under re-development</h2>
 			<p>
