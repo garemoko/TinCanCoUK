@@ -13,6 +13,11 @@ div {
 	padding: 0em;
 
 }
+
+pre {
+ background-color:#eee;
+}
+
 .background_div {
 	margin: auto;
 	padding: 0px 0px;
@@ -23,11 +28,17 @@ div {
 	z-index: -1;
 	font-family: serif;
 }
+.mw-content-ltr
+{
+	background-color:white;
+	padding:1em;
+}
+
 .sevenEM {
 	font-size: 6em;
 	line-height: 1.8;
 }
-.section, .news, .welcome {
+.section, .news, .welcome, {
 	background: #ffb;
 	padding: 0.1em 1em 1em 1em;
 	margin: 1em;
