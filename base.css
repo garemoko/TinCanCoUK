@@ -16,6 +16,14 @@ div {
 
 pre {
  background-color:#eee;
+ overflow:visible;
+ display:inline;
+}
+
+table, td{
+	background-color:white;
+	border: solid 1px black;
+	padding: 0.5em;
 }
 
 .background_div {
@@ -38,7 +46,7 @@ pre {
 	font-size: 6em;
 	line-height: 1.8;
 }
-.section, .news, .welcome, {
+.section, .news, .welcome {
 	background: #ffb;
 	padding: 0.1em 1em 1em 1em;
 	margin: 1em;
