@@ -200,7 +200,7 @@
 				<div class="javascript source-javascript">
 					<pre class="de1"><span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> 
 &nbsp;
-	<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan"</span><span class="sy0">,</span> 
+	<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/verbs/enrolled_onto_learning_plan"</span><span class="sy0">,</span> 
 &nbsp;
 	<span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span>
 &nbsp;
@@ -212,7 +212,7 @@
 <span class="br0">}</span></pre>
 </div>			</div>
 			<p>
-				This verb is used to create a learning plan or to add additional learners to an existing learning plan. An LPS (Learning Planning System) can obtain a list of learning plans by getting all statements with verb id "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan">http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan</a>".
+				This verb is used to create a learning plan or to add additional learners to an existing learning plan. An LPS (Learning Planning System) can obtain a list of learning plans by getting all statements with verb id "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/verbs/enrolled_onto_learning_plan">http://www.tincanapi.co.uk/verbs/enrolled_onto_learning_plan</a>".
 			</p>
 			<p>
 				The actor of this statement is the person who is being enrolled onto the plan. Where the enrolment is being assigned by a 3rd party (or the plan was created by a 3rd party), the context instructor property may be used.
@@ -224,7 +224,7 @@
 				The time-stamp property should be used to define when the enrolment happened, not to set a target completion date for the plan.
 			</p>
 			<p>
-				After enrolling a new learner on a learning plan, the LPS should reissue all relevant "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:planned_learning">http://www.tincanapi.co.uk/wiki/verbs:planned_learning</a>" statements with the new learner as the actor. The LPS may chose if relevant statements include all statements grouped under the learning plan, or just those issued by the original creator of the plan. The original creator of the plan is defined in the earliest enrolment statement as the context instructor if it exists or the actor if it doesn't.
+				After enrolling a new learner on a learning plan, the LPS should reissue all relevant "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/verbs/planned_learning">http://www.tincanapi.co.uk/verbs/planned_learning</a>" statements with the new learner as the actor. The LPS may chose if relevant statements include all statements grouped under the learning plan, or just those issued by the original creator of the plan. The original creator of the plan is defined in the earliest enrolment statement as the context instructor if it exists or the actor if it doesn't.
 			</p>
 			<p>
 				Where learning plan statements are issued for individual learners on the plan after multiple learners are enrolled on that plan, different implementations of LPS have three options:
@@ -245,7 +245,7 @@
 				<div class="javascript source-javascript">
 					<pre class="de1"><span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> 
 &nbsp;
-	<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/wiki/verbs:planned_learning"</span><span class="sy0">,</span> 
+	<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/verbs/planned_learning"</span><span class="sy0">,</span> 
 &nbsp;
 	<span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span>
 &nbsp;
@@ -263,7 +263,7 @@
 				The planned item may be included as part of a learning plan, in which case the context contextActivities grouping property should be included with a value of the id of the learning plan.
 			</p>
 			<p>
-				A prerequisite may be defined using the context statement property. The value of this should be the statement id of an earlier planning statement, that is a statement whose verb id is also "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:planned_learning">http://www.tincanapi.co.uk/wiki/verbs:planned_learning</a>". Each item can only have one prerequisite, but multiple items can share the same prerequisite, forcing a reasonably simple tree structure and preventing hugely complicated webs and impossible loops. If an item requires multiple prerequisites, the activities must be chained one after the other.
+				A prerequisite may be defined using the context statement property. The value of this should be the statement id of an earlier planning statement, that is a statement whose verb id is also "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/verbs/planned_learning">http://www.tincanapi.co.uk/verbs/planned_learning</a>". Each item can only have one prerequisite, but multiple items can share the same prerequisite, forcing a reasonably simple tree structure and preventing hugely complicated webs and impossible loops. If an item requires multiple prerequisites, the activities must be chained one after the other.
 			</p>
 			<p>
 				For example:
@@ -284,7 +284,7 @@
 				<div class="javascript source-javascript">
 					<pre class="de1"><span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> 
 &nbsp;
-	<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/wiki/verbs:cancelled_planned_learning"</span><span class="sy0">,</span> 
+	<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/verbs/cancelled_planned_learning"</span><span class="sy0">,</span> 
 &nbsp;
 	<span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span>
 &nbsp;
@@ -296,13 +296,13 @@
 <span class="br0">}</span></pre>
 </div>			</div>
 			<p>
-				This verb is used to record cancelled or amended plans. The object of this verb should always be a statement reference pointed to the id of a "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:planned_learning">http://www.tincanapi.co.uk/wiki/verbs:planned_learning</a>" or "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan">http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan</a>" statement.
+				This verb is used to record cancelled or amended plans. The object of this verb should always be a statement reference pointed to the id of a "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/verbs/planned_learning">http://www.tincanapi.co.uk/verbs/planned_learning</a>" or "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/verbs/enrolled_onto_learning_plan">http://www.tincanapi.co.uk/verbs/enrolled_onto_learning_plan</a>" statement.
 			</p>
 			<p>
 				This verb is a weaker version of "<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/voided">http://adlnet.gov/expapi/verbs/voided</a>" and is used to let the LPS (Learning Planning System) know that this particular plan has been superseded and is no longer relevant. Where a whole learning plan is cancelled, every item in that plan is considered to be cancelled. "<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/voided">http://adlnet.gov/expapi/verbs/voided</a>" would suggest that the plan was never made in the first place.
 			</p>
 			<p>
-				Where an amendment rather than a cancellation is required, the "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:planned_learning">http://www.tincanapi.co.uk/wiki/verbs:planned_learning</a>" statement(s) should be re-issued with complete with both new values and those which have not changed. Re-issuing a statement will give it a new id, so any statements which depended on the cancelled statement as a prerequisite would also be considered to be cancelled until they are also re-issued.
+				Where an amendment rather than a cancellation is required, the "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/verbs/planned_learning">http://www.tincanapi.co.uk/verbs/planned_learning</a>" statement(s) should be re-issued with complete with both new values and those which have not changed. Re-issuing a statement will give it a new id, so any statements which depended on the cancelled statement as a prerequisite would also be considered to be cancelled until they are also re-issued.
 			</p>
 			<h3><span class="mw-headline" id="Completed.2C_Passed_and_Failed">Completed, Passed and Failed</span></h3>
 			<ul>
@@ -317,7 +317,7 @@
 				</li>
 			</ul>
 			<p>
-				These verbs can be used with "StatementRef" pointing at a "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan">http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan</a>" statement. All of these verbs used in this context assert that the learning plan has been completed. "<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/passed">http://adlnet.gov/expapi/verbs/passed</a>" asserts that the learning plan has been a success. "<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/failed">http://adlnet.gov/expapi/verbs/failed</a>" asserts that the learning plan has been unsuccessful (i.e. learning has not been achieved). "<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/completed">http://adlnet.gov/expapi/verbs/completed</a>" makes no assertion either way about the success of the plan, just that it is over.
+				These verbs can be used with "StatementRef" pointing at a "<a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/verbs/enrolled_onto_learning_plan">http://www.tincanapi.co.uk/verbs/enrolled_onto_learning_plan</a>" statement. All of these verbs used in this context assert that the learning plan has been completed. "<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/passed">http://adlnet.gov/expapi/verbs/passed</a>" asserts that the learning plan has been a success. "<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/failed">http://adlnet.gov/expapi/verbs/failed</a>" asserts that the learning plan has been unsuccessful (i.e. learning has not been achieved). "<a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/completed">http://adlnet.gov/expapi/verbs/completed</a>" makes no assertion either way about the success of the plan, just that it is over.
 			</p>
 			<p>
 				The LPS can use its own judgement on when to issue these statements. Some implementations may automatically make learning plans as completed, passed or failed based on fulfilment of the planned learning. Other implementations may require the learner themselves or a supervisor to evaluate and assert the completion and success of the plan.
@@ -341,7 +341,7 @@
 &nbsp;
 	<span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> 
 &nbsp;
-		<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/wiki/verbs:enrolled_onto_learning_plan"</span><span class="sy0">,</span> 
+		<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/verbs/enrolled_onto_learning_plan"</span><span class="sy0">,</span> 
 &nbsp;
 		<span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span>
 &nbsp;
@@ -379,7 +379,7 @@
 &nbsp;
 	<span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> 
 &nbsp;
-		<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/wiki/verbs:planned_learning"</span><span class="sy0">,</span> 
+		<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/verbs/planned_learning"</span><span class="sy0">,</span> 
 &nbsp;
 		<span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span>
 &nbsp;
@@ -422,7 +422,7 @@
 &nbsp;
 	<span class="st0">"verb"</span> <span class="sy0">:</span> <span class="br0">{</span> 
 &nbsp;
-		<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/wiki/verbs:planned_learning"</span><span class="sy0">,</span> 
+		<span class="st0">"id"</span><span class="sy0">:</span><span class="st0">"http://www.tincanapi.co.uk/verbs/planned_learning"</span><span class="sy0">,</span> 
 &nbsp;
 		<span class="st0">"display"</span><span class="sy0">:</span><span class="br0">{</span>
 &nbsp;
