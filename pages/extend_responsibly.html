@@ -1,0 +1,176 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+  <head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - Extend Responsibly</title>
+		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+    <div class="section">
+    		<h2>Extend Responsibly</h2>
+        <p>
+        When you first start out with Tin Can, you'll most likely use existing verbs, activity types and extensions 
+        from ADL. There will come a point where you will find a new use case that you don't have a verb for. After a bit 
+        of research you discover that you're not the first to come across this use case, and somebody has already defined 
+        a verb for this using a URI at some obscure website that you haven't heard of. The trouble is that so far all your 
+        verbs have used the same base URI; they look nice and neat. Using a new URI would spoil that. And anyway, you've 
+        never heard of this website before. Other adopters seem to be using the verb, but can you trust it on your 
+        production system?
+        </p><p>
+        This blog will explain why uniformity of URIs doesn't matter, why it's vital that you do use existing URIs 
+        outside your normal source of verbs and why it doesn't matter if you don't trust the website where the URI 
+        is defined. I'm using verbs in this example, but everything here applies to any other type of Tin Can extension.
+        </p>
+        <h3>Interoperability is the main purpose of Tin Can </h3>
+        <p>
+        First, let's start with a bit of background on the purpose of Tin Can. At its heart, Tin Can is an interoperability 
+        standard. It's designed to let learning content, tools and reports work together in a standard way. Tin Can means 
+        that content developed by one vendor can be tracked by an LRS developed by another vendor and compared with data 
+        from a tool from a third vendor in a report put together by a fourth vendor. This can also be helpful within an 
+        organisation, allowing tools developed by different people, teams and departments at different times to work together.
+        </p><p>
+        Interoperability is a benefit of Tin Can that has not been heavily publicised, probably because it's assumed. Car 
+        makers don't advertise that their car can be driven on roads to get places, because if it's a car that's a given. 
+        Let's be clear though: if you have no interest in interoperability then Tin Can gives you no benefit. Tin Can gives 
+        its adopters great freedom and flexibility, but it's still more restrictive than not following any standards at all. 
+        If you are making a single tool that will never ever have to interact with any other learning tool or system then 
+        don't use Tin Can.
+        </p><p>
+        If you do need your tools to work together, then Tin Can can help but is not the whole solution. It is possible for 
+        two tools both to be certified Tin Can compliant and still not play nicely together. In order to achieve 
+        interoperability, which is the whole point of Tin Can in the first place, we have to go beyond following the standard 
+        and talk to one another.
+        </p><p>
+        Tin Can is only part of the solution The scope of Tin Can is huge. It allows us to track any learning activity or 
+        achievement anywhere, including those which haven't been invented yet. Because of this, it's impossible to pin 
+        everything down and the verbs, activity types and extensions you will need will vary depending on the activity you 
+        are tracking. If you are tracking something common like a learner passed an online quiz, then you will find that 
+        everything has already been clearly defined. If you are tracking something new, then these things won't be defined, 
+        particularly in the first few years of Tin Can's existence.
+        </p>
+        <h3>The other half of the solution </h3>
+        <p>
+        When you do need to track something new, it's important that you use the same verbs, 
+        activity types and extensions as other adopters who are tracking and will track the same things. If you use one verb 
+        to describe an action and somebody else uses a different verb, reporting tools will assume you are talking about 
+        different actions and your tools won't work together. You need to keep up to date with how others are using Tin Can, 
+        and share your own use back with them
+        </p>
+        <h3>Why URI uniformity doesn't matter </h3>
+        <p>
+        It's at this point in the process where you might come across that verb I mentioned 
+        in the introduction. The one that meets your requirements but doesn't match the URIs of your existing verbs. At this 
+        point you might be tempted to try and keep a uniform set of verbs by creating a copy of the verb at your own URI rather 
+        than using the existing verb.
+        </p><p>
+        All that you gain from this is slightly neater code. That's it. Verbs have a display property that is designed to be 
+        shown to the user so they should never see the URI. The chef who only orders food with green packaging has uniform 
+        kitchen cupboards, but these are never seen by the diners. The benefits of defining a new verb where one already 
+        exists are extremely weak.
+        </p><p>
+        What you lose from doing this is interoperability, which is a big deal because interoperability is the whole point of 
+        using Tin Can in the first place. By creating a new URI, you immediately make it much harder for your tools to work 
+        with tools that are already using the existing verb.
+        </p><p>
+        This is bad news for your tools and bad news for the existing tools. If you are a large or influential organisation, 
+        it could be even worse news for future tools. Down the line you might well be able to convince others to follow your 
+        example so that their tools can work well with your tools. This will lead to a situation where there are two competing 
+        verb URIs in circulation. New adopters will be confused as to which URI to use, and whatever they choose their tools 
+        will only be compatible with half of the other tools out there. Ultimately most tools will resort to supporting both 
+        verbs and seeing them as equivalents, which will work but be messy. All this because you wanted your URIs to match in 
+        your code.
+        </p><p>
+        Clearly the best option for you and for the broader community is for you to use the existing URI.
+        </p>
+        <h3>What about security?</h3>
+        <p>
+        That's all well and good but what if you don't trust the website where the URI is pointed at. It 
+        could contain all kinds of nasty things like viruses, cookies and sponge cakes. Worse still, it could be run by an 
+        American government organisation, who we all know have been conspiring to cover up evidence of the aliens who steal 
+        our left socks for years.
+        </p><p>
+        The good news is that you don't need to trust the website that the URI points at to use that URI because there is no 
+        need for you to even visit that website. Remember too that your users will never see the verb URI either as they will 
+        view the verb's display property. True, there should be information about the verb hosted at the website the URI 
+        points to which will help you to understand what the verb means and how it should be used. If you've you've already 
+        found the verb though, that means you've either already visited the site or have found it in a registry or profile, 
+        so you've already got all the information you need.
+        </p><p>
+        Once a verb is defined and in use, it's creators really have very little power to do anything good or bad for the 
+        users of that verb. Like that unflattering photo of you that your friend posted on Facebook and then went viral, 
+        once a verb is out there, it's owned by the community and there's no stopping it.
+        </p>
+        <h3>Where can you find extensions?</h3> 
+        So hopefully you are convinced that you should always reuse existing verbs, activity types, extensions and documents 
+        wherever they exist. But how do you find them?
+        <p>
+        There are a few repositories and lists of verbs that already exist that you can use now. Over the next few months, 
+        I'm working on developing a comprehensive repository system that will store any type of extension. The idea that 
+        this will be a single system, itself powered by Tin Can, shared across multiple mirrored LRS.
+        </p><p>
+        The interface for this system can be included in any website or system, so my hope is that LMS vendors will choose to 
+        include this as part of their admin interface and that there will be copies on all your favourite Tin Can API websites. 
+        As these interfaces will all point to the same central web of LRS, you can be assured that wherever you access the 
+        repository from, you are looking at the same shared list.
+        </p><p>
+        If you'd like to learn more about this system or contribute to developing it, please visit the project page on Github.
+        </p>
+</div>
+		
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
+	</body>
+</html>
