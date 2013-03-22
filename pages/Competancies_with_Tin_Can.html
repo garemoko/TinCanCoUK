@@ -1,0 +1,127 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - Competencies wth Tin Can</title>
+		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+		
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>Competencies with Tin Can</h2>
+			<p>
+				In every job role, there are things that the person needs to be able to do and things that they need to know. Collectively these are known as competencies. Many organisations map out the competencies required for each job role and then design learning and performance support materials around these competencies. This is a helpful way of making sure that learning an  performance support materials cater for the skills required in the organisation. Competencies can also be used to ensure people are equipped for their current role or for another role in the organisation.
+			</p>
+			<p>	
+				Competencies can be evidenced and measured in a number of ways, and different methods suit different competencies an job roles. Tin Can means you don't have to adopt a one size fits all approach. You can take the approach most suited in each situation and then pull all the data together with Tin Can. Let's look at the process you'll follow when implementing this in your organisation.
+			</p>
+			<h3>					
+				1. Define Competencies
+			</h3>
+			<p>	
+				The first step is to map out the different competencies required and held in your organisation. These will be defined as activities in Tin Can, each with a unique activity id but sharing a common activity type.
+			</p>
+			<p>	
+				Think about not just the skills and knowledge required in your organisation, but also the skills and knowledge held in your organisation. You might not need a French speaker right now, but that could change. It's worth knowing about the extra skills and knowledge held by your workforce. You can even provide a mechanism for staff to add competencies you hadn't thought of, keeping your list fresh and up to date.
+			</p>
+			<h3>	
+				2. Identify events and craft statements
+			</h3>
+			<p>	
+				I cover the design process for Tin Can in my Epic How Tos, <a href="http://epiclearninggroup.com/uk/knowledge-base/learning-design-in-a-tin-can-world/">Learning design in a Tin Can world</a> and <a href="http://epiclearninggroup.com/uk/knowledge-base/how-to-design-tin-can-statements/">How to design Tin Can statements</a>. This process involves identifying the events you need to track and then crafting the statements you'll need. In this case, evidencing the competency will be an event in itself, and you'll also need to identify the events that provide evidence of the competency. These can include:
+			</p>
+			<ul>	
+				   <li>Passing an assessment</li>
+				   <li>Submitting e-portfolio assets</li>
+				   <li>Assessment or recognition from a manger or mentor</li>
+				   <li>Peer recognition</li>
+				   <li>Self recognition</li>
+			</ul>
+			<p>	
+				You'll store the method of evidencing the competency alongside the statement that the person achieved the competency. This means you can decide how much you trust that the competency has been met. In many cases you'll be able to rely on your people to self report reliably, after all most recruit is based on self reporting in the form of CVs and interviews. In some cases where the stakes are high you'll only want to rely on the more verifiable assessment methods.
+			</p>
+			<h3>	
+				3. Reporting 
+			</h3>
+			<p>	
+				You can use this data in a number of ways. First, the data from all your people can be looked at together. This will give you an idea of what skills and knowledge gaps you have in your organisation, allowing you to target your training and performance support initiatives. This will also identify skills and knowledge surpluses, which may provide opportunities for new business development or competitive advantage.
+			</p>
+			<p>	
+				Second, you can search your data to find people with specific competencies. This can be used to find a key person for a task, or to help with filling vacancies.
+			</p>
+			<p>	
+				Finally, you can look at the data for individuals and use this to inform and tailor their learning, performance job and progression. This can even be done automatically, with people linked to training and performance support materials and job adverts based on their competency profile.
+			</p>
+			<h3>	
+				4. Provide incentives
+			</h3>
+			<p>	
+				Any data driven system is only as good as the data that drives it. Many competencies can be captured automatically ans without buy in, but to get the best results you need your people on board and sharing relevant skills and knowledge that you didn't even know existed. This may require a cultural change, which is not a easy thing.
+			</p>
+			<p>	
+				There are many incentives you can try, from points to social recognition, from prizes to managerial expectation. The best incentive of all is to actually use the data and expect it to be accurate. Once people see that they're getting recognised, being sent relevant materials and even being put forward for jobs based on the competency system, they'll be much more likely to share.
+			</p>
+			<p>	
+				If you're interested in implementing such a competency system, please get in touch and I'll see how I can help.
+			</p>
+			
+
+		</div>
+
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
+	</body>
+</html>
