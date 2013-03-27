@@ -1,0 +1,107 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - Pur&eacute;ed Learning</title>
+		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+		
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>Pur&eacute;ed Learning</h2>
+			<p>
+				If you went to a restaurant and ordered a dish that included "blended summer fruits" what would you expect? You'd probably expect to see some sort 
+				of pur&eacute;e; there might be the odd lump of one berry or other, but generally the fruits would all be blended together so that you couldn't tell when 
+				one fruit ended and the other began. When you taste your blended summer fruits, you'd expect a single flavour blended together from the various 
+				ingredients.
+			</p>
+			<p>
+				So why does blended learning often look more like a fruit bowl than a pur&eacute;e? All the ingredients are there, but there's no interaction between them. 
+				The online learning operates completely independently from the face to face course, and the social elements are an optional extra tacked on at the 
+				last minute. Learners are faced multiple separate learning experiences, rather than a unified single flavour.
+			</p>
+			<p>				
+				One of the reasons this can happen is that responsibility for the different elements of the blend is divided up to different teams and little thought 
+				is given to the design of the learning solution as a whole. True blended learning requires somebody to take responsibility of the overall learning 
+				design and continued communication, collaboration and compromise between the teams producing each element of the blend.
+			</p>
+			<p>				
+				Another barrier to pur&eacute;ed learning is technology. Face to face learning is tracked with registers and evaluation forms, online learning is tracked 
+				with SCORM and social learning is rarely tracked at all. The classroom trainer often does not know about what's happening online, and the online 
+				learning package has no idea at all about what's happening in the classroom or on Twitter.
+			</p>
+			<p>	
+				A new e-learning standard called Tin Can due to be released on 26th April 2013 will change this. Tin Can allows any learning experience or achievement 
+				to be tracked in the same way, so the different ingredients of your blend can be tracked together. More importantly, Tin Can let's learning activities 
+				get the data back out, so each element in the blend can follow and respond to what's happening in the other elements.
+			</p>
+			<p>
+				To chat further about using Tin Can to design true blended learning, <a href="mailto:mrdownes@hotmail.com">please get in touch</a>. I'd love to hear 
+				your ideas about how Tin Can can help in your organisation and answer your questions about making it a reality.
+			</p>
+			<p>
+				This is the personal blog of Andrew Downes, a Learning Designer at  <a href="http://epiclearninggroup.com" target="_blank">Epic</a>.
+					Epic can design and deliver blended learning solutions and can help with 
+				all your Tin Can and learning needs. Please  <a href="http://epiclearninggroup.com/uk/platforms/learning-record-store/" target="_blank">contact Epic to find out more</a>.
+			</p>
+			
+
+		</div>
+
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
+	</body>
+</html>
