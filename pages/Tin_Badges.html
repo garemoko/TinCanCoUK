@@ -1,0 +1,108 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - Competencies wth Tin Can</title>
+		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+		
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>Project Open Can</h2>
+			<p>
+				I've been involved in Tin Can for over a year now. Through most of that time there's another project similar to Tin Can that's been developing and gaining momentum. Launched at about the same time as Tin Can, the Open Badges project is strikingly similar to Tin Can. Both projects aim to record and report on any learning anywhere and both set about it by defining learning activities, reporting them to a central database via an API and then having reporting tools get that data out, again via API. Both even use JSON as the format of their data.
+			</p><p>
+				There are some differences though:
+			</p><p>				
+				Tin Can was developed from within the world of e-learning. It's aimed at people moving from SCORM powered LMS and designed to tackle the problems of businesses other organisations whilst at the same time bringing significant benefits to the individual learner. Tin Can is used to track any learning and achievement down to a very granular level. This can be used to paint a picture of the learner's journey up to an achievement and for learning analytics for learning designers and developers.
+			</p><p>				
+				Open Badges has come from Mozilla an organisation most well known for producing the Firefox web browser. Open Badges aims to provide a way for people to demonstrate achievements outside of formal qualifications from schools, colleges and universities. As you'd expect, Open Badges also has a focus on graphical badges that represent the learner's achievements. This narrower focus on significant achievements allows Open Badges to deal with achievement really well, but it lacks the broader picture and analytics provided by Tin Can.
+			</p><p>				
+				Open Badges and Tin Can were developed independently and were not designed to work together. I've been thinking though. Could we somehow combine the two specifications so that we use Open Badges to recognise achievement and use Tin Can to tell the story around that achievement and provide analytics? The answer is yes. Yes we can.
+			</p><p>				
+				There's three different ways we can incorporate Open Badges into a Tin Can LRS.
+			</p><h3>				
+				1. The LRS acts as an Open Badges backpack but uses the Tin Can rather than Open Badges API
+			</h3><p>	
+				This solution involves defining a Tin Can profile for Open Badges. This profile will define an activity type for badges and the verbs and extensions needed for their use. With this solution, activity providers will create and award badges using Tin Can statements, which reporting tools will read to display the badges of a learner.
+			</p><p>				
+				Note that only statements that specifically award Open Badges will do so, for example Johnny earned Compliance Training Superstar badge. The system will not generate a badge for every single statement. This is the way we want it. Badges are only awarded for achievements of significance otherwise they become meaningless.
+			</p><p>				
+				This solution has the advantage of piggybacking on the work of Open Badges with the least effort. It brings all the benefits if Open Badges into Tin Can. What it doesn't do is allow the LRS to communicate with existing Open Badge systems. A website that displays Open Badges via the Open Badges API will not be able to get badges out of the LRS unless the website also implements Tin Can and the Open Badges profile we have defined.
+			</p><h2>			
+				2. The LRS also implements the Open Badges Displayer, Verification and Endorsement APIs
+			</h2><p>				
+				Taking step 1 further, an LRS can implement some of the Open Badges APIs so that websites and apps displaying badges can choose between the Tin Can and Open Badges APIs when getting data out of the LRS. Data about badges will still be input via Tin Can statements and stored in the same way, but the LRS will translate this Tin Can data to meet the Open Badges standard when responding to requests via the Open Badges APIs.
+			</p><p>				
+				This approach could be implemented by the LRS itself, or an external tool could be used to mediate and translate between a pure Tin Can LRS and Open Badges clients.
+			</p><p>				
+				This approach will aid interoperability with existing Open Badges displayers, but is additional work either on the LRS or developing the mediator tool.
+			</p><h2>				
+				3. The LRS also implements the Open Badges Issuer API
+			</h2><p>				
+				Either instead of or in addition to step 2, the LRS can implement the Open Badges APIs required for it to accept badges issued to learners from Open Badges Issuers. Again, data can be stored in the Tin Can LRS and output as statements. Again, this tool can be a part of the LRS or as a separate translation service.
+			</p><p>				
+				This approach provides interoperability with Open Badges Issuers. Combining steps 2 and 3 will allow any Open Badges tool to integrate with Tin Can systems without actually having to adopt Tin Can.
+			</p><p>				
+				If you're interested in developing a system that integrates with both Tin Can and Open Badges, I'd love to hear from you. Please get in touch.
+			</p><p>							
+
+		</div>
+
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
+	</body>
+</html>
