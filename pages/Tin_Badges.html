@@ -81,17 +81,17 @@
 				Note that only statements that specifically award Open Badges will do so, for example Johnny earned Compliance Training Superstar badge. The system will not generate a badge for every single statement. This is the way we want it. Badges are only awarded for achievements of significance otherwise they become meaningless.
 			</p><p>				
 				This solution has the advantage of piggybacking on the work of Open Badges with the least effort. It brings all the benefits if Open Badges into Tin Can. What it doesn't do is allow the LRS to communicate with existing Open Badge systems. A website that displays Open Badges via the Open Badges API will not be able to get badges out of the LRS unless the website also implements Tin Can and the Open Badges profile we have defined.
-			</p><h2>			
+			</p><h3>			
 				2. The LRS also implements the Open Badges Displayer, Verification and Endorsement APIs
-			</h2><p>				
+			</h3><p>				
 				Taking step 1 further, an LRS can implement some of the Open Badges APIs so that websites and apps displaying badges can choose between the Tin Can and Open Badges APIs when getting data out of the LRS. Data about badges will still be input via Tin Can statements and stored in the same way, but the LRS will translate this Tin Can data to meet the Open Badges standard when responding to requests via the Open Badges APIs.
 			</p><p>				
 				This approach could be implemented by the LRS itself, or an external tool could be used to mediate and translate between a pure Tin Can LRS and Open Badges clients.
 			</p><p>				
 				This approach will aid interoperability with existing Open Badges displayers, but is additional work either on the LRS or developing the mediator tool.
-			</p><h2>				
+			</p><h3>				
 				3. The LRS also implements the Open Badges Issuer API
-			</h2><p>				
+			</h3><p>				
 				Either instead of or in addition to step 2, the LRS can implement the Open Badges APIs required for it to accept badges issued to learners from Open Badges Issuers. Again, data can be stored in the Tin Can LRS and output as statements. Again, this tool can be a part of the LRS or as a separate translation service.
 			</p><p>				
 				This approach provides interoperability with Open Badges Issuers. Combining steps 2 and 3 will allow any Open Badges tool to integrate with Tin Can systems without actually having to adopt Tin Can.
