@@ -119,7 +119,7 @@
 								<a href="#The_Difference_Between_Sessions_and_Attempts"><span class="tocnumber">4</span> <span class="toctext">The Difference Between Sessions and Attempts</span></a>
 							</li>
 							<li class="toclevel-1 tocsection-5">
-								<a href="#Initialization_and_termination_-_started_and_stopped"><span class="tocnumber">5</span> <span class="toctext">Initialization and termination - started and stopped</span></a>
+								<a href="#Initialization_and_termination_-_started_and_stopped"><span class="tocnumber">5</span> <span class="toctext">Initialization and termination</span></a>
 							</li>
 							<li class="toclevel-1 tocsection-6">
 								<a href="#Duration"><span class="tocnumber">6</span> <span class="toctext">Duration</span></a>
@@ -202,20 +202,23 @@
 			<p>
 				In SCORM terms, a session is the period between Initialize and Terminate and an attempt is the learning between completions.
 			</p>
-			<h2><span class="mw-headline" id="Initialization_and_termination_-_started_and_stopped">Initialization and termination - started and stopped</span></h2>
+			<h2><span class="mw-headline" id="Initialization_and_termination_-_started_and_stopped">Initialization and termination</span></h2>
 			<p>
-				SCORM uses initialization and termination to handle sessions. In Tin Can, there is no requirement to use sessions, and statements can be sent at any time to report passes, failure, completions etc. Many SCORM style e-learning courses will wish to use sessions, and for this we can use the "started" and "stopped" verbs to mark the end of the session. Please use the verb ids I've defined <a href="verbs.html" title="Verbs"> here</a> in your own projects.
+				SCORM uses initialization and termination to handle sessions. In Tin Can, there is no requirement to use sessions, and statements can be sent at 
+				any time to report passes, failure, completions etc. Many SCORM style e-learning courses will wish to use sessions, and for this we can use 
+				the "http://adlnet.gov/expapi/verbs/initialized" and "http://adlnet.gov/expapi/verbs/terminated" verbs to mark the end of the session.
 			</p>
 			<p>
-				The 'started' verb should be reported at the start of the session. The 'started' statement should report a result duration of "PTHM0S" as in the statement snippet below:
+				The 'initialized' verb should be reported at the start of the session. The 'initialized' statement should report a result duration of "PTHM0S" as 
+				in the statement snippet below:
 			</p>
 			<div dir="ltr" class="mw-geshi" style="text-align: left;">
 				<div class="javascript source-javascript">
 					<pre class="de1"><span class="st0">"verb"</span><span class="sy0">:</span> <span class="br0">{</span>
-    <span class="st0">"id"</span><span class="sy0">:</span> <span class="st0">"http://www.tincanapi.co.uk/verbs/started"</span><span class="sy0">,</span>
+    <span class="st0">"id"</span><span class="sy0">:</span> <span class="st0">"http://adlnet.gov/expapi/verbs/initialized"</span><span class="sy0">,</span>
     <span class="st0">"display"</span><span class="sy0">:</span> <span class="br0">{</span>
-        <span class="st0">"en-GB"</span><span class="sy0">:</span> <span class="st0">"started"</span><span class="sy0">,</span>
-        <span class="st0">"en-US"</span><span class="sy0">:</span> <span class="st0">"started"</span>
+        <span class="st0">"en-GB"</span><span class="sy0">:</span> <span class="st0">"initialised"</span><span class="sy0">,</span>
+        <span class="st0">"en-US"</span><span class="sy0">:</span> <span class="st0">"initialized"</span>
     <span class="br0">}</span>
 <span class="br0">}</span><span class="sy0">,</span>
 <span class="st0">"result"</span><span class="sy0">:</span> <span class="br0">{</span>
@@ -224,7 +227,10 @@
 </div>			</div>
 			<p>
 				<br>
-				The 'stopped' verb should be reported at the end of a session. This might be when the user clicks an exit button, but it's also recommended to try and catch the browser window's close event as well. The 'stopped' statement should report a result duration of the session duration. Note, this is different from the attempt duration (which we will discuss in the next section) and is identical to SCORM's cmi.session_time. The statement snippet below provides an example.
+				The 'terminated' verb should be reported at the end of a session. This might be when the user clicks an exit button, but it's also 
+				recommended to try and catch the browser window's close event as well. The 'terminated' statement should report a result duration of the 
+				session duration. Note, this is different from the attempt duration (which we will discuss in the next section) and is identical to 
+				SCORM's cmi.session_time. The statement snippet below provides an example.
 			</p>
 			<p>
 				<br>
@@ -232,10 +238,10 @@
 			<div dir="ltr" class="mw-geshi" style="text-align: left;">
 				<div class="javascript source-javascript">
 					<pre class="de1"><span class="st0">"verb"</span><span class="sy0">:</span> <span class="br0">{</span>
-    <span class="st0">"id"</span><span class="sy0">:</span> <span class="st0">"http://www.tincanapi.co.uk/verbs/stopped"</span><span class="sy0">,</span>
+    <span class="st0">"id"</span><span class="sy0">:</span> <span class="st0">"http://adlnet.gov/expapi/verbs/terminated"</span><span class="sy0">,</span>
     <span class="st0">"display"</span><span class="sy0">:</span> <span class="br0">{</span>
-        <span class="st0">"en-GB"</span><span class="sy0">:</span> <span class="st0">"stopped"</span><span class="sy0">,</span>
-        <span class="st0">"en-US"</span><span class="sy0">:</span> <span class="st0">"stopped"</span>
+        <span class="st0">"en-GB"</span><span class="sy0">:</span> <span class="st0">"terminated"</span><span class="sy0">,</span>
+        <span class="st0">"en-US"</span><span class="sy0">:</span> <span class="st0">"terminated"</span>
     <span class="br0">}</span>
 <span class="br0">}</span><span class="sy0">,</span>
 <span class="st0">"result"</span><span class="sy0">:</span> <span class="br0">{</span>
@@ -244,33 +250,55 @@
 </div>			</div>
 			<p>
 				<br>
-				In order to handle situations where the 'stopped' verb is not sent at the end of a session (e.g. the user closes the browser window and the close event dopes not fire) the following rules should be followed:
+				In order to handle situations where the 'terminated' verb is not sent at the end of a session (e.g. the user closes the browser 
+				window and the close event dopes not fire) the following rules should be followed:
 			</p>
 			<p>
-				1. If a 'started' statement is reported when there is already an open session, then a reporting tool can assume that the previous session ended at the  timestamp of the last reported statement for that user and activity. Statements where the activity is listed within the contextActivities should also be considered in making this calculation.
+				1. If an 'initialized' statement is reported when there is already an open session, then a reporting tool can assume that the previous 
+				session ended at the  timestamp of the last reported statement for that user and activity. Statements where the activity is listed 
+				within the contextActivities should also be considered in making this calculation.
 			</p>
 			<p>
-				2. If a session is left open, but not further 'stopped' or 'started' statements are reported, the reporting tool may calculate session duration based on the time-stamp of the last statement received. Further statements  may lead to this duration being increased.
+				2. If a session is left open, but not further 'terminated' or 'initialized' statements are reported, the reporting tool may calculate session 
+				duration based on the time-stamp of the last statement received. Further statements  may lead to this duration being increased.
 			</p>
 			<p>
-				3. If a 'stopped' statement is received but there is no open session, it will be stored by the LRS but will be ignored by reporting tools in calculating session duration.
+				3. If a 'terminated' statement is received but there is no open session, it will be stored by the LRS but will be ignored by 
+				reporting tools in calculating session duration.
 			</p>
 			<p>
-				If you're building a wrapper the SCO may make initialization and termination calls. Since the 'initialize' is normally called when the SCO loads, you may wish to ignore any initialize calls and simply begin the session when the page loads. You may still need to still catch the call and return whatever the SCO is expecting to say that initialize was successful. <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCaptivate.js#L18">The Tin Can Captivate Wrapper</a>, for example, returns "true" when either initialize or terminate are called. You may need to provide a way of capturing and handling terminate calls, as these may be sent, for example, from an exit button.
+				If you're building a wrapper the SCO may make initialization and termination calls. Since the 'initialize' is normally called when the SCO loads, 
+				you may wish to ignore any initialize calls and simply begin the session when the page loads. You may still need to still catch the call 
+				and return whatever the SCO is expecting to say that initialize was successful. 
+				<a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCaptivate.js#L18">The Tin Can Captivate Wrapper</a>, for example, returns "true" when either initialize or terminate are called. You may need to provide a way of capturing and handling terminate calls, as these may be sent, for example, from an exit button.
 			</p>
 			<h2><span class="mw-headline" id="Duration">Duration</span></h2>
 			<p>
-				SCORM provides mechanisms for reporting both session time and attempt time, using cmi.session_time and cmi.total_time respectively. It is recommend to track and report both these items if using sessions in Tin Can. If not using sessions and it is relevant and practical to do so, attempt time should still be tracked and reported. We have already seen that session time should be reported with the 'stopped' statement. The next section will cover statements where attempt time should be reported. These statements are those used to report passed, failed, completed and attempted verbs.
+				SCORM provides mechanisms for reporting both session time and attempt time, using cmi.session_time and cmi.total_time respectively. It is 
+				recommend to track and report both these items if using sessions in Tin Can. If not using sessions and it is relevant and practical to do so, 
+				attempt time should still be tracked and reported. We have already seen that session time should be reported with the 'terminated' statement. The 
+				next section will cover statements where attempt time should be reported. These statements are those used to report passed, failed, completed and 
+				attempted verbs.
 			</p>
 			<p>
-				Some SCORM packages may only report cmi.session_time (session duration) or cmi.total_time (attempt duration) and expect the LMS to work out the other figure. The Captivate SCO only reports cmi.session_time, so the wrapper calculates the cmi.total_time every time the cmi.session_time updates and stores it in the state. If you're interested in the exact mechanism for this and can't work it out from the code, please <a rel="nofollow" class="external text" href="mailto:mrdownes@hotmail.com">get in touch</a>.
+				Some SCORM packages may only report cmi.session_time (session duration) or cmi.total_time (attempt duration) and expect the LMS to work out the 
+				other figure. The Captivate SCO only reports cmi.session_time, so the wrapper calculates the cmi.total_time every time the cmi.session_time 
+				updates and stores it in the state. If you're interested in the exact mechanism for this and can't work it out from the code, 
+				please <a rel="nofollow" class="external text" href="mailto:mrdownes@hotmail.com">get in touch</a>.
 			</p>
 			<p>
-				Functions for converting between CMITimespan format and seconds as well as for adding or subtracting CMITimespan formatted durations are provided in <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCanCan.js#L266">The Tin Can Captivate Wrapper's TinCanCan.js</a> and these may be copied and used freely so long as the copyright notice at the top of the js file is placed with them and the terms of this notice are accepted.
+				Functions for converting between CMITimespan format and seconds as well as for adding or subtracting CMITimespan formatted durations are 
+				provided in <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinCaptivate/blob/master/TinCanCan.js#L266">The Tin 
+					Can Captivate Wrapper's TinCanCan.js</a> and these may be copied and used freely so long as the copyright notice at the top of
+					 the js file is placed with them and the terms of this notice are accepted.
 			</p>
 			<h2><span class="mw-headline" id="Completion.2C_Success">Completion, Success</span></h2>
 			<p>
-				SCORM uses cmi.success_status and cmi.completion_status to track success and completion. We mentioned earlier that Tin Can does not report success and completion status, but instead tracks completion and success events. When converting SCORM to Tin Can API, you therefore need to look for changes in cmi.success_status and cmi.completion_status and report these changes as statements. In a wrapper, this can be achieved by caching cmi.success_status and cmi.completion_status then comparing them with the values sent by the SCO. When there is a difference in value, it is time to send a statement, though you may need to wait until the SCO finishes passing all relevant data (see section <a href="#Identifying_groups_of_calls" title="Guide:SCORM to Tin Can API/Part 2 - SCORM to Tin Can API Wrapper specific information 0 95">Identifying groups of calls</a> in part 2 of this guide).
+				SCORM uses cmi.success_status and cmi.completion_status to track success and completion. We mentioned earlier that Tin Can does not report 
+				success and completion status, but instead tracks completion and success events. When converting SCORM to Tin Can API, you therefore need to 
+				look for changes in cmi.success_status and cmi.completion_status and report these changes as statements. In a wrapper, this can be achieved 
+				by caching cmi.success_status and cmi.completion_status then comparing them with the values sent by the SCO. When there is a difference in value, 
+				it is time to send a statement, though you may need to wait until the SCO finishes passing all relevant data (see section <a href="#Identifying_groups_of_calls" title="Guide:SCORM to Tin Can API/Part 2 - SCORM to Tin Can API Wrapper specific information 0 95">Identifying groups of calls</a> in part 2 of this guide).
 			</p>
 			<p>
 				The values of cmi.success_status and cmi.completion_status determine exactly which verb is sent to the LRS to mark the end of the an attempt. This is shown in the table below:
@@ -551,7 +579,8 @@ interactionResult.<span class="me1">score</span>.<span class="me1">max</span> <s
 			</p>
 			<h2><span class="mw-headline" id="Identifying_groups_of_calls">Identifying groups of calls</span></h2>
 			<p>
-				We mentioned in the section above, <a href="#Fewer_calls.2C_longer_statements" title="Guide:SCORM to Tin Can API/Part 1 - SCORM style Tin Can API activities 0 95"> Fewer calls, Longer Statements</a>, the need to cache SCORM data and send it all together in statements. This section will look at one way of identifying that the SCORM content has stopped sending data before we send the statement.
+				We mentioned in the section above, <a href="#Fewer_calls.2C_longer_statements" title="Guide:SCORM to Tin Can API/Part 1 - SCORM style Tin Can API activities 0 95"> Fewer calls, Longer Statements</a>, the need to cache SCORM data and send it all together in statements. 
+				This section will look at one way of identifying that the SCORM content has stopped sending data before we send the statement.
 			</p>
 			<p>
 				With SCORM, one event tends to trigger changes in multiple variables and rapid e-learning software therefore tends to report groups of data in quick succession. Adobe Captivate, for example sends batches of data after initialize, when the slide changes and when a quiz question is answered. We can therefore watch for these events and send the statement once all the data for that event has come through. Captivate also sends data in the same order every time. This means we can know when a batch of data is complete by watching for the last item of data associated with that batch.
@@ -708,13 +737,13 @@ compareWithCacheAndSetState<span class="br0">(</span><span class="st0">"cmi.entr
 					</tr>
 					<tr>
 						<td> Start of Session </td>
-						<td> started </td>
-						<td><a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/verbs/started">http://www.tincanapi.co.uk/verbs/started</a></td>
+						<td> initialized </td>
+						<td><a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/initialized">http://adlnet.gov/expapi/verbs/initialized</a></td>
 					</tr>
 					<tr>
 						<td> End of Session </td>
-						<td> stopped </td>
-						<td><a rel="nofollow" class="external free" href="http://www.tincanapi.co.uk/verbs/stopped">http://www.tincanapi.co.uk/verbs/stopped</a></td>
+						<td> terminated </td>
+						<td><a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/terminated">http://adlnet.gov/expapi/verbs/terminated</a></td>
 					</tr>
 					<tr>
 						<td> End of passing attempt </td>
@@ -744,9 +773,6 @@ compareWithCacheAndSetState<span class="br0">(</span><span class="st0">"cmi.entr
 				</tbody>
 			</table>
 			<p>
-				Note: the verbs started and stopped are not yet in the spec, but it is expected that they will be soon. For now, use experienced as a placeholder.
-			</p>
-			<p>
 				<a href="#top" title="back to top">top</a>
 			</p>
 
@@ -774,18 +800,18 @@ compareWithCacheAndSetState<span class="br0">(</span><span class="st0">"cmi.entr
 					</tr>
 					<tr>
 						<td> Initialize </td>
-						<td> "verb": <a href="verbs.html#started" title="Verbs"> started</a>, "result":{"duration":"PTHM0S"} </td>
-						<td> Started of session </td>
+						<td> "verb": <a href="verbs.html#started" title="Verbs"> initialized</a>, "result":{"duration":"PTHM0S"} </td>
+						<td> Start of session </td>
 					</tr>
 					<tr>
 						<td> Terminate </td>
-						<td> "verb": <a href="verbs.html#stopped" title="Verbs"> stopped</a>, "result":{"duration": <i>cmi.session_time</i> } </td>
+						<td> "verb": <a href="verbs.html#stopped" title="Verbs"> terminated</a>, "result":{"duration": <i>cmi.session_time</i> } </td>
 						<td> End of Session </td>
 					</tr>
 					<tr>
 						<td> cmi.session_time </td>
 						<td> result&nbsp;: duration </td>
-						<td> Session statements: started and stopped </td>
+						<td> Session statements: initialized and terminated </td>
 					</tr>
 					<tr>
 						<td> cmi.total_time </td>
