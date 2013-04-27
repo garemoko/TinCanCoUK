@@ -27,7 +27,7 @@
 			$(function() {
 				$("div.section p, ul, h3").addClass('displayNone');
 				$("div.section h2").addClass('sectionCollapsed');
-				$("div.welcome").addClass('section');
+				//$("div.welcome").addClass('section');
 				$("div.section h2").click(function() {
 					if($(this).hasClass('sectionCollapsed')) {
 						$("div.section p, ul, h3").addClass('displayNone');
@@ -58,18 +58,7 @@
 		<h1><a href="http://www.tincanapi.co.uk">TinCanAPI.co.uk</a></h1>
 		<p>
 			Helping you Tin Can since 2012.
-		</p>
-		<img src="logo.png" width="75px" class="logo garemoko">
-		
-		<div class="news">
-			<h2>1.0.0 released</h2>
-			<p>
-				Version 1.0.0 of the specification was released on Friday 27th April 2013. I'm working
-				to bring this site up to date starting with the code and then moving on to the guides.
-				Please note that currently some things still target the old specification, 0.95. 
-			</p>
-		</div>
-		
+		</p>		
 		
 		<img src="logo.png" width="75px" class="logo garemoko">
 		<div class="welcome">
@@ -79,14 +68,14 @@
 				help you get to grips with Tin Can API. If you'd like more help, please follow or contact
 				<a href="http://www.twitter.com/mrdownes">@mrdownes</a> on Twitter.
 			</p>
-			<p>
-				Select the <strong>headings</strong> or <strong>logos</strong> below to expand.
+			<p class='instruction'>
+				Select the <strong>headings</strong> or <strong>logos</strong> below to expand each section. 
 			</p>
 		</div>
 		
 		<img src="tincanlogo.png" width="75px" class="logo">
 		<div class="section">
-			<h2>The Specification</h2>
+			<h2>The Specification </h2>
 			<p>
 				Use the following links to acecss the specification itself:
 			</p>
@@ -98,6 +87,7 @@
 					<a target="_blank" href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md">The development version of the specification</a>.
 				</li>
 			</ul>
+			
 		</div>
 		<img src="logo.png" width="75px" class="logo garemoko">
 		<div class="section">
@@ -250,10 +240,18 @@
 		<div class="section">
 			<h2>Hire me</h2>
 			<p>
-				This site is run by Andrew Downes. To find out about getting more substantial
+				This site is run by me, Andrew Downes. I'm one of the <a href ="https://github.com/adlnet/xAPI-Spec/graphs/contributors">core contributors</a> 
+				to the Tin Can API specification under the Github username 'garemoko'. I'm also is a Learning Designer at Epic. I know the Tin Can API 
+				specification inside out and as you can read on this site, I've got one to two clever ideas about how it can be put to use. 
+			</p>
+			<p>
+				To find out about getting more substantial
 				help with learning design or Tin Can API from me or my colleagues at
 				<a href="http://epiclearninggroup.com/uk/platforms/learning-record-store/" target="_blank">Epic</a>, 
 				<a href="mailto:mrdownes@hotmail.com">drop me an email</a>.
+			</p>
+			<p>
+				Note: This is my personal website so the views expressed here do not necessarily represent those of Epic.
 			</p>
 		</div>
 		<div class="spacer">
