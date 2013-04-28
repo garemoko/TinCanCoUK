@@ -74,8 +74,17 @@ table, td{
 {
 	background: #DDF2CE;
 }
-.section h2{
-	cursor:pointer;
+h2 {
+	color:#925; 
+}
+.section h2 {
+	cursor:pointer;	
+}
+h2.sectionCollapsed{
+	color:#703; 
+}
+h2.sectionCollapsed:hover{
+	background-color:#ccc;
 }
 .label {
 	text-align: right;
@@ -139,10 +148,8 @@ font-weight:bold;
 .garemoko
 {border-color:white;}
 
-.instruction
+.instruction strong
 {
 	font-style:italic;
-	color:#07c; 
+	color:#925; 
 }
-
-
