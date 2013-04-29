@@ -1,0 +1,125 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - Tin Classroom</title>
+		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+		
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>Tin Classroom</h2>
+			<p>
+				We talk a lot about Tin Can being used to support and track any learning anywhere. This applies to social learning and informal learning, but it also applies to formal learning in a classroom. This might be in an educational institution, or as part of your organisation's training department. So how can Tin Can help there?
+			</p>
+			<h3>	
+				Tracking the classroom experience
+			</h3>
+			<p>				
+				Normally lessons are planned using a document known as a lesson plan. The lesson plan identifies the learning outcomes for the session and sets out the activities that will take place to achieve those outcomes. The lesson plan may also identify the resources required and plan how different learner's needs will be considered. These lesson plans are normally produced either in a word processor or specialist lesson planning software.
+			</p>
+			<p>
+				Let's imagine we produced a piece of lesson planning software that was as fast or faster to use as using a word processor. We could then pull the learning outcomes for each lesson out and record them as Tin Can activities (see my blog on <a href="Competancies_with_Tin_Can.html">using Tin Can to track competencies</a>). For no extra effort from the instructor, we have a list of learning outcomes associated to lessons.
+			</p>
+			<p>				
+				The next step is to pull this data into a registration system. We're already ticking a box to say that the learner turned up, so let's add a few additional boxes so that the instructor can keep a record of which learner met which learning outcome. We then issue a Tin Can statement for every learner whenever the instructor says they learnt something. Tracking this learning isn't onerous on the instructor: they just tick a box when they observe learning happening. Good instructors are already tracking this stuff anyway with their own paper based or digital systems.
+			</p>
+			<h3>	
+				Use the data
+			</h3>
+			<p>			
+				Knowing who learnt what is vital information for everybody involved. For the instructor (and their managers), this information helps to identify learning gaps for individual and groups of learners. They can then take action to address these gaps either with additional formal classroom learning or by providing resource and e-learning to fill these gaps.
+			</p>
+			<p>				
+				This is particularly important in schools where learning builds on what has been learnt before. I used to work at a college and we often found that age 16, a student's struggles with maths could be traced to missing one key topic due to illness or a holiday during primary school (ages 4 to 12). Because this missed learning was never recorded, it was assumed in subsequent years that the learner had covered the topic and they were taught things that relied on that prior learning. Unsurprisingly they didn't understand and so fell further and further behind.
+			</p>
+			<p>				
+				This data is also useful to the learner and their sponsor (either parents, an employer or both) as they too can take action to fill in the gaps.
+			</p>
+			<h3>	
+				Two way flow
+			</h3>
+			<p>				
+				Tracking classroom learning with Tin Can is great, but the data can go the other way too. As we use Tin Can to track e-learning, informal learning and social learning, the learner's experience outside the classroom can inform what happens inside the classroom. This can happen at various point in the process.
+			</p>
+			<p>
+				First, the instructor can see who knows what when planning the lesson. When the instructor selects learning outcomes, the lesson planning tool can immediately flag up who already has that competency. This is helpful for choosing the content of the lesson and for assigning groups.
+			</p>
+			<p>		
+				Once the lesson has been planned, learners can see what competencies they are targeted to achieve during the lesson. They can then access informal learning recommended by others who have achieved the competency and may be able to evidence competency ahead of the lesson and 'test out' of attendance. This allows the instructor to focus on those who most need help, and lets the learner continue their independent learning at the most convenient time for them.
+			</p>
+			<p>	
+				In the lesson itself, groups and tasks can be assigned based on each learner's strengths and weaknesses.
+			</p>
+			<h3>	
+				Make it reality
+			</h3>
+			<p>	
+				I have more detailed ideas about how this system will work in reality. If you want to discuss how this can work in your organisation, please <a href="mailto:mrdownes@hotmail.com">get in touch</a>.
+			</p>
+			<p>
+				This is the personal blog of Andrew Downes, a Learning Designer at  <a href="http://epiclearninggroup.com" target="_blank">Epic</a>.
+					Epic can design and deliver blended learning solutions and can help with 
+				all your Tin Can and learning needs. Please  <a href="http://epiclearninggroup.com/uk/platforms/learning-record-store/" target="_blank">contact Epic to find out more</a>.
+			</p>
+			
+
+		</div>
+
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
+	</body>
+</html>
