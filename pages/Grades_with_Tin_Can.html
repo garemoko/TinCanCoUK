@@ -1,0 +1,141 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - Tin Classroom</title>
+		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+		
+		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h2>Grades with Tin Can</h2>
+
+			<h3>	
+				Tracking the classroom experience
+			</h3>
+			<p>				
+				Recently, a question came through on the Google Groups about how to report letter grades for example the grade of an academic essay. Tin Can doesn't have a specific property for these grades; the score only lets you report numbers or percentages. There is a response property that does allow for text, but really this is designed for the response of the actor e.g. the text of the essay itself.
+			</p>
+			<p>
+				In answering the question I suggested that an extension should be used and that the value of that extension should be an activity object. I promised a blog post to explain why, so here it is!
+			<h3>	
+				Why an extension?
+			</h3>
+			<p>
+				Tin Can extensions are a way to store additional information that is not part of the core specification. There are a few specific places where extensions can exist and the result is one of them. It's envisaged that specific communities of practice will agree on standard extensions to be used within their context.
+			</p>
+			<p>	
+				The academic world is one community of practice who will likely use a grade extension commonly, but the extension is unlikely to see much use outside of academia. This is a textbook case for an extension and the academic community need to agree on an extension that they will all use in order to be interoperable. I recommend using the extension listed at the bottom of this blog.
+			</p>
+			<h3>	
+				Why an activity object?
+			</h3>
+				It's possible for the value of an extension to be a simple string such as "A", "2:1" or "Merit". The trouble with this is that the grades can mean very different things in different organisations. A reporting tool can't compare all of the "A" grades and assume they mean the same thing. In some grading systems for example, "A" is the top grade; in others, it's second to "A*" or "A+".
+			</p>
+			<p>		
+				Extensions can also be any data structure, such as an activity. Using a data structure rather than a string allows us to say more about the grade. Academic institutions will want to define grades as activities anyway so that they can be used as the object of statements and as context activities. It makes sense then to use an activity object to describe the grade here.
+			</p>
+			<p>	
+				Activity objects have a number of useful properties and sub-properties. The activity id is an IRI, so the domain of that IRI an idea of who owns the particular grade. The activity definition contains a name (e.g. "A") and a description that can be used to explain what the grade means.
+			</p>
+			<p>	
+				The activity definition itself can contain further extensions, for example a grading metric or details of the awarding body. We don't need to define these extensions now, but using an activity object now helps future proof our statements for when we are ready to add these things.
+			</p>
+			<h3>	
+				The Extension
+			</h3>
+			<p>
+				Here's details of the extension I recommend using (the line breaks are for display purposes only):
+			</p>
+<pre>
+"http://www.tincanapi.co.uk/extensions/result/classification" : {
+     objectType : "Activity",
+     id : "http://yourinstitution.ac.uk/tincanapi/activities/grades/A",
+     definition : {
+          type : "http://www.tincanapi.co.uk/activitytypes/grade_classification"
+          name : "A",
+          description : "description of the grade"
+     }
+}
+</pre>
+			<p>
+				You'll need to replace the id, name and description fields. The IRIs of the extension itself and the activity types should be left exactly as they are to ensure your tool is compatible with those developed by others.
+			</p>
+			<h3>
+				FAQ
+			</h3>
+			<p>
+				Here's some questions and answers that might help:
+			</p>
+			<h4>
+				That looks really complicated. How is the user supposed to find the grade in all that code?
+			</h4>
+			<p>
+				Tin Can statements are not meant to be read by users. The reporting tool will need to be written to understand the extension and display the relevant information appropriately.
+			</p>
+			<h4>
+				Why do the extension and the activity type have tincanapi.co.uk in them? Can I swap them for the address of my own website?
+			</h4>
+			<p>
+				The extension and activity type have been defined at tincanapi.co.uk and I'm encouraging all visitors to this site to use these IRIs. I'll also register them with the tincanapi.com repository when it's ready. You're free to use different IRIs if you choose, but your tools won't be interoperable with those that use the tincanapi.co.uk IRIs. <a href="extend_responsibly.html">Read this article</a> for more information.
+			</p>
+
+		</div>
+
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
+	</body>
+</html>
