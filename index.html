@@ -34,6 +34,9 @@
 						$("div.section h2").addClass('sectionCollapsed');
 						$(this).removeClass('sectionCollapsed');
 						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+						$('html, body').animate({
+						     scrollTop: $(this).parent().offset().top
+						 }, 2000);
 					} else {
 						$(this).addClass('sectionCollapsed');
 						$(this).parent().children("p, ul, h3").addClass('displayNone');
