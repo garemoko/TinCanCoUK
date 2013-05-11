@@ -48,8 +48,38 @@
 					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
 					$(this).addClass('displayNone');
 				});
+				
+				var startingSection = $.trim(decodeURIComponent($.getUrlVar("section"))).toLowerCase();
+				if(startingSection){
+					$("div.section h2").each(function(index) {
+						if ($.trim($(this).text()).toLowerCase() == startingSection)
+						{
+							$(this).click();
+							$('html, body').animate({
+							     scrollTop: $(this).parent().offset().top
+							 }, 2000);
+						}
+					});
+				}
+				
 			});
-
+		
+		$.extend({
+		  getUrlVars: function(){
+		    var vars = [], hash;
+		    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		    for(var i = 0; i < hashes.length; i++)
+		    {
+		      hash = hashes[i].split('=');
+		      vars.push(hash[0]);
+		      vars[hash[0]] = hash[1];
+		    }
+		    return vars;
+		  },
+		  getUrlVar: function(name){
+		    return $.getUrlVars()[name];
+		  }
+		});
 		</script>
 
 	</head>
@@ -75,7 +105,7 @@
 		
 		<img src="tincanlogo.png" width="75px" class="logo">
 		<div class="section">
-			<h2>The Specification </h2>
+			<h2>The Specification</h2>
 			<p>
 				Use the following links to acecss the specification itself:
 			</p>
@@ -235,6 +265,11 @@
 					David Bowden's Tin Can leaderboard for Lectora 11
 					[<a target="_blank" href="http://www.transition.co.uk/blogs/e-learning/2013/congratulations-are-in-order!">Blog</a>]
 					[<a target="_blank" href="http://transitionweb.co.uk/db/millionaire/millionaire_quiz.html">Demo</a>]
+				</li>
+				<li>
+					Zack Pierce's Statement Validator
+					[<a target="_blank" href="https://github.com/ZackPierce/xAPI-Validator-JS">Code</a>]
+					[<a target="_blank" href="http://zackpierce.github.io/xAPI-Validator-JS/">Demo</a>]
 				</li>
 			</ul>
 		</div>
