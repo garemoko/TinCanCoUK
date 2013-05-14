@@ -1,0 +1,128 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - Tinned Stories</title>
+		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+		
+		<div class="section">
+			<h2>Tinned Stories</h2>
+			<p>				
+				If you use Articulate Storyline, or have played with the trial, you might have noticed that one of the publishing options allows you to publish to Tin Can. You may have also heard that it doesn't support the latest version of Tin Can. Here's the low down:
+			</p>
+		</div>
+		<div class="section">
+			<h3>
+				Does Storyline support Tin Can API
+			</h3>
+			<h4>
+				The short answer:
+			</h4>	
+			<p>
+				Sort of.
+			</p>
+			<h4>
+				The details:
+			</h4>
+			<p>
+				Storyline update 1 supports version 0.9 of the Tin Can specification. This was a beta version of the specification and quite a bit changed between Tin Can 0.9 and 0.95, with a few extra tweaks added for the final 1.0.0 release. As 0.9 was an early beta release of the specification, it was pretty open to interpretation and Storyline represents one interpretation. Articulate have said they plan to introduce 1.0.0 support at some point, but haven't yet given a date.
+			</p>
+			<h4>	
+				What it means for you:
+			</h4>
+			<p>
+				If you want to use Storyline with a Tin Can LRS or reporting be sure to check they support Storyline specifically. If it's an LRS ideally it should translate the Storyline statements into proper 1.0.0 statements.
+			</p>
+		</div>
+		<div class="section">
+			<h3>	
+				Could Storyline support 1.0.0?
+			</h3>
+			<h4>
+				The short answer:
+			</h4>	
+			<p>
+				Yes
+			</p>	
+			<h4>
+				The details:
+			</h4>
+			<p>
+				One of my first experiments in Tin Can was to build a wrapper for Adobe Captivate swfs that outputs Tin Can API statements whenever the swf tries to make a SCORM call. I've kept this up to date and whilst it's just prototype code, you can use it right now to send Tin Can statements from your Adobe Captivate courses. As far as I'm aware, my wrapper made Captivate the first authoring tool to be usable with Tin Can 0.9, 0.95 and most recently 1.0.0.
+			</p>	
+			<p>
+				If we can do it for Captivate, in theory we could do the same for Storyline.
+			</p>
+			<h4>
+				What it means for you:
+			</h4>
+			<p>
+				If you really want your Storyline courses to support Tin Can 1.0.0 and you've got the budget to do it, it's possible. In practice though, you're probably better off waiting for Articulate to upgrade themselves.
+			</p>
+			<p>
+				This is the personal blog of Andrew Downes, a Lead Learning Designer at  <a href="http://epiclearninggroup.com" target="_blank">Epic</a>.
+				Epic can help with all your Tin Can and learning needs. Please  <a href="http://epiclearninggroup.com/uk/platforms/learning-record-store/" target="_blank">contact Epic to find out more</a>.
+			</p>
+			
+
+		</div>
+
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
+	</body>
+</html>
