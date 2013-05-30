@@ -1,0 +1,126 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk - Tin Classroom</title>
+		<link rel="stylesheet" href="../base.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div.section p, ul, h3").addClass('displayNone');
+				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").click(function() {
+					if($(this).hasClass('sectionCollapsed')) {
+						$("div.section p, ul, h3").addClass('displayNone');
+						$("div.section h2").addClass('sectionCollapsed');
+						$(this).removeClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").removeClass('displayNone');
+					} else {
+						$(this).addClass('sectionCollapsed');
+						$(this).parent().children("p, ul, h3").addClass('displayNone');
+					}
+				});
+				$(".logo").click(function() {
+					$(this).parent().children().eq($(this).index() + 1).children('h2').click();
+				});
+				$("#devX").click(function() {
+					//alert($(this).parent().children('.logo').index(this));
+					//$('.section').eq($(this).parent().children('.logo').index(this)).addClass('displayNone');
+					$(this).parent().children().eq($(this).index() + 1).addClass('displayNone');
+					$(this).addClass('displayNone');
+				});
+			});
+
+		</script>
+
+	</head>
+	<body >
+
+		<h1><a href="../index.html">TinCanAPI.co.uk</a></h1>
+		<p>
+			Helping you Tin Can since 2012.
+		</p>
+		
+		<div class="section">
+			<h2>Social and Informal Assessment</h2>
+			<p>
+				The vast majority of e-learning today is assessed with multiple choice quizzes. Some of these quizzes are better than others, using scenario based questions 
+				and feedback to help learners apply their learning to their work. They're still multiple choice questions at heart though.
+			</p>
+			<p>
+				Multiple choice questions are great because they're very easy to mark automatically, which is a huge time saver if you've got a lot of people to assess. Their 
+				downsides are that it's possible to guess the answer and that they can't really assess deep understanding of an issue or practical application of the learning. 
+				You can quiz a painter on painting technique, but until you see the painting you can't really assess their skill.
+			</p>
+			<h3>How would you assess real learning?</h3>
+			<p>				
+				Think of a task in your job role that people new to the role struggle to get to grips with. If you had to train somebody on that task, how would you do it? How would 
+				you assess them?
+			</p>
+			<p>				
+				What did you come up with? Maybe you'd observe the person doing the task, evaluate what they produce, ask their colleagues for feedback or ask the learner themselves 
+				to provide evidence?
+			</p>
+			<p>			
+				These informal methods of assessment are great because they assess what you actually want to know: has the learner completed the task to the required standard? The 
+				assessment isn't automatic and requires time to assess the competency, but this can be offset by the time saved because the learner doesn't need to complete the quiz 
+				and is assessed on a task that they complete in their day to day job anyway.
+			</p>
+			<h3>Tin Can powered informal assessment</h3>
+			<p>				
+				A lot of this kind of assessment needn't be onerous and can be largely automated using Tin Can API. Let's take peer assessment as a example and imagine one possible 
+				process. The learner opens up their personal learning record and selects a competency from a list that they think they have achieved. They write a short note explaining 
+				how they've evidenced this and select several people in the organisation as witnesses. The witnesses receive an email asking them to endorse the learner for the 
+				competency. All they have to do is click a link in an email to confirm whether or not they've witnessed the learner evidencing that competency. Witnesses could also be 
+				given the option to comment too.
+			</p>
+			<p>				
+				There are some challenges with this approach. How do you encourage the learner to record their learning in the first place? How do you get the witnesses to respond to 
+				the emails? How do you ensure that the witness assessment is accurate? These challenges are no greater than those posed by multiple choice assessment though. How do you 
+				encourage people to take the quiz? How do you ensure that the quiz assessment is accurate? How do you prevent cheating? A robust implementation and good management are 
+				key to overcoming these challenges in both cases.
+			</p>
+			<p>				
+				There are also some additional benefits to this kind of Tin Can powered informal assessment, on top of better quality of assessment. With multiple choice assessment, 
+				each quiz needs to be individually designed and created. This tasks time and is costly. When a new competency needs to be assessed or the knowledge required for the 
+				task changes, the quiz needs to be redone. With informal assessment, it's possible to have a system where new competencies are created and moderated as they are needed. 
+				These are then assessed by people who already know about the competency as part of their job. There is no need to build anything new.
+			</p>
+			<h3>	
+				Make it reality
+			</h3>
+			<p>	
+				<a href="mailto:andrew@tincanapi.co.uk">Get in touch</a> to talk about how you can use informal assessment in your organisation. I look forward to hearing from you.
+			</p>
+		</div>
+		<div class="section">
+			<p>
+				This is the personal blog of Andrew Downes, a Learning Designer at  <a href="http://epiclearninggroup.com" target="_blank">Epic</a>.
+					Epic can design and deliver blended learning solutions and can help with 
+				all your Tin Can and learning needs. Please  <a href="http://epiclearninggroup.com/uk/platforms/learning-record-store/" target="_blank">contact Epic to find out more</a>.
+			</p>
+		</div>
+
+		<div id="footer">
+			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
+		</div>
+	</body>
+</html>
