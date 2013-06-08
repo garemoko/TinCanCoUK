@@ -66,12 +66,6 @@
 			</p>
 		</div>
 		<div class="section">
-			<h2>Update!</h2>
-			<p>				
-				Adobe have launched Captivate 7.0 this week which outputs Tin Can compliant content. I'm downloading a trial now and will update this guide once I've tested it out!
-			</p>
-		</div>
-		<div class="section">
 			<h3>
 				Does Captivate support Tin Can API?
 			</h3>
@@ -79,24 +73,33 @@
 				The short answer:
 			</h4>	
 			<p>
-				No
+				Yes
 			</p>
 			<h4>
 				The details:
 			</h4>
 			<p>
-				The current version of Captivate, 6.1 can output to either flash or html5. Neither of these outputs support Tin Can. The next version of Captivate will be version 7. Adobe haven't said when this will be released, but it's probably not too far off. Will Captivate 7 support Tin Can? Maybe! Adobe haven't said either way.
+				Adobe have just released Captivate version 7 which comes with Tin Can API 1.0.0 publishing. Out of the box Captivate 7.0's use of Tin Can is pretty basic. It tracks all the stuff you tracked with SCORM previously, but with a little work and maybe a custom widget, you could have Captivate doing so much more with Tin Can. There's a couple of details of the implementation that I would change and improve on, but nothing major.  You can publish either swf or HTML5 courses with Tin Can tracking. 
 			</p>
+			<p>If you're interested, the here's the list minor gripes I have with Captivate 7's Tin Can reporting. Let's be clear though, I'm not aware of any other authoring tool that's doing a better job. If you're looking for a wysiwyg, off the shelf authoring tool to do Tin Can with, I recommend Captivate 7.</p>
+			<ul>
+				<li>The Tin Can reporting simply replicates the SCORM reporting - there's no extra features or settings to take advantage of the more powerful applications of Tin Can. You could make widgets for these features though.</li>
+				<li>Tin Can specifies what language text is in. There's no settings within Captivate that let you change that language from the defaults, or specify a range of languages. If you want to change the language you have to edit the published JavaScript output. You might be able to do it with a widget too.</li>
+				<li>The reporting doesn't include an initialised or terminated event. You could add these yourself with a widget or by editting the published output.</li>
+			</ul>
 			<h4>	
 				What it means for you:
 			</h4>
 			<p>
-				If you want to use Tin Can API with Captivate then you either need to wait for Captivate 7 and hope that it includes Tin Can support, or build Tin Can support into the published course yourself. You could also continue to track with SCORM, and then have your LMS output Tin Can data, but then you're missing out on a few (but not all) of the advantages of Tin Can.
+				You can use Captivate 7 to create Tin Can compliant SCORM style e-learning right now. Captivate also sets the foundation for taking things further with Tin Can using widgets and JavaScript.  
+			</p>
+			<p>
+				Captivate 7 is currently (June 2013) my number 1 recommended rapid e-learning tool for Tin Can powered e-learning.  
 			</p>
 		</div>
 		<div class="section">
 			<h3>	
-				Can I make Captivate support Tin Can 1.0.0?
+				Can I make older versions (5 and 6) of Captivate support Tin Can 1.0.0?
 			</h3>
 			<h4>
 				The short answer:
@@ -117,24 +120,24 @@
 				What it means for you:
 			</h4>
 			<p>
-				If you really want your Captivate flash courses to support Tin Can 1.0.0 and you've got the budget to do it, it's possible and I've already done most of the work for you. 
+				If you really want your old Captivate flash courses to support Tin Can 1.0.0 and you've got the budget to do it, it's possible and I've already done most of the work for you. If you can though, I recommend upgrading to Captivate 7. 
 			</p>
 		</div>
 		<div class="section">
 			<h3>
-				What about the html5 output. Can I make that send Tin Can statements?
+				What about the html5 output of Captivate 6? Can I make that send Tin Can statements?
 			</h3>
 			<h4>
 				The short answer:
 			</h4>	
 			<p>
-				Yes
+				Yes, but you're better upgrading to Captivate 7. 
 			</p>
 			<h4>
 				The details:
 			</h4>
 			<p>
-			The wrapper I've written won't work with the html5 output, but it could be a really good starting point and guide. I've not actually looked at Captivate's html5 output, but in theory this could be editted in the same way as the flash output to replace the SCORM calls with Tin Can API.
+			The wrapper I've written won't work with the html5 output, but it could be a really good starting point and guide. I've not actually looked at Captivate 6's html5 output, but in theory this could be editted in the same way as the flash output to replace the SCORM calls with Tin Can API.
 			</p>	
 			<p>
 			Another option is to build a tool that sits in a frame around any SCORM course and translates the SCORM calls into Tin Can statements. There are a number of technical and user experience challenges with this approach, but if you can get it to work, it could be made to work with any SCO, not just Captivate.
@@ -143,7 +146,7 @@
 				What it means for you:
 			</h4>
 			<p>
-				If you really want your Captivate html 5 courses to support Tin Can 1.0.0 and you've got the budget to do it, it's possible but will be more work than if you publish to flash.
+				If you really want your Captivate html 5 courses to support Tin Can 1.0.0 and you've got the budget to do it, it's possible but will be more work than if you publish to flash, and probably more expensive than upgrading Captivate 7. I recommend upgrading to Captivate 7. 
 			</p>
 		</div>
 		<div class="section">
