@@ -1,0 +1,258 @@
+body {
+	background: #414042;
+	text-align: left;
+	font-family: Century Gothic, Calibri, Georgia, Serif;
+	max-width: 600px;
+	margin: auto;
+	color:white;
+}
+
+
+div {
+	margin: 0em;
+	padding: 0em;
+
+}
+
+.header
+{
+	margin: 1em 0em;
+	padding: 1em 0em;
+}
+
+.header h1, .header p
+{
+	display: inline;
+    vertical-align: bottom;
+}
+
+
+a {
+	color: #0089CF;
+	text-decoration:none;
+}
+
+h1 a{
+	background-color: #D81D40;
+	color: #fff;
+	padding: 5px;
+}
+
+a:hover{text-decoration:underline}
+
+h1 a:hover{text-decoration:none}
+
+.menu{
+	border-color:white;
+	border-width:0px;
+	border-bottom-width:5px;
+	border-style: solid;
+	padding-bottom:5px;
+}
+
+.menu a
+{
+	margin-bottom:0.25em;
+	padding:0em 0.5em 0em 0.2em;
+	border-width:0px;
+	font-size: 1.1em;
+}
+
+.menu a:hover{
+	border-bottom-width:5px;
+	border-bottom-style:solid;
+}
+.menu a:hover{
+	text-decoration:none;
+}
+
+.menu a.one {color:#94BC3E}
+.menu a.two {color:#0089CF}
+.menu a.three {color:#F99F34}
+.menu a.four {color:#009EAE}
+
+pre {
+ background-color:#eee;
+ overflow:visible;
+ display:inline;
+}
+
+table, td{
+	background-color:white;
+	border: solid 1px black;
+	padding: 0.5em;
+}
+
+.background_div {
+	margin: auto;
+	padding: 0px 0px;
+	height: 0px;
+	font-size: 14em;
+	text-align: center;
+	color: #d5d4d1;
+	z-index: -1;
+	font-family: serif;
+}
+#content blockquote
+{
+	background-color:#414042;
+	color: #fff;
+	padding:1em;
+	margin: 1em;
+	font-style:italic;
+}
+
+
+#footer
+{
+	background-color:white;
+	padding:1em;
+	margin: 1em;
+	text-align: right;
+}
+
+.sevenEM {
+	font-size: 6em;
+	line-height: 1.8;
+}
+.section, .news, .welcome, #content {
+	background: #fff;
+	color: #555;
+	padding: 0.1em 1em 1em 1em;
+	margin: 1em;
+	font-size: 1.3em;
+	min-width: 170px;
+}
+
+#content {
+	font-size: 1em;
+}
+
+.sectionOne h2{color:#ADC96A}
+.sectionOne h2.sectionCollapsed{color:#94BC3E}
+.sectionOne li {color:#94BC3E}
+.sectionOne ul {list-style-image:url('https://d3jpl91pxevbkh.cloudfront.net/epic/image/upload/v1341510535/arrow-tiny-right_green.png');}
+
+.sectionTwo h2{color:#0C9ED9}
+.sectionTwo h2.sectionCollapsed{color:#0089CF}
+.sectionTwo li {color:#0089CF}
+.sectionTwo ul {list-style-image:url('https://d3jpl91pxevbkh.cloudfront.net/epic/image/upload/v1341510535/arrow-tiny-right_blue.png');}
+
+.sectionThree h2{color:#FCB566}
+.sectionThree h2.sectionCollapsed{color:#F99F34}
+.sectionThree li {color:#F99F34}
+.sectionThree ul {list-style-image:url('https://d3jpl91pxevbkh.cloudfront.net/epic/image/upload/v1341510535/arrow-tiny-right_orange.png');}
+
+.sectionFour h2{color:#03AEBD}
+.sectionFour h2.sectionCollapsed{color:#009EAE}
+.sectionFour li {color:#009EAE}
+.sectionFour ul {list-style-image:url('https://d3jpl91pxevbkh.cloudfront.net/epic/image/upload/v1341510535/arrow-tiny-right_teal.png');}
+
+
+.section a, #content li {
+	color: #414042;
+}
+
+
+
+.section h2 {
+	cursor:pointer;	
+	margin-right: 100px;
+}
+
+
+.section h2:hover, #content h2, #content h3{
+	border-width:0px;
+	border-bottom-width:5px;
+	border-style:solid;
+}
+
+
+.label {
+	text-align: right;
+	width: 150px;
+}
+.label_heading {
+	font-weight: bold;
+	font-size: 1.2em;
+	text-align: left;
+}
+table {
+	width: 100%;
+}
+input, select {
+	border: solid #A3BFB1 2px;
+	width: 90%;
+	min-height: 50px;
+}
+select, input{
+font-size: 1.1em;
+font-weight:bold;
+}
+
+.required {
+	border-color: #BF7777;
+	background-color: #F2cccc;
+}
+.buttonHolder {
+	text-align: center;
+}
+.button {
+	border-color: #AFA3BF;
+	max-width: 180px;
+	font-size: 1.5em;
+	font-weight: bold;
+	min-width: 120px;
+	min-height: 60px;
+	
+}
+.button:hover {
+
+	background-color: #DDCEF2;
+}
+
+.displayNone {
+	display: none;
+}
+.spacer
+{
+	height:500px;
+}
+.logo
+{
+	margin-top: 12px;
+	float:right;
+	background-color:white;
+}
+
+.headerlogo
+{
+	margin-top:-20px;
+}
+
+.instruction strong
+{
+	font-style:italic;
+	color:#925; 
+}
+
+@media (max-width:360px)
+{
+	.logo {
+		display:none;
+	}
+}
+
+@media (max-width:550px)
+{
+	.header p {
+		display:none;
+	}
+}
+
+@media (max-width:600px)
+{
+	.headerlogo {
+		display:none;
+	}
+}

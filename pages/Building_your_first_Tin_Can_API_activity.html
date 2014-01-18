@@ -62,7 +62,7 @@
 		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
 			<h2>Build your first Tin Can API activity</h2>
 			<p>
-				Tin Can specification version: 0.95
+				Tin Can specification version: 1.0.0
 			</p>
 			<p>
 				This guide will take you through the process of creating your first Tin Can API activity. The specific activity you will create is one that allows the user to search for a book on Google books and then send a statement to an LRS saying that they have "experienced" the book. You can get the full version of the code that this tutorial is based on <a rel="nofollow" class="external text" href="https://github.com/garemoko/tinBook">here</a>.
@@ -185,7 +185,7 @@
 				<div class="javascript source-javascript">
 					<pre class="de1"><span class="kw2">var</span> myLRS <span class="sy0">=</span> <span class="kw2">new</span> TinCan.<span class="me1">LRS</span><span class="br0">(</span><span class="br0">{</span>
 	endpoint<span class="sy0">:</span><span class="st0">"https://cloud.scorm.com/ScormEngineInterface/TCAPI/public/"</span><span class="sy0">,</span> 
-	version<span class="sy0">:</span> <span class="st0">"0.95"</span><span class="sy0">,</span>
+	version<span class="sy0">:</span> <span class="st0">"1.0.0"</span><span class="sy0">,</span>
 	auth<span class="sy0">:</span> <span class="st0">'Basic '</span> <span class="sy0">+</span> Base64.<span class="me1">encode</span><span class="br0">(</span><span class="st0">"&lt;account id&gt;"</span> <span class="sy0">+</span> <span class="st0">':'</span> <span class="sy0">+</span> <span class="st0">"&lt;password&gt;"</span><span class="br0">)</span>
 <span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></pre>
 </div>			</div>

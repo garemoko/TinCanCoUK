@@ -1,0 +1,87 @@
+<!doctype html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+	<head>
+
+		<meta name="viewport" content="width=600, initial-scale=1">
+		<title>TinCanAPI.co.uk</title>
+		<link rel="stylesheet" href="styles.css" type="text/css" />
+		<link rel="icon" type="image/png" href="http://www.tincanapi.co.uk/logo.png">
+		<script src="js-lib/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-31502982-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+				<script type="text/javascript">
+			$(function() {		
+				var sectionNumber = $.trim(decodeURIComponent($.getUrlVar("sectionNumber"))).toLowerCase();
+				$("#content").addClass('section' + sectionNumber.charAt(0).toUpperCase() + sectionNumber.slice(1));
+				$("#sectionlogo").addClass('sectionlogo' + sectionNumber.charAt(0).toUpperCase() + sectionNumber.slice(1));
+				var contentDataURL = $.trim(decodeURIComponent($.getUrlVar("contentDataURL"))).toLowerCase();
+				$( "#content" ).load(contentDataURL, function(){
+					var sectionlogofilename = {one:'can.png',two:'help.png',three:'des.png',four:'dev.png'};
+					$("#content h2:first").before('<img class="logo" src="icon/'+sectionlogofilename[sectionNumber]+'">');
+				});		
+			});
+		
+		$.extend({
+		  getUrlVars: function(){
+		    var vars = [], hash;
+		    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		    for(var i = 0; i < hashes.length; i++)
+		    {
+		      hash = hashes[i].split('=');
+		      vars.push(hash[0]);
+		      vars[hash[0]] = hash[1];
+		    }
+		    return vars;
+		  },
+		  getUrlVar: function(name){
+		    return $.getUrlVars()[name];
+		  }
+		});
+		</script>
+
+	</head>
+	<body >
+		<div class="header">
+			<h1><a href="http://www.tincanapi.co.uk">TinCanAPI.co.uk</a></h1>
+			<img src="icon/site.gif" width="75px" class="logo headerlogo">
+			<p>
+				Helping you Tin Can since 2012.
+			</p>
+			
+		</div>	
+		
+		<div class="menu">
+			<a href="index.html?section=What is Tin Can?" class="one">What?</a>
+			<a href="index.html?section=Solutions" class="two">Solutions</a>
+			<a href="index.html?section=Tin Can Learning Design" class="three">Design</a>
+			<a href="index.html?section=Developer Resources" class="four">Development</a>
+		</div>
+
+		
+		<div id="content">
+			<h2>Oh. That's not right!</h2>
+			Sorry, we couldn't find the information you were looking for. Please use the <a href="index.html">menu</a> to try a different page. 
+		</div>
+		
+		<div class="spacer">
+			<p>
+				This is the personal website of <a href="mailto:mrdownes@hotmail.com">Andrew Downes</a>, an employee of <a href="http://epiclearninggroup.com/uk/">Epic</a>. All views are my own. 
+			</p>
+		</div>
+
+	</body>
+</html>
