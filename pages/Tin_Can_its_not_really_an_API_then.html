@@ -26,15 +26,15 @@
 		<script type="text/javascript">
 			$(function() {
 				$("div.section p, ul, h3").addClass('displayNone');
-				$("div.section h2").addClass('sectionCollapsed');
+				$("div.section h2").addClass('sectionColAPsed');
 				$("div.section h2").click(function() {
-					if($(this).hasClass('sectionCollapsed')) {
+					if($(this).hasClass('sectionColAPsed')) {
 						$("div.section p, ul, h3").addClass('displayNone');
-						$("div.section h2").addClass('sectionCollapsed');
-						$(this).removeClass('sectionCollapsed');
+						$("div.section h2").addClass('sectionColAPsed');
+						$(this).removeClass('sectionColAPsed');
 						$(this).parent().children("p, ul, h3").removeClass('displayNone');
 					} else {
-						$(this).addClass('sectionCollapsed');
+						$(this).addClass('sectionColAPsed');
 						$(this).parent().children("p, ul, h3").addClass('displayNone');
 					}
 				});
@@ -97,10 +97,10 @@
 			</table>
 			<h1><span class="mw-headline" id="Tin_Can:_It.27s_not_really_an_API_then.3F">Tin Can: It's not really an API then?</span></h1>
 			<p>
-				It may surprise you to discover that the standard known by many as Tin Can API and by others as Experience API is not, in fact, an Application Programming Interface (API). Rather, it is a standard for developers of Learning Record Stores (LRSs) to develop four APIs that support tracking of learning activities. The standard also defines how Learning Activity Providers (LAPs) can access these APIs, such that it doesn't matter which LRS's API is used, the LAP's reporting code will work.
+				It may surprise you to discover that the standard known by many as Tin Can API and by others as Experience API is not, in fact, an Application Programming Interface (API). Rather, it is a standard for developers of Learning Record Stores (LRSs) to develop four APIs that support tracking of learning activities. The standard also defines how Learning Activity Providers (APs) can access these APIs, such that it doesn't matter which LRS's API is used, the AP's reporting code will work.
 			</p>
 			<p>
-				Note: Learning Activity Providers (LAPs) are the actual tools and courses that report Tin Can statements. A SCORM package is one example of a LAP; an app which reports jog times is another. LAPs should not be confused with the organisations and people that make and sell LAPs (LAP developers and vendors).
+				Note: Learning Activity Providers (APs) are the actual tools and courses that report Tin Can statements. A SCORM package is one example of a AP; an app which reports jog times is another. APs should not be confused with the organisations and people that make and sell APs (AP developers and vendors).
 			</p>
 			<h2><span class="mw-headline" id="Wait._Did_you_say_four_APIs.3F">Wait. Did you say four APIs?</span></h2>
 			<p>
@@ -112,7 +112,7 @@
 			</p>
 			<h2><span class="mw-headline" id="The_State_API">The State API</span></h2>
 			<p>
-				The State API is a place for LAPs that have no storage of their own to store data in the form of documents. The State is for use by the LAPs and is not designed for reporting tools to report on values in the State.
+				The State API is a place for APs that have no storage of their own to store data in the form of documents. The State is for use by the APs and is not designed for reporting tools to report on values in the State.
 			</p>
 			<p>
 				The State API is no substitute for a relational database, and if you can use your own database rather than the State, you should. The State is useful for small tools for which their own database would be overkill, for converted legacy SCORM content (which would previously have stored data with the LMS), and for new SCORM style content.
@@ -124,11 +124,11 @@
 				Documents can be stored on two different levels. First, data can be stored on a per user, per activity basis. This is useful for recording high scores or bookmarking data. Next, data can be on a per registration, per user, per activity basis. This is used for data specific to a particular attempt. The learning activity provider is responsible for clearing up after itself and deleting old state documents which are no longer required.
 			</p>
 			<p>
-				State documents are sent and retrieved via http request, which means you can send a lot all in one go, but sending too many requests too quickly will slow your LAP down. For storing data, it will often be most efficient to store all your variables as a JSON array in a single document and save these at regular intervals. In a SCORM style course, for example, you can save all your bookmarking data every time the learner finishes a slide. It doesn't matter if the majority of variables are unchanged; making fewer, larger requests is most efficient.
+				State documents are sent and retrieved via http request, which means you can send a lot all in one go, but sending too many requests too quickly will slow your AP down. For storing data, it will often be most efficient to store all your variables as a JSON array in a single document and save these at regular intervals. In a SCORM style course, for example, you can save all your bookmarking data every time the learner finishes a slide. It doesn't matter if the majority of variables are unchanged; making fewer, larger requests is most efficient.
 			</p>
 			<h2><span class="mw-headline" id="The_Activity_Profile_API">The Activity Profile API</span></h2>
 			<p>
-				The Activity Profile API provides a higher level to the State and allows you to store activity wide documents. This would be used I'm any scenario where interaction between learners is required. This can be used for collaboration activities, social interaction or competition. As with the State API, if the LAP needs to store large or complex data, it needs to have its own database.
+				The Activity Profile API provides a higher level to the State and allows you to store activity wide documents. This would be used I'm any scenario where interaction between learners is required. This can be used for collaboration activities, social interaction or competition. As with the State API, if the AP needs to store large or complex data, it needs to have its own database.
 			</p>
 			<p>
 				Also included in the Activity Profile API is access to the LRS internal definition of a given activity id. This will either be built up based on the definitions of the activity given in statements sent to the Statement API, or definitions send directly to the Activity Profile API. This allows you to add activities to a LRS before any statements have been issued, or to correct or update an activity's definition. Learning planning tools may require activities to be available via the Activity Profile API before they can be planned within the tool.
@@ -138,30 +138,31 @@
 				The Agent Profile API is similar, but deals with the definitions of agents, such as the learners themselves. Documents can be stored for agents across activities, allowing storage of items such as personal information, user settings. The Agent Profile API can also store documents such as a reflective learning journal, career plan or development goals.
 			</p>
 			<p>
-				The Agent Profile API is a bit special because it allows for data to be shared across activities. For this reason, it may be of use even in cases where the LAPs has its own database.
+				The Agent Profile API is a bit special because it allows for data to be shared across activities. For this reason, it may be of use even in cases where the APs has its own database.
 			</p>
 			<p>
-				There is currently no specified structure or naming convention for the Agent Profile API. This means that there is a risk of either two LAPs storing the same data in different places (e.g. DOB and dateOfBirth). There is also the risk of learning activity providers overwriting one another's data by using the same document name (e.g. "learnerData") in different ways. Let's look now at how you can avoid these risks.
+				There is currently no specified structure or naming convention for the Agent Profile API. This means that there is a risk of either two APs storing the same data in different places (e.g. DOB and dateOfBirth). There is also the risk of learning activity providers overwriting one another's data by using the same document name (e.g. "learnerData") in different ways. Let's look now at how you can avoid these risks.
 			</p>
 			<p>
-				As with the State API, you should minimize the number of documents used by grouping together data in a JSON array. This means that all agent data such as personal information and settings could be stored in a single document (though in practice it often won't be, I'll explain why later). This document should be retrieved and cached the first time it is needed. When storing new or changed data, the document should first be retrieved again and checked for changes to avoid overwriting changes made by other LAPs with cached data. The whole document should be returned, not just those parts of the JSON array that have changed.
+				As with the State API, you should minimize the number of documents used by grouping together data in a JSON array. This means that all agent data such as personal information and settings could be stored in a single document (though in practice it often won't be, I'll explain why later). This document should be retrieved and cached the first time it is needed. When storing new or changed data, the document should first be retrieved again and checked for changes to avoid overwriting changes made by other APs with cached data. The whole document should be returned, not just those parts of the JSON array that have changed.
 			</p>
 			<p>
-				In order to avoid two LAPs storing the same data under different structures, communities of practice will need to define their own agent profiles. Megan Bowe has done <a class="external text" href="http://tincanapi.com/2013/01/15/its-time-for-profiles/">an excellent job of explaining the process of defining a profile</a> within your own community of practice. I plan to have a core agent profile included in the companion document that will sit alongside the 1.0 specification.
+				In order to avoid two APs storing the same data under different structures, communities of practice will need to define their own agent profiles. Megan Bowe has done <a class="external text" href="http://tincanapi.com/2013/01/15/its-time-for-profiles/">an excellent job of explaining the process of defining a profile</a> within your own community of practice. I plan to have a core agent profile included in the companion document that will sit alongside the 1.0 specification.
 			</p>
 			<p>
-				A standard and unique document id should be used for each agent profile. This should be in the form of URL which is under the control of the community of practice defining the profile, e.g. '<a class="external free" href="http://www.tincanapi.co.uk/tcapi/agentprofiles.html#core'">http://www.tincanapi.co.uk/tcapi/agentprofiles.html#core'</a>. This ensures that LAPs using the same document name follow the same structure.
+				A standard and unique document id should be used for each agent profile. This should be in the form of URL which is under the control of the community of practice defining the profile, e.g. '<a class="external free" href="http://www.tincanapi.co.uk/tcapi/agentprofiles.html#core'">http://www.tincanapi.co.uk/tcapi/agentprofiles.html#core'</a>. This ensures that APs using the same document name follow the same structure.
 			</p>
 			<p>
-				The scope of a community of practice that shares an agent profile might vary. A core profile containing data such as gender might be shared by every LAP implementing Tin Can. Other profiles will be shared by a number of organizations with a shared interest. Some profiles will be specific to a vendor or internal within an organization. Many LAPs using the Agent Profile API will choose to use properties within multiple agent profile documents. An app and website for parachuting clubs, for example, will make use gender data from a universal core profile but will have its own profile for metrics such as number if jumps, parachute colour etc.
+				The scope of a community of practice that shares an agent profile might vary. A core profile containing data such as gender might be shared by every AP implementing Tin Can. Other profiles will be shared by a number of organizations with a shared interest. Some profiles will be specific to a vendor or internal within an organization. Many APs using the Agent Profile API will choose to use properties within multiple agent profile documents. An app and website for parachuting clubs, for example, will make use gender data from a universal core profile but will have its own profile for metrics such as number if jumps, parachute colour etc.
 			</p>
 			<p>
 				Like the Activity Profile API, the Agent Profile API includes endpoints of getting and setting the Agent data stored in statements. Again, it may be helpful for learning planning tools to know about learners before they submit any statements so that they can be set targets and assigned to cohorts and groups.
 			</p>
 			<h2><span class="mw-headline" id="Next_Steps">Next Steps</span></h2>
 			<p>
-				I hope this introduction to Tin Can's four APIs has been helpful and that you can start to think of ways to use these in your organisation. I should note that I expect the way these work to change in time for Tin Can 1.0. Part of my motivation for writing this blog is to stir up discussion within the specification working group as well as with specification adopters. Discussion is already underway around ways to ensure personal information is kept secure, and I intend to push for further discussion on how we can make these APIs easier to use for storing JSON. You should keep an eye on these discussions if you intend to make use of this part of Tin Can.
+				I hope this introduction to Tin Can's four APIs has been helpful and that you can start to think of ways to use these in your organisation. 
 			</p>
+			
 		</div>
 		<div id="footer">
 			<a href="http://www.tincanapi.co.uk">Learn more Tin Can API</a>
