@@ -53,6 +53,9 @@
 				});
 				
 				var startingSection = $.trim(decodeURIComponent($.getUrlVar("section"))).toLowerCase();
+				
+				if (startingSection == "what is tin can"){startingSection = "what is tin can?"}
+				
 				if(startingSection){
 					$("div.section h2").each(function(index) {
 						if ($.trim($(this).text()).toLowerCase() == startingSection)
