@@ -96,11 +96,29 @@ table, td{
 }
 #content blockquote
 {
-	background-color:#2B1914;
+	background-color:#A74E93;
 	color: #fff;
 	padding:1em;
 	margin: 1em;
 	font-style:italic;
+}
+
+#content blockquote h4{
+	border-width:0px;
+	border-bottom-width:5px;
+	border-style:solid;
+	border-color:#C183B3;
+	margin-bottom:20px;
+}
+
+#content blockquote a{
+	color:#D3A6C9;
+}
+
+#content .next {
+	text-align:right;
+	float:right;
+	width:100%;
 }
 
 
