@@ -276,3 +276,24 @@ font-weight:bold;
 	}
 	
 }
+
+.advert{
+	
+}
+
+.advert p{
+	font-size:0.8em;
+}
+
+.advert img{
+	margin:3px auto;
+	width:95%;
+	display: block;
+}
+
+.advert img:hover{
+	margin:0 auto;
+	border: solid #4E93A7 3px;
+	cursor:pointer;
+}
+
