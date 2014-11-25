@@ -60,6 +60,10 @@
 		</p>
 		
 		<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+			<h1>This is Old!</h1>
+			<p>
+				This guide is now old. Please refer to <a href="https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md">https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md</a> instead. 
+			</p>
 			<h1>Converting SCORM packages to Tin Can API</h1>
 			<p>
 				This guide provides guidelines on how you might convert e-learning content which currently using SCORM into TCAPI content and suggests how particular SCORM calls might translate into Tin Can statements. The aim is to define a common way of doing this so that all Tin Can traditional e-learning content makes comparable statements at comparable points in the learner's experience. This guide is not intended to be a complete guide for writing Tin Can API compatible content, and if you are new to Tin Can API, it is recommended that you attempt a simpler, single statement activity before progressing further with this guide.
@@ -278,7 +282,7 @@
 				recommend to track and report both these items if using sessions in Tin Can. If not using sessions and it is relevant and practical to do so, 
 				attempt time should still be tracked and reported. We have already seen that session time should be reported with the 'terminated' statement. The 
 				next section will cover statements where attempt time should be reported. These statements are those used to report passed, failed, completed and 
-				attempted verbs.
+				suspended verbs.
 			</p>
 			<p>
 				Some SCORM packages may only report cmi.session_time (session duration) or cmi.total_time (attempt duration) and expect the LMS to work out the 
@@ -328,7 +332,7 @@
 					<tr>
 						<td>incomplete</td>
 						<td>any</td>
-						<td>attempted</td>
+						<td>suspended</td>
 					</tr>
 					<tr>
 						<td>not attempted / unknown </td><td>any </td><td>none </td>
@@ -761,9 +765,9 @@ compareWithCacheAndSetState<span class="br0">(</span><span class="st0">"cmi.entr
 						<td><a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/completed">http://adlnet.gov/expapi/verbs/completed</a></td>
 					</tr>
 					<tr>
-						<td> End of incomplete attempt </td>
-						<td> attempted </td>
-						<td><a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/attempted">http://adlnet.gov/expapi/verbs/attempted</a></td>
+						<td> Exit of incomplete attempt </td>
+						<td> suspended </td>
+						<td><a rel="nofollow" class="external free" href="http://adlnet.gov/expapi/verbs/suspended">http://adlnet.gov/expapi/verbs/suspended</a></td>
 					</tr>
 					<tr>
 						<td> On question submission </td>
@@ -816,37 +820,37 @@ compareWithCacheAndSetState<span class="br0">(</span><span class="st0">"cmi.entr
 					<tr>
 						<td> cmi.total_time </td>
 						<td> result&nbsp;: duration </td>
-						<td> Attempt statements: attempted, completed, passed, failed </td>
+						<td> Attempt statements: suspended, completed, passed, failed </td>
 					</tr>
 					<tr>
 						<td> cmi.success_status </td>
 						<td> result&nbsp;: success </td>
-						<td> Attempt statements: attempted, completed, passed, failed </td>
+						<td> Attempt statements: suspended, completed, passed, failed </td>
 					</tr>
 					<tr>
 						<td> cmi.completion_status </td>
 						<td> result&nbsp;: completion </td>
-						<td> Attempt statements: attempted, completed, passed, failed </td>
+						<td> Attempt statements: suspended, completed, passed, failed </td>
 					</tr>
 					<tr>
 						<td> cmi.score.scaled </td>
 						<td> result&nbsp;: score&nbsp;: scaled </td>
-						<td> Attempt statements: attempted, completed, passed, failed </td>
+						<td> Attempt statements: suspended, completed, passed, failed </td>
 					</tr>
 					<tr>
 						<td> cmi.score.raw </td>
 						<td> result&nbsp;: score&nbsp;: raw </td>
-						<td> Attempt statements: attempted, completed, passed, failed </td>
+						<td> Attempt statements: suspended, completed, passed, failed </td>
 					</tr>
 					<tr>
 						<td> cmi.score.min </td>
 						<td> result&nbsp;: score&nbsp;: min </td>
-						<td> Attempt statements: attempted, completed, passed, failed </td>
+						<td> Attempt statements: suspended, completed, passed, failed </td>
 					</tr>
 					<tr>
 						<td> cmi.score.max </td>
 						<td> result&nbsp;: score&nbsp;: max </td>
-						<td> Attempt statements: attempted, completed, passed, failed </td>
+						<td> Attempt statements: suspended, completed, passed, failed </td>
 					</tr>
 					<tr>
 						<td> cmi.interactions.n.correct_responses.n.pattern </td>
